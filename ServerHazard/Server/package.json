@@ -1,0 +1,10 @@
+{
+  "name": "servernode",
+  "version": "0.1.0",
+  "description": "Server che gestisce la comunicazione con il motore di gioco, la plancia e la dashboard.",
+  "dependencies": {
+    "express": "^4.15.3",
+    "socket.io": "^1.7.4",
+    "xmldom": "~0.1.27"
+  }
+}

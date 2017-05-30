@@ -1,0 +1,615 @@
+1. Inizio nuovo turno
+Message name: "nextTurn"
+Message data: "{}"
+
+Response:
+	-Action Turn
+	{
+		"success":true,
+		"actionGroup":"ActionGroup1",
+		"logString":"Inizio turno del gruppo ActionGroup1 eseguito correttamente."
+	}
+	-Emergency Turn
+	{
+        "success": true,
+        "emergency": "Malattia",
+        "diffusedLocations": [
+            {
+                "name": "Location3",
+                "locationID": "it.uniba.hazard.engine.map.Location_Location3",
+                "isQuarantined": false,
+                "emergencyLevels": [
+                    {
+                      "emergency": "Malattia",
+                      "level": 2
+                    },
+                    {
+                      "emergency": "Peste",
+                      "level": 1
+                    }
+                ]
+            },...
+        ],
+        "logString": "Inizio turno per l'emergenza Malattia eseguito correttamente."
+    }
+	-Event Turn
+	{
+        "success": true,
+        "responses": [
+            {
+                "success": true,
+                "cardName": "IncreaseEmergencyPlace",
+                "emergency": "Peste",
+                "location": "Location3",
+                "levelEmergency": 2,
+                "logString": "Il livello d'emergenza di Peste é aumentato di 1 ed ora é pari a 2 in Location3"
+            }
+            <Le response variano in base alla carta che è stata attivata>
+        ],
+        "logString": "Attivate 1 carte evento."
+    }
+	-Production Group
+    {
+        "success": true,
+        "productionGroup": "ProductionGroup1",
+        "logString": "Il gruppo ProductionGroup1 ha pescato le carte produzione.",
+        "cards": [
+            {
+                "location": "Location1",
+                "locationID": "it.uniba.hazard.engine.map.Location_Location1",
+                "resources": [
+                    {
+                        "resource": "Risorsa2",
+                        "quantity": 20
+                    },
+                    {
+                        "resource": "Risorsa1",
+                        "quantity": 5
+                    }
+                ]
+            },
+            {
+                "location": "Location1",
+                "locationID": "it.uniba.hazard.engine.map.Location_Location1",
+                "resources": [
+                    {
+                        "resource": "Risorsa2",
+                        "quantity": 20
+                    },
+                    {
+                        "resource": "Risorsa1",
+                        "quantity": 5
+                    }
+                ]
+            },
+            {
+                "location": "Location1",
+                "locationID": "it.uniba.hazard.engine.map.Location_Location1",
+                "resources": [
+                    {
+                        "resource": "Risorsa2",
+                        "quantity": 20
+                    },
+                    {
+                        "resource": "Risorsa1",
+                        "quantity": 5
+                    }
+                ]
+            },
+            {
+                "location": "Location1",
+                "locationID": "it.uniba.hazard.engine.map.Location_Location1",
+                "resources": [
+                    {
+                        "resource": "Risorsa2",
+                        "quantity": 20
+                    },
+                    {
+                        "resource": "Risorsa1",
+                        "quantity": 5
+                    }
+                ]
+            }
+        ]
+    }
+
+2. Richiesta dello stato del gioco
+Message name: "getState"
+Message data: "{}"
+
+Response:
+	{
+		"gameState":{
+			"currentState":"GAME_ACTIVE", (alternativamente, "GAME_VICTORY", "GAME_LOSS")
+			"gameMap":{
+				"locations":[
+					{
+					"name":"bari",
+					"locationID":"it.uniba.hazard.engine.map.Location_bari",
+					"emergencyLevels":[
+						{
+							"emergency":"malattia",
+							"level":0
+						},
+						...
+					]},
+					...
+				],
+				"pawns":[
+					{"pawnID":"it.uniba.hazard.engine.pawns.ActionPawn_test","type":"ActionPawn","group":"test","location":"bari"},...
+			]},
+			"blockades":[],
+			"emergencies":[
+			{
+				"name":"malattia",
+				"resourceNeeded": {
+                    "objectID": "it.uniba.hazard.engine.main.Resource_Risorsa1",
+                    "name": "Risorsa1"
+                }
+				"objectID":"it.uniba.hazard.engine.main.Emergency_malattia",
+				"generalHazardIndicator":{
+					"steps":[1,2],
+					"currentStepIndex":0
+				}
+			}, ...],
+			"maxEmergencyLevel":5,
+			"numOfProductionCards":1,
+			"currentStrongholdCost":5,
+			"contagionRatios":[
+				{"emergency":"malattia","contagionRatio":0.0},
+			...]
+		},
+		"currentTurn":{
+			"type":"ActionTurn",
+			"group":{
+				"name":"test",
+				"resources":[
+					{
+						"resource": "risorsa",
+						"quantity": 5
+					},
+					...
+				]
+			},
+			"numActions":0,
+			"maxNumActions":5
+		}
+	}
+			
+------MOSSE DEL GRUPPO AZIONE-----			
+3. Muovi gruppo azione
+Message name: "moveActionPawn"
+Message data: "{
+	"targetDestination": <Location ID del luogo in cui ci si vuole spostare>
+}"
+
+Response: 
+    {
+        "success": true,
+        "newLocation": "Location3",
+        "actionGroup": "ActionGroup1",
+        "logString": "Il gruppo ActionGroup1 si è spostato in Location3"
+    }
+    oppure
+    {
+        "success": false,
+        "newLocation": "Location3",
+        "actionGroup": "ActionGroup1",
+        "logString": "Non è possibile spostare il gruppo ActionGroup1 in Location3"
+    }
+
+4. Cura emergenza
+Message name: "solveEmergency"
+Message data: "{
+	"emergencyID": <Object ID dell'emergenza da risolvere>
+}"
+
+Response: 
+    {
+        "success": true,
+        "emergencyToSolve": "Malattia",
+        "actionGroup": "ActionGroup1",
+        "logString": "Il gruppo ActionGroup1 ha curato Malattia"
+    }
+    oppure
+    {
+        "success": false,
+        "emergencyToSolve": "Malattia",
+        "actionGroup": "ActionGroup1",
+        "logString": "Il gruppo ActionGroup1 non può curare Malattia"
+    }
+    oppure
+    {
+        "success": false,
+        "emergencyToSolve": "Malattia",
+        "actionGroup": "ActionGroup1",
+        "logString": "Non si dispone delle risorse necessarie per curare Malattia"
+    }
+
+5. Prelievo risorse
+Message name: "takeResources"
+Message data: "{
+	"pawnID": <Object ID della pedina trasporto>
+}"
+
+Response: 
+    {
+        "success": true,
+        "transportPawn": "ProductionGroup1_0",
+        "actionGroup": "ActionGroup1",
+        "logString": "Il gruppo ActionGroup1 ha raccolto risorse da ProductionGroup1_0"
+    }
+    oppure
+    {
+        "success": false,
+        "transportPawn": "ProductionGroup1_0",
+        "actionGroup": "ActionGroup1",
+        "logString": "Il gruppo ActionGroup1 non è riuscito a raccogliere risorse da ProductionGroup1_0"
+    }
+
+6. Uso carta bonus
+
+Message name: "useBonusCard"
+Message data: "{
+	"cardIndex": <Indice della carta bonus da usare>
+}"
+
+Response: Vedi sezione Response delle carte Bonus
+
+7. Costruzione presidio
+
+Message name: "buildStronghold"
+Message data: "{
+	"emergencyID": <Object ID dell'emergenza di riferimento>
+	"locationID": <Object ID del luogo in cui costruire il presidio>
+}"
+
+Response: 
+    {
+        "success":true,
+        "emergency":"Malattia",
+        "location":"Location2",
+        "actionGroup":"ActionGroup1",
+        "logString":"Presidio costruito in Location2 per l'emergenza Malattia da ActionGroup1"
+    }
+    oppure
+    {
+        "success":false,
+        "emergency":"Malattia",
+        "location":"Location2",
+        "actionGroup":"ActionGroup1",
+        "logString":"C'è già un presidio per Malattia in quest'area."
+    }
+    oppure
+    {
+        "success":false,
+        "emergency":"Malattia",
+        "location":"Location2",
+        "actionGroup":"ActionGroup1",
+        "logString":"Non si dispone delle risorse necessarie per costruire il presidio."
+    }
+
+
+Se si cerca di eseguire un'azione quando il numero di azioni possibili è terminato:
+{
+    "success":"false",
+    "logString":"Non è possibile compiere altre azioni."
+}
+-----------------------------------
+
+-----LETTURA DATI------
+8. Lettura turno corrente
+
+Message name: "getCurrentTurn"
+Message data: {}
+
+Response:
+	1)Action Group
+	{
+	"type":"ActionTurn",
+	"group":{
+		"name":"test",
+		"resources":[]
+	},
+	"bonusCards":[],
+	"remainingActions":5,
+	"maxNumActions":5,
+	"pawn":{
+		"pawnID":"it.uniba.hazard.engine.pawns.ActionPawn_null",
+		"type":"ActionPawn",
+		"group":"test",
+		"location":{
+			"name":"bari",
+			"locationID":"it.uniba.hazard.engine.map.Location_bari",
+			"emergencyLevels":[{"emergency":"malattia","level":0}]
+			}
+	}}
+	
+	2)Production Group
+	{
+		"type":"ProductionTurn",
+		"group":{
+			"name":"ProductionGroup1",
+			"transportPawns":[
+				{
+					"pawnID":"it.uniba.hazard.engine.pawns.TransportPawn_ProductionGroup1_0",
+					"type":"TransportPawn",
+					"group":"ProductionGroup1",
+					"payload":[{"resource":"Risorsa2","quantity":20},{"resource":"Risorsa1","quantity":5}]
+				}
+			]
+		},
+		"cards":[
+			{
+				"location":"Location1",
+				"locationID":"it.uniba.hazard.engine.map.Location_Location1",
+				"resources":[{"resource":"Risorsa2","quantity":20},{"resource":"Risorsa1","quantity":5}]
+			},...
+		],
+		"state": "CHOOSE_PRODUCTION_CARDS",   (significa che il gruppo produzione deve scegliere una o più carte produzione)
+		alternativamente, "state": "MOVE_TRANSPORT_PAWNS" (significa che il gruppo produzione può muovere le pedine trasporto)
+		"pawnMoves": [
+		    {
+                "pawnID": "it.uniba.hazard.engine.pawns.TransportPawn_ProductionGroup1_0",
+                "remainingMoves": 2
+            },...
+		],
+		"pawnLocations": [
+            {
+                "pawnID": "it.uniba.hazard.engine.pawns.TransportPawn_ProductionGroup1_0",
+                "location": {
+                    "name": "Location1",
+                    "locationID": "it.uniba.hazard.engine.map.Location_Location1",
+                    "isQuarantined": false,
+                    "emergencyLevels": [
+                        {
+                            "emergency": "Malattia",
+                            "level": 1
+                        },
+                        {
+                            "emergency": "Peste",
+                            "level": 2
+                        }
+                    ]
+                }
+            }
+        ]
+	}
+	
+	3)Emergency Turn
+	{
+		"type":"EmergencyTurn",
+		"emergency": "malattia"
+	}
+	
+	4)Event Turn
+	{
+		"type":"EventTurn"
+	}
+	
+9. Lettura luoghi adiacenti
+Message name: "getAdjacentLocations"
+Message data: {
+	"locationID": <Location ID del luogo di cui si vogliono conoscere i luoghi adiacenti>
+}
+
+Response:
+	{
+		"locations":[
+    		{
+                "name": "Location3",
+                "locationID": "it.uniba.hazard.engine.map.Location_Location3",
+                "isQuarantined": false,
+                "emergencyLevels": [
+                    {
+                        "emergency": "Malattia",
+                        "level": 1
+                    },
+                    {
+                        "emergency": "Peste",
+                        "level": 2
+                    }
+                ]
+            },...
+		]
+	}
+	
+10. Emergenze in un luogo
+Message name: "getEmergencies"
+Message data: {
+	"locationID": <Location ID del luogo di cui si vogliono conoscere le emergenze>
+}
+
+Response:
+	{
+		"emergencies":[
+			{
+				"name":"malattia",
+				"resourceNeeded": {
+                    "objectID": "it.uniba.hazard.engine.main.Resource_Risorsa1",
+                    "name": "Risorsa1"
+                }
+				"objectID":"it.uniba.hazard.engine.main.Emergency_malattia",
+				"generalHazardIndicator":{
+					"steps":[1,2],"currentStepIndex":0
+				},
+				"strongholdAvailable":false  (o true nel caso in cui c'è un presidio disponibile nell'area per tale emergenza)
+			}
+		]
+	}
+	
+11. Lettura contenuto pedine trasporto
+Message name: "getTransports"
+Message data: {
+	"locationID": <Location ID del luogo di cui si vogliono conoscere le pedine trasporto>
+}
+
+Response:
+	{
+		"pawns":[
+			{
+				"pawnID":"it.uniba.hazard.engine.pawns.TransportPawn_prod_0",
+				"payload":[{"resource":"risorsa","quantity":2}]
+			}
+		]
+	}
+
+12. Lettura informazioni presidi
+Message name: "getStrongholdInfo"
+Message data: {
+	"locationID": <Location ID del luogo di interesse>
+}
+
+Response:
+	{
+		"currentStrongholdCost":5,
+		"strongholdsInArea":
+			[
+				{
+    				"emergency":"it.uniba.hazard.engine.main.Emergency_malattia",
+    				"hasStronghold":false,
+    				"strongholdResource": "Risorsa1"
+				}
+			]
+	}
+	
+------MOSSE GRUPPO PRODUZIONE------
+13. Spostamento pedina trasporto
+Message name: "moveTransportPawn"
+Message data: {
+	"pawnID": <Object ID della pedina da spostare>
+	"destionationID": <Location ID del luogo in cui si vuole spostare la pedina>
+}
+
+Response:
+    {
+        "success": true,
+        "newLocation": "Location2",
+        "transportPawn": "ProductionGroup1_0",
+        "productionGroup": "ProductionGroup1",
+        "logString": "ProductionGroup1_0 si è spostato in Location2"
+    }
+    oppure
+    {
+        "success": false,
+        "newLocation": "Location2",
+        "transportPawn": "ProductionGroup1_0",
+        "productionGroup": "ProductionGroup1",
+        "logString": "Non è stato possibile spostare ProductionGroup1_0 in Location2"
+    }
+    oppure
+    {
+        "success": false,
+        "newLocation": "Location2",
+        "transportPawn": "ProductionGroup1_1",
+        "productionGroup": "ProductionGroup1",
+        "logString": "Non è possibile spostare la pedina ProductionGroup1_1 in Location2 in quantoè già presente un trasporto in quel luogo."
+    }
+
+14. Scelta della carta produzione
+Message name: "chooseProductionCard"
+Message data: {
+        "cardIndex": <Indice della carta produzione da scegliere>
+    }
+    
+Response:
+    {
+        "success": true,
+        "location": "Location1",
+        "transportPawn": "ProductionGroup1_0",
+        "productionGroup": "ProductionGroup1",
+        "logString": "Creato ProductionGroup1_0 per il gruppo ProductionGroup1 in Location1"
+    }
+    oppure
+    {
+        "success": false,
+        "productionGroup": "ProductionGroup1",
+        "logString": "Impossibile effettuare la scelta della carta produzione per il gruppo ProductionGroup1."
+    }
+    
+-------------------
+-----CARTE----
+-Carte Evento-
+1. AddBlockade
+    Response:
+    {
+        "Success":true,
+        "cardName":"AddBlockade",
+        "locationsBlockade":
+            [
+                "Location1",
+                "Location3",
+                "Location2"
+            ],
+        "logString":"Barriera costruita tra Location1 Location3 Location2 "
+    }
+2. BonusProductionCard
+	Response:
+    {
+        "Success":true,
+        "cardName":"BonusProductionCard",
+        "numberProductionCards":2,
+        "logString":"Il numero di carte produzione è aumentato di 1. Ora le carte da scegliere sono: 2"
+    }
+3. DecreaseEmergencyPlace
+	Response:
+    {
+        "Success":true,
+        "cardName":"DecreaseEmergencyPlace",
+        "emergency":"Malattia",
+        "location":"Location1",
+        "levelEmergency":0,
+        "logString":"Il livello d'emergenza di Malattia é diminuito di 1 ed ora é pari a 0 a Location1"
+    }
+4. DecreaseStrongholdPrice
+	Response:
+	{
+        "Success":true,
+        "cardName":"DecreaseStrongholdPrice",
+        "strongholdPrice":3,
+        "logString":"Il prezzo dei presidi è diminuito, ed è pari a 3"
+    }
+5. DefaultCard
+	Response:
+	{
+        "Success":true,
+        "cardName":
+        "DefaultCard",
+        "logString":"Non accade nulla"
+    }
+6. IncreaseContagionLevel
+	Response:
+    {
+        "Success":true,
+        "cardName":"IncreaseContagionLevel",
+        "emergency":"Peste",
+        "newLevel":2,
+        "logString":"Il livello di contagio di Peste é ora pari a 2"
+    }
+7. IncreaseEmergencyLevel
+	Response:
+    {
+        "Success":true,
+        "cardName":"IncreaseEmergencyPlace",
+        "emergency":"Peste",
+        "location":"Location1",
+        "levelEmergency":2,
+        "logString":"Il livello d'emergenza di Peste é aumentato di 1 ed ora é pari a 2 in Location1"
+    }
+8. MalusProductionCard
+	Response:
+    {
+        "Success":true,
+        "cardName":"MalusProductionCard",
+        "numberProductionCards":0,
+        "logString":"Il numero di carte produzione è diminuito di 1. Ora le carte da scegliere sono: 0"
+    }
+9. TakeBonusCard
+	Response:
+	{
+	    "success":true,
+	    "cardName":"TakeBonusCard",
+	    "cardExtract":"QuarantinePlace",
+	    "numCardsBonusDrawn":1,
+	    "logString":"Numero carte bouns pescate: 1"
+	}

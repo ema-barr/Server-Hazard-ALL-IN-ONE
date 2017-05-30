@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Attendere...</title>
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.minM2.css">
+       <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+      <script src="assets/js/funzioni_controllo.js"></script>
+	  <script src="http://localhost:6882/socket.io/socket.io.js"></script>
+      <script>
+			var socket = io.connect('http://localhost:6882');
+
+			socket.on('welcome', function(data) {
+				// Respond with a message including this clients' id sent from the server
+				socket.emit('init_client', data);
+			});
+
+			settaSocket(socket);
+	 </script>
+        
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+               <div class="page-header">
+                  <h1><img> <small>Hazard</small></h1>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <div class="jumbotron">
+                 <h1 id="jumboInfo"></h1>
+                 <h2 id="jumboInfo2"></h2>
+                 <div class="col-sm-7"><button class="btn btn-primary btn-lg pull-right" type="button" id="avanti">Avanti</button></div>
+                <br>
+              </div>
+            </div>
+         </div>
+      </div>
+     <div class="modal fade" id="modalControlloStato" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modalControlloStato_Label">Attenzione</h4>
+      </div>
+      <div class="modal-body" id="modalControlloStatoBody">
+        <p>Premi Avanti per verificare lo stato del gioco. </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+	 
+   </body>
+</html>

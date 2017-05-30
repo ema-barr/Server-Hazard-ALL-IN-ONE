@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hazard Fake Board</title>
+</head>
+<body>
+    <button onclick="pressButton('0')">0</button>
+    <button onclick="pressButton('1')">1</button>
+    <button onclick="pressButton('2')">2</button>
+    <button onclick="pressButton('3')">3</button>
+    <script src='/socket.io/socket.io.js'></script>
+    <script>
+        var socket = io();
+
+        socket.on('welcome', function(data) {
+            socket.emit('init_fake_board', data);
+        });
+
+        function pressButton(number) {
+            socket.emit("chooseProductionCard", {
+                cardIndex: number
+            }, function() {
+                //nothing
+            });
+        }
+    </script>
+</body>
+</html>

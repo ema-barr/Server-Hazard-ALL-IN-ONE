@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Attendere...</title>
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.minM2.css">
+       <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	  <script src="http://localhost:6882/socket.io/socket.io.js"></script>
+      <script>
+			var socket = io.connect('http://localhost:6882');
+
+			socket.on('welcome', function(data) {
+				// Respond with a message including this clients' id sent from the server
+				socket.emit('init_client', data);
+				
+			});
+
+      socket.on('productionStateChanged', function(data){
+        window.open('produzione.html','_self');
+      });
+			
+			//Controllo lo stato del gruppo produzione
+		  	socket.emit('getCurrentTurn', JSON.parse('{}'), function(response) {
+				var obj = JSON.parse(response);
+				if(obj.state === "CHOOSE_PRODUCTION_CARDS"){
+					//Rimango in attesa del messaggio del server, quando lo ricevo apro la finestra
+
+				}else{
+					window.open('produzione.html','_self');
+				}
+			});
+					  
+		  
+	 </script>
+        
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+               <div class="page-header">
+                  <h1><img> <small>Hazard</small></h1>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <div class="jumbotron">
+                 <h1 id="jumboInfo">Attendere...</h1>
+                 <h2 id="jumboInfo2">Il gruppo sta pescando le carte produzione</h2>
+                 
+                  
+                <br>
+              </div>
+            </div>
+         </div>
+      </div>
+     
+   </body>
+</html>

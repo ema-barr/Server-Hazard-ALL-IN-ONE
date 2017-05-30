@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <script src='/socket.io/socket.io.js'></script>
+        <script>
+			function addMessage(message) {
+				messages = document.getElementById('messages');
+				messages.innerHTML = '';
+				for (i = 0; i < message[0].length; i++) {
+					var text = document.createTextNode(message[0][i]);
+                    el = document.createElement('li');
+                    
+					el.appendChild(text);
+					messages.appendChild(el);
+				}
+
+            }
+            var socket = io();
+
+            socket.on('welcome', function(data) {
+                // Respond with a message including this clients' id sent from the server
+				connection = document.getElementById('connection');
+				connection.innerHTML = 'Connesso';
+				socket.emit('init_client', data);
+            });
+
+            socket.on("productionStateChanged", function(data) {
+                alert("Received productionStateChanged");
+			});
+			
+			function sendData(actionName, target) {
+				socket.emit(actionName, JSON.parse(target), function(response) {
+                    document.getElementById("response").innerHTML += "<hr>";
+				    document.getElementById("response").innerHTML += JSON.stringify(JSON.parse(response), null, 4);
+				} );
+			}
+        </script>
+    </head>
+    <body>
+		<div style="float: left; position:fixed; height: 100%; width:50%">
+			<p>Hazard Server Debug Client</p>
+			<form action="javascript:sendData(requestName.value, requestData.value)">
+				Request Name:
+				<input type="text" name="requestName" id="requestName" />
+				<br>
+				Request Data:
+				<textarea style="width: 80%; height: 400px;" name="requestData" id="requestData">Insert JSON Request here</textarea>
+				<br>
+				<input type="submit" value="Send" />
+			</form>
+		</div>
+		<div style="float: right; width:50%">
+			<pre id="response"></pre>
+			<p id='connection'></p>
+			<ul id='messages'></ul>
+		</div>
+    </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gruppo Produzione</title>
+
+  <link rel="stylesheet" href="assets/css/jquery.flipster.min.css">
+  <link rel="stylesheet" href="assets/css/demo.css">
+  <link rel="stylesheet" href="assets/css/flipsternavtabs.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.minM2.css">
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery.flipster.min.js"></script>
+  <script src="assets/js/funzioni_produzione.js"></script>
+  <script src="http://localhost:6882/socket.io/socket.io.js"></script>
+      <script>
+			var socket = io.connect('http://localhost:6882');
+
+			socket.on('welcome', function(data) {
+				// Respond with a message including this clients' id sent from the server
+				socket.emit('init_client', data);
+			});
+
+			settaSocket(socket); 
+	 </script>
+</head>
+
+<body>
+  <div class="container" id="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="page-header">
+          <h1><img> <small id="titoloTurno"></small></h1>
+        </div>
+      </div>
+    </div>
+    <!-- Pannello Sposta Risorse-->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="text-center panel-title">Sposta Risorse</h3>
+          </div>
+          <div class="panel-body">
+            <p align="center">Scegli la destinazione</p>
+            <!-- Dynamic Pills per gestire la scelta dei camion e risorse -->
+            <div class="row">
+              <div class="col-sm-12">
+                <ul class="nav nav-pills nav-stacked col-sm-2" id="camionPill">
+                  <!--Camion Caricati da js (funzione caricaPillsCamion) -->
+                </ul>
+                <!-- Pannelli -->
+                <div class="tab-content col-sm-10 table-bordered" id="pannelli">
+                <!-- Pannelli creati da js (funzione creaTabProduzione) -->
+                </div>
+              </div>
+            </div>
+            <!-- Fine Dynamic Pills-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Fine Pannello Sposta risorse -->
+    <!--Carte Bonus - Nascoste qui perchè al momento non sono previste -->
+    <div class="row hidden">
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title text-center">Carte Bonus</h3>
+          </div>
+          <div class="panel-body">
+            <!-- Flipster List -->
+            <div class="flipster">
+              <ul id="carteBonus">
+                <!--Vedere il js per la creazione -->
+              </ul>
+            </div>
+            <!-- End Flipster List -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal per la scelta della carta bonus-->
+    <div class="modal fade" id="carteBonusDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="carteBonusDialog_Label">Carta Bonus</h4>
+          </div>
+          <div class="modal-body" id="cartaBonusBody">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-primary" id="confermaCB">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+	<!-- Modal per i logString -->
+<div class="modal fade" id="modalLogP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modalLogP_Label">Attenzione</h4>
+      </div>
+      <div class="modal-body" id="modalLogPBody">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Modal per il fine turno-->
+    <div class="modal fade" id="fineTurnoPDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="fineTurnoDialog_Label">Attenzione</h4>
+          </div>
+          <div class="modal-body" id="fineTurnoPBody">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-primary" id="confermaFT" onClick="confermaFT()">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--<button class="btn btn-success btn-block btn-lg" type="button" id="terminaTurnoP" onclick="terminaTurnoProduzione()">Termina il turno</button>
+    <br>-->
+  </div>
+
+  
+  <script>
+   
+    $(function() {
+      $(".flipster").flipster({
+        itemContainer: 'ul',
+        itemSelector: 'li',
+        loop: true,
+        style: 'carousel',
+        spacing: -0.5,
+        scrollwheel: false,
+        buttons: false
+      });
+    });
+  </script>
+  
+</body>
+
+</html>
