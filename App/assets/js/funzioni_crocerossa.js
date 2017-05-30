@@ -45,41 +45,44 @@ function aggiornaDati(){
 		dati.maxAzioni= oggetto.maxNumActions;
 		dati.pawnID = oggetto.pawn.pawnID;
 		dati.carteBonus = oggetto.bonusCards;
+
+
+		// RISORSE
+	
+		var data = new Object();
+		data.locationID = LOCATIONID + dati.origine;
+		socket.emit('getTransports', JSON.stringify(data), function(response){
+			var risorse = JSON.parse(jsonRisorse);
+			dati.risorseDisponibili = risorse.pawns[0].payload.length;
+			dati.tipoRisorsa = [];
+			dati.quantitaRisorsa = [];
+			for (var ris=0; ris < dati.risorseDisponibili; ris++){
+				dati.tipoRisorsa.push(risorse.pawns[0].payload[ris].resource);
+				dati.quantitaRisorsa.push(risorse.pawns[0].payload[ris].quantity);
+			}
+		}); 
+		
+		// EMERGENZE
+		
+		var data = new Object();
+		data.locationID = LOCATIONID + dati.origine;
+		socket.emit('getEmergencies', JSON.stringify(data), function(response){
+			var emergency = JSON.parse(response);
+			dati.emergenze = emergency.emergencies;
+		}); 
+		
+		// PRESIDI
+			
+		var data = new Object();
+		data.locationID = LOCATIONID + dati.origine;
+		socket.emit('getStrongholdInfo', JSON.stringify(data), function(response){
+			var presidi = JSON.parse(response);
+			dati.costoPresidi = presidi.currentStrongholdCost;
+			dati.presidiNellArea = presidi.strongholdsInArea;
+		}); 
 	});
 	
-	// RISORSE
-	
-	var data = new Object();
-	data.locationID = LOCATIONID + dati.origine;
-	socket.emit('getTransports', JSON.stringify(data), function(response){
-		var risorse = JSON.parse(jsonRisorse);
-		dati.risorseDisponibili = risorse.pawns[0].payload.length;
-		dati.tipoRisorsa = [];
-		dati.quantitaRisorsa = [];
-		for (var ris=0; ris < dati.risorseDisponibili; ris++){
-			dati.tipoRisorsa.push(risorse.pawns[0].payload[ris].resource);
-			dati.quantitaRisorsa.push(risorse.pawns[0].payload[ris].quantity);
-		}
-	}); 
-	
-	// EMERGENZE
-	
-	var data = new Object();
-	data.locationID = LOCATIONID + dati.origine;
-	socket.emit('getEmergencies', JSON.stringify(data), function(response){
-		var emergency = JSON.parse(response);
-		dati.emergenze = emergency.emergencies;
-	}); 
-	
-	// PRESIDI
-		
-	var data = new Object();
-	data.locationID = LOCATIONID + dati.origine;
-	socket.emit('getStrongholdInfo', JSON.stringify(data), function(response){
-		var presidi = JSON.parse(response);
-		dati.costoPresidi = presidi.currentStrongholdCost;
-		dati.presidiNellArea = presidi.strongholdsInArea;
-	}); 
+
 	
 	// Riaggiornamento grafico
 	$("#pannelli").empty();
