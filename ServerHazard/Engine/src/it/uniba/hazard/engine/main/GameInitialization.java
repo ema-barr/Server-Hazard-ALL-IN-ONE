@@ -44,7 +44,7 @@ public class GameInitialization {
         Locale currentLocale = LanguageReader.readLanguage(pathXML);
 
 
-        File file = new File("./resources");
+        File file = new File("resources");
         URL[] urls = new URL[0];
         try {
             urls = new URL[]{file.toURI().toURL()};

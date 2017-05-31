@@ -139,29 +139,35 @@ public class ProductionTurn implements PlayerTurn {
     private Response chooseCard (GameState gameState, String cardStr) {
         int numCard = Integer.valueOf(cardStr);
         Response resp = null;
-        if (!selectedCards.contains(numCard)) {
-            if (selectedCards.size() < numberOfChoose) {
-                if (numCard >= 0 & numCard < productionCards.size()) {
-                    ProductionCard prodCard = productionCards.get(numCard);
-                    prodCard.executeAction(gameState, this);
-                    selectedCards.add(numCard);
-                    resp = player.insertNewTransportPawn(gameState, new Provisions(prodCard.getResource()), prodCard.getLocation());
-                    updatePawns();
-                    if (pawns.size() == maxPawns)
-                        state = StateTurn.MOVE_TRANSPORT_PAWN;
+        if (state == StateTurn.CHOOSE_PRODUCTION_CARDS) {
+            if (!selectedCards.contains(numCard)) {
+                if (selectedCards.size() < numberOfChoose) {
+                    if (numCard >= 0 & numCard < productionCards.size()) {
+                        ProductionCard prodCard = productionCards.get(numCard);
+                        prodCard.executeAction(gameState, this);
+                        selectedCards.add(numCard);
+                        resp = player.insertNewTransportPawn(gameState, new Provisions(prodCard.getResource()), prodCard.getLocation());
+                        updatePawns();
+                        if (pawns.size() == maxPawns)
+                            state = StateTurn.MOVE_TRANSPORT_PAWN;
+                    }
+                } else {
+                    // il numero di scelte massimo è stato raggiunto
+                    resp = new ChooseProductionCardResponse(false, player);
                 }
             } else {
-                // il numero di scelte massimo è stato raggiunto
+                // la carta è stata già scelta
                 resp = new ChooseProductionCardResponse(false, player);
             }
+            //Once the specified number of production cards has been chosen, the production turn switches into movement mode
+            if (selectedCards.size() >= numberOfChoose) {
+                state = StateTurn.MOVE_TRANSPORT_PAWN;
+            }
         } else {
-            // la carta è stata già scelta
+            //If the production group currently cannot select cards, send a failure response
             resp = new ChooseProductionCardResponse(false, player);
         }
-        //Once the specified number of production cards has been chosen, the production turn switches into movement mode
-        if (selectedCards.size() >= numberOfChoose) {
-            state = StateTurn.MOVE_TRANSPORT_PAWN;
-        }
+
         return resp;
     }
 
