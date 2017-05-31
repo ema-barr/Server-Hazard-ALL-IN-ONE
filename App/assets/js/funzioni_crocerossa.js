@@ -17,7 +17,7 @@ $(document).ready(function(){
     inizializzaDati();
 });
 
-//Questa funzione deve prelevare i dati dal file xml/json del server
+//Questa funzione deve prelevare i dati dal file json del server
 function inizializzaDati(){
     "use strict";
 	sessionStorage.numTurnoCR = Number(sessionStorage.numTurnoCR) + 1;
@@ -35,8 +35,7 @@ function aggiornaDati(){
 	"use strict";
 	
 	// STATO TURNO
-	
-	
+
 	socket.emit('getCurrentTurn', "{}", function(response) {
     	var oggetto = JSON.parse(response);
 		dati.origine = oggetto.pawn.location.name;
@@ -45,8 +44,7 @@ function aggiornaDati(){
 		dati.maxAzioni= oggetto.maxNumActions;
 		dati.pawnID = oggetto.pawn.pawnID;
 		dati.carteBonus = oggetto.bonusCards;
-
-
+		
 		// RISORSE
 	
 		var data = new Object();
@@ -60,41 +58,40 @@ function aggiornaDati(){
 				dati.tipoRisorsa.push(risorse.pawns[0].payload[ris].resource);
 				dati.quantitaRisorsa.push(risorse.pawns[0].payload[ris].quantity);
 			}
-		}); 
-		
-		// EMERGENZE
-		
-		var data = new Object();
-		data.locationID = LOCATIONID + dati.origine;
-		socket.emit('getEmergencies', JSON.stringify(data), function(response){
-			var emergency = JSON.parse(response);
-			dati.emergenze = emergency.emergencies;
-		}); 
-		
-		// PRESIDI
 			
-		var data = new Object();
-		data.locationID = LOCATIONID + dati.origine;
-		socket.emit('getStrongholdInfo', JSON.stringify(data), function(response){
-			var presidi = JSON.parse(response);
-			dati.costoPresidi = presidi.currentStrongholdCost;
-			dati.presidiNellArea = presidi.strongholdsInArea;
+			// EMERGENZE
+	
+			var data = new Object();
+			data.locationID = LOCATIONID + dati.origine;
+			socket.emit('getEmergencies', JSON.stringify(data), function(response){
+				var emergency = JSON.parse(response);
+				dati.emergenze = emergency.emergencies;
+				
+				// PRESIDI
+		
+				var data = new Object();
+				data.locationID = LOCATIONID + dati.origine;
+				socket.emit('getStrongholdInfo', JSON.stringify(data), function(response){
+					var presidi = JSON.parse(response);
+					dati.costoPresidi = presidi.currentStrongholdCost;
+					dati.presidiNellArea = presidi.strongholdsInArea;
+					
+					// Riaggiornamento grafico
+					$("#pannelli").empty();
+					creaTabAzioni(dati);
+					$('.nav-pills a[href="#tab_2"]').tab('show');	// doppia selezione della tab, per un bug
+					$('.nav-pills a[href="#tab_1"]').tab('show'); 
+					$("#numAzione").html("Azione "+(dati.azioneAttuale)+" di "+dati.maxAzioni);
+					aggiornaListaDestinazioni(dati);
+					
+					
+					//Carte Bonus
+					creaCarteBonus();
+				}); 
+			}); 
 		}); 
 	});
-	
-
-	
-	// Riaggiornamento grafico
-	$("#pannelli").empty();
-    creaTabAzioni(dati);
-	$('.nav-pills a[href="#tab_2"]').tab('show');	// doppia selezione della tab, per un bug
-	$('.nav-pills a[href="#tab_1"]').tab('show'); 
-	$("#numAzione").html("Azione "+(dati.azioneAttuale)+" di "+dati.maxAzioni);
-	aggiornaListaDestinazioni(dati);
-	
-	
-    //Carte Bonus
-    creaCarteBonus();
+		
 }
 
 
@@ -257,7 +254,7 @@ function spostaButtonCR(){
     "use strict";
 	data = new Object();
 	data.targetDestination = LOCATIONID + $("#dest_"+i).find("option:selected").text();
-	socket.emit('moveActionPawn', JSON.stringify(data), function(response) {
+	socket.emit('moveActionPawn', JSON.stringify(data)), function(response) {
     	var obj = JSON.parse(response);
 		if(!obj.success){
 			setModalCRLog(obj.logString);
