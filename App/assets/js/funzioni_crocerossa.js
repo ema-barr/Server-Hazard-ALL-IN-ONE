@@ -37,6 +37,7 @@ function aggiornaDati(){
 	// STATO TURNO
 
 	socket.emit('getCurrentTurn', "{}", function(response) {
+		console.log(response);
     	var oggetto = JSON.parse(response);
 		dati.origine = oggetto.pawn.location.name;
 		dati.gravita = oggetto.pawn.location.emergencyLevels[0].level;
@@ -50,13 +51,16 @@ function aggiornaDati(){
 		var data = new Object();
 		data.locationID = LOCATIONID + dati.origine;
 		socket.emit('getTransports', JSON.stringify(data), function(response){
-			var risorse = JSON.parse(jsonRisorse);
-			dati.risorseDisponibili = risorse.pawns[0].payload.length;
-			dati.tipoRisorsa = [];
-			dati.quantitaRisorsa = [];
-			for (var ris=0; ris < dati.risorseDisponibili; ris++){
-				dati.tipoRisorsa.push(risorse.pawns[0].payload[ris].resource);
-				dati.quantitaRisorsa.push(risorse.pawns[0].payload[ris].quantity);
+			console.log(response);
+			var risorse = JSON.parse(response);
+			if(risorse.pawns.length > 0){
+				dati.risorseDisponibili = risorse.pawns[0].payload.length;
+				dati.tipoRisorsa = [];
+				dati.quantitaRisorsa = [];
+				for (var ris=0; ris < dati.risorseDisponibili; ris++){
+					dati.tipoRisorsa.push(risorse.pawns[0].payload[ris].resource);
+					dati.quantitaRisorsa.push(risorse.pawns[0].payload[ris].quantity);
+				}
 			}
 			
 			// EMERGENZE
@@ -64,6 +68,7 @@ function aggiornaDati(){
 			var data = new Object();
 			data.locationID = LOCATIONID + dati.origine;
 			socket.emit('getEmergencies', JSON.stringify(data), function(response){
+				console.log(response);
 				var emergency = JSON.parse(response);
 				dati.emergenze = emergency.emergencies;
 				
@@ -72,6 +77,7 @@ function aggiornaDati(){
 				var data = new Object();
 				data.locationID = LOCATIONID + dati.origine;
 				socket.emit('getStrongholdInfo', JSON.stringify(data), function(response){
+					console.log(response);
 					var presidi = JSON.parse(response);
 					dati.costoPresidi = presidi.currentStrongholdCost;
 					dati.presidiNellArea = presidi.strongholdsInArea;
@@ -149,8 +155,8 @@ function creaTabAzioni(dati){
 	$("#form_3").append("<div class='form-group' id='form3'>");
 	$("#form3").append("<div class='col-sm-12' id='labelPreleva'>");
 	
-	if(dati.risorseDisponibili === 0){
-		$("#labelPreleva").append("<h3>Non ci sono risorse da prelevare!</h3>");
+	if(!dati.risorseDisponibili){
+		$("#labelPreleva").append("<h3 align='center'>Non ci sono risorse da prelevare!</h3>");
 	}else{
 		$("#labelPreleva").append("<table align='center' class='tg' id='tabellaPreleva'>");
 		$("#tabellaPreleva").append("<colgroup id='colgroupPreleva'>");
@@ -254,7 +260,7 @@ function spostaButtonCR(){
     "use strict";
 	data = new Object();
 	data.targetDestination = LOCATIONID + $("#dest_"+i).find("option:selected").text();
-	socket.emit('moveActionPawn', JSON.stringify(data)), function(response) {
+	socket.emit('moveActionPawn', JSON.stringify(data), function(response) {
     	var obj = JSON.parse(response);
 		if(!obj.success){
 			setModalCRLog(obj.logString);
