@@ -71,7 +71,11 @@ function aggiornaListaDestinazioni(arrCamion, indiceCamion){
 		arrCamion[indiceCamion].destinazione.push(dest.locations[destinazione].name);
 		// parte visiva
 		$("#dest_"+indiceCamion).append("<option>"+arrCamion[indiceCamion].destinazione[destinazione]+"</option>");
-	}		
+	}	
+
+	if($("#dest_"+indiceCamion).is(':empty')){
+		$("#spostaButtonP_"+indiceCamion).prop("disabled", true);
+	}
    }); 
 
 	
@@ -122,7 +126,10 @@ function spostaButtonProduzione(i){
 		var sposta = JSON.parse(response);
 		if(sposta.success){
 			arrCamion[i].spostamenti--; //non credo vada più, ma è da vedere 
-			$("#nSpostamenti_"+i).text(arrCamion[i].spostamenti); //aggiorna il numero degli spostamenti a video, vedere se è da lasciare così 
+			$("#nSpostamenti_"+i).text(arrCamion[i].spostamenti); //aggiorna il numero degli spostamenti a video
+			if(arrCamion[i].spostamenti === 0){
+				$("#spostaButtonP_"+i).prop("disabled", true);
+			}
 			arrCamion[i].origine = sposta.newLocation;
 			//parte visuale
 			$("#orig_"+i).text(arrCamion[i].origine);
@@ -131,8 +138,9 @@ function spostaButtonProduzione(i){
 			setModalLog(sposta.logString);
 			salvaLog(sposta.logString);
 		}else{
-			$("#spostaButtonP_"+i).prop("disabled", true);
+			
 			setModalLog(sposta.logString);
+			$("#spostaButtonP_"+i).prop("disabled", true);
 		}
 		
 	});

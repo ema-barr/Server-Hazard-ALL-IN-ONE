@@ -21,7 +21,7 @@ $(document).ready(function(){
 function inizializzaDati(){
     "use strict";
 	sessionStorage.numTurnoCR = Number(sessionStorage.numTurnoCR) + 1;
-	dati.azioneAttuale = 1;
+	dati.azioneAttuale = 0;
 	aggiornaDati();
 	
 	$("#container").append("<button class='btn btn-success btn-block btn-lg' type='button' id='terminaTurnoP' onclick='terminaTurnoCR()'>Termina il turno</button><br>");
@@ -46,6 +46,7 @@ function aggiornaDati(){
 		dati.pawnID = oggetto.pawn.pawnID;
 		dati.carteBonus = oggetto.bonusCards;
 		
+		
 		// RISORSE
 	
 		var data = new Object();
@@ -54,6 +55,7 @@ function aggiornaDati(){
 			console.log(response);
 			var risorse = JSON.parse(response);
 			if(risorse.pawns.length > 0){
+				dati.pawnTransport = risorse.pawns[0].pawnID;
 				dati.risorseDisponibili = risorse.pawns[0].payload.length;
 				dati.tipoRisorsa = [];
 				dati.quantitaRisorsa = [];
@@ -222,7 +224,10 @@ function aggiornaListaDestinazioni(dati){
 		dati.destinazioni.push(dest.locations[destinazione].name);
 		// parte visiva
 		$("#destinazione_sposta").append("<option>"+dati.destinazioni[destinazione]+"</option>"); 
-	}		
+	}
+	if($("#destinazione_sposta").is(':empty')){
+		$("#spostaButtonCrR").prop("disabled", true);
+	}
    });
 	
 	
@@ -235,6 +240,7 @@ function aggiornaAzioni(){
 	$("#numAzione").html("Azione "+dati.azioneAttuale+" di "+dati.maxAzioni);
 	
     if(dati.azioneAttuale >= dati.maxAzioni){
+		alert("Entro qui");
         $("#spostaButtonCrR").prop("disabled", true);
         $("#curaCheck").prop("disabled", true);
         $("#prelevaCheck").prop("disabled", true);
@@ -258,8 +264,8 @@ function setModalCRLog (logString){
 //funzione per spostare le risorse
 function spostaButtonCR(){
     "use strict";
-	data = new Object();
-	data.targetDestination = LOCATIONID + $("#dest_"+i).find("option:selected").text();
+	var data = new Object();
+	data.targetDestination = LOCATIONID + $("#destinazione_sposta").find("option:selected").text();
 	socket.emit('moveActionPawn', JSON.stringify(data), function(response) {
     	var obj = JSON.parse(response);
 		if(!obj.success){
@@ -281,7 +287,7 @@ function spostaButtonCR(){
 function curaEmergenza(i){
     "use strict";
 	var data = new Object();
-	data.emergencyID = EMERGENCYID + dati.emergenze[i].objectID;
+	data.emergencyID = EMERGENCYID + dati.emergenze[i].name;
 	socket.emit('solveEmergency', JSON.stringify(data), function(response){
 		var obj = JSON.parse(response);
 		if(!obj.success){
@@ -300,7 +306,8 @@ function curaEmergenza(i){
 function prelevaButton(){
     "use strict";
 	var data = new Object();
-	data.pawnID = dati.pawnID;
+	data.pawnID = dati.pawnTransport; 
+	console.log(data);
 	socket.emit('takeResources', JSON.stringify(data), function(response){
 		var obj = JSON.parse(response);
 		if(!obj.success){
@@ -308,6 +315,7 @@ function prelevaButton(){
 		}else{
 			aggiornaAzioni();
 			setModalCRLog(obj.logString);
+			salvaLog(obj.logString);
 		}
 		
 		aggiornaDati();
@@ -322,8 +330,9 @@ function costruisciPresidio(i){
     "use strict";
 	
 	var data = new Object();
-	data.emergencyID = EMERGENCYID + dati.presidiNellArea[i].emergency;
+	data.emergencyID = EMERGENCYID + dati.presidiNellArea[i].emergencyName;
 	data.locationID = LOCATIONID + dati.origine;
+	console.log(data);
 	socket.emit('buildStronghold', JSON.stringify(data), function(response){
 		var obj = JSON.parse(response);
 		if(!obj.success){
@@ -350,7 +359,7 @@ function creaCarteBonus(){
 		$("#carteBonus").append(
     	"<li>"+
           "<div class='Button Block' align='center'>"+
-            "<h1>" + dati.carteBonus[i].nameCard +"</h1>"+
+            "<h1>" + dati.carteBonus[i].name +"</h1>"+
             "<p>" +dati.carteBonus[i].description + "</p>"+
 			"<br>" +
             "<button class='btn btn-success btn-lg btn-block' type='button' onclick='giocaCarta("+i+")' id='giocaBonus" + i + "'>Gioca</button>"+
@@ -376,7 +385,7 @@ function creaCarteBonus(){
 
 function giocaCarta(i){
 	"use strict";
-	$('#cartaBonusBody').html("Hai selezionato la carta: "+dati.carteBonus[i].nameCard+". Vuoi giocarla ora?");
+	$('#cartaBonusBody').html("Hai selezionato la carta: "+dati.carteBonus[i].name+". Vuoi giocarla ora?");
 
 	$('#confermaCB').off("click");
 	$('#confermaCB').click(function(){
@@ -407,7 +416,7 @@ function giocaCarta(i){
 
 function terminaTurnoCR(){
    "use strict";
-    var azioniRimaste = dati.maxAzioni - dati.azioneAttuale + 1;
+    var azioniRimaste = dati.maxAzioni - dati.azioneAttuale;
 	$("#fineTurnoCRBody").html("Hai ancora "+azioniRimaste+" azioni che potresti effettuare: <br>sei sicuro di terminare il turno?");
     $("#fineTurnoCRDialog").modal();
 }

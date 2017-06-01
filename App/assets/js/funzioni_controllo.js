@@ -42,18 +42,16 @@ function controlloStato(obj){
 			$("#jumboInfo2").text('Passa il turno cliccando "Avanti"'); 
 			$("#avanti").click(function(){
 				socket.emit('nextTurn', JSON.parse('{}'), function(response) {
-					
+					window.open('transito.html','_self');
 				});
-				inizializzaDati();
 			});
 		}else{
 			$("#jumboInfo").text('Turno Emergenza');
 			$("#jumboInfo2").text('Passa il turno cliccando "Avanti"');
 			$("#avanti").click(function(){
 				socket.emit('nextTurn', JSON.parse('{}'), function(response) {
-					
+					window.open('transito.html','_self');
 				});
-				inizializzaDati();
 			});
 		}
 	}else if (stato_gioco==="GAME_VICTORY"){
@@ -63,6 +61,7 @@ function controlloStato(obj){
 	}else{
 		$("#jumboInfo").text('Peccato!');
 		$("#jumboInfo2").text('Sconfitta');
+		$("#avanti").hide();
 	}
 	
 }
