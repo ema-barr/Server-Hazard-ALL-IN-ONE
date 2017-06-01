@@ -150,6 +150,9 @@ public class ProductionTurn implements PlayerTurn {
                         updatePawns();
                         if (pawns.size() == maxPawns)
                             state = StateTurn.MOVE_TRANSPORT_PAWN;
+                    } else {
+                        // The selected card is not available
+                        resp = new ChooseProductionCardResponse(false, player);
                     }
                 } else {
                     // il numero di scelte massimo è stato raggiunto

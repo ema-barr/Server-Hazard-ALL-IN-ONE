@@ -2,196 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0984f990-e244-440e-9983-9eb22aa58c57" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/MessageBundle_en_US.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/MessageBundle_it_IT.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/strutturaxml.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/AddBlockade.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/AddBlockade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/AddBlockadeInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/AddBlockadeInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/BonusCard.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/BonusCard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/BonusCardInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/BonusCardInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/BonusProductionCard.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/BonusProductionCard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/BonusProductionCardInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/BonusProductionCardInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/Card.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/Card.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/CardInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/CardInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/CardManager.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/CardManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/CurePlace.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/CurePlace.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/CurePlaceInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/CurePlaceInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DecreaseEmergencyPlace.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DecreaseEmergencyPlace.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DecreaseEmergencyPlaceInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DecreaseEmergencyPlaceInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DecreaseStrongholdPrice.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DecreaseStrongholdPrice.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DecreaseStrongholdPriceInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DecreaseStrongholdPriceInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DefaultCard.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DefaultCard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DefaultCardInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/DefaultCardInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/EventCard.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/EventCard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/EventCardInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/EventCardInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseContagionLevel.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseContagionLevel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseContagionLevelInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseContagionLevelInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseEmergencyPlace.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseEmergencyPlace.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseEmergencyPlaceInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseEmergencyPlaceInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseNumberAction.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseNumberAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseNumberActionInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/IncreaseNumberActionInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MalusProductionCard.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MalusProductionCard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MalusProductionCardInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MalusProductionCardInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MovePlace.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MovePlace.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MovePlaceInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MovePlaceInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/ProductionCard$ProductionCardSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/ProductionCard$ProductionCardSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/ProductionCard.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/ProductionCard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/QuarantinePlace.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/QuarantinePlace.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/QuarantinePlaceInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/QuarantinePlaceInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/RemoveTransportPawn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/RemoveTransportPawn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/RemoveTransportPawnInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/RemoveTransportPawnInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/TakeBonusCard.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/TakeBonusCard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/TakeBonusCardInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/TakeBonusCardInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/connection/ServerConnection.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/connection/ServerConnection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/connection/listeners/Listener.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/connection/listeners/Listener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/connection/listeners/RequestListener.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/connection/listeners/RequestListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/connection/listeners/ServerConnectionListener$1.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/connection/listeners/ServerConnectionListener$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/connection/listeners/ServerConnectionListener.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/connection/listeners/ServerConnectionListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/endgame/ContagionPercentageLossCondition.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/endgame/ContagionPercentageLossCondition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/endgame/EndCondition.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/endgame/EndCondition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/endgame/LossCondition.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/endgame/LossCondition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/endgame/StrongholdInAllAreasVictoryCondition.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/endgame/StrongholdInAllAreasVictoryCondition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/endgame/VictoryCondition.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/endgame/VictoryCondition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/entrypoint/EntryPoint.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/entrypoint/EntryPoint.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/CannotCreateBlockadeException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/CannotCreateBlockadeException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/CannotMovePawnException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/CannotMovePawnException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/CannotTakeResourcesException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/CannotTakeResourcesException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/EmergencyMismatchException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/EmergencyMismatchException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/InsufficientNumOfLocationsException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/InsufficientNumOfLocationsException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/InsufficientResourcesException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/InsufficientResourcesException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/InvalidEmergencyLevelException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/InvalidEmergencyLevelException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/LocationMismatchException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/LocationMismatchException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/MaxNumberOfTransportPawnsReachedException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/MaxNumberOfTransportPawnsReachedException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/NoActionsAvailableException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/NoActionsAvailableException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/NoClassExist.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/NoClassExist.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/NoSuchBlockadeException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/NoSuchBlockadeException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/NoSuchPawnException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/NoSuchPawnException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotActionGroupException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotActionGroupException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotActionPawnException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotActionPawnException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotFoundInRepositoryException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotFoundInRepositoryException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotLocationException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotLocationException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotProductionGroupException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotProductionGroupException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotStrongholdPawnException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotStrongholdPawnException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotTransportPawnException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ObjectNotTransportPawnException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ResourceNotFoundException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ResourceNotFoundException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ResourceNotInPayloadException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/ResourceNotInPayloadException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/StrongholdAlreadyPresentException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/StrongholdAlreadyPresentException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/TransportPawnNotFoundException.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/exception/TransportPawnNotFoundException.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup$ActionGroupSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup$ActionGroupSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ProductionGroup$ProductionGroupSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ProductionGroup$ProductionGroupSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ProductionGroup.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ProductionGroup.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Emergency$EmergencySerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Emergency$EmergencySerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Emergency.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Emergency.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Game$GameSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Game$GameSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Game.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameController.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameInitialization.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameInitialization.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState$EndState.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState$EndState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState$GameStateSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState$GameStateSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GeneralHazardIndicator$GeneralHazardIndicatorSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GeneralHazardIndicator$GeneralHazardIndicatorSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GeneralHazardIndicator.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GeneralHazardIndicator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Provisions$ProvisionsSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Provisions$ProvisionsSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Provisions.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Provisions.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Repository.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Repository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Resource$ResourceSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Resource$ResourceSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Resource.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Resource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Stronghold.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Stronghold.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/StrongholdInfo.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/StrongholdInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Turn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/Turn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/TurnSequence.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/TurnSequence.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/Area.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/Area.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/Blockade$BlockadeSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/Blockade$BlockadeSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/Blockade.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/Blockade.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/GameMap$GameMapSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/GameMap$GameMapSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/GameMap.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/GameMap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/Location$LocationSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/Location$LocationSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/Location.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/map/Location.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/ActionPawn$ActionPawnSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/ActionPawn$ActionPawnSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/ActionPawn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/ActionPawn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/GamePawn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/GamePawn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/PlayerPawn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/PlayerPawn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/StrongholdPawn$StrongholdPawnSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/StrongholdPawn$StrongholdPawnSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/StrongholdPawn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/StrongholdPawn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/TransportPawn$TransportPawnSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/TransportPawn$TransportPawnSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/TransportPawn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/pawns/TransportPawn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/InitializationTest.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/InitializationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/InternationalizationTest.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/InternationalizationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/MapSerializationTest.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/MapSerializationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/ServerTest.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/ServerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/StrongholdTest.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/StrongholdTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/UseBonusCardTest.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/UseBonusCardTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/XMLReaderTest.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/XMLReaderTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ActionTurn$ActionTurnSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ActionTurn$ActionTurnSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ActionTurn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ActionTurn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/EmergencyTurn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/EmergencyTurn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/EventTurn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/EventTurn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/PlayerTurn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/PlayerTurn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn$ProductionTurnSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn$ProductionTurnSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn$StateTurn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn$StateTurn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/BonusCardSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/BonusCardSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/CardSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/CardSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/AdjacentLocationsResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/AdjacentLocationsResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/EmergenciesResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/EmergenciesResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/GenericResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/GenericResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/GetCurrentTurnResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/GetCurrentTurnResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/GetStrongholdInfoResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/GetStrongholdInfoResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/GetTransportsResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/GetTransportsResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/NoActionAvailableResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/NoActionAvailableResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/Response.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/Response.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_group/ActionGroupMoveResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_group/ActionGroupMoveResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_group/BuildStrongholdResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_group/BuildStrongholdResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_group/SolveEmergencyResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_group/SolveEmergencyResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_group/TakeResourceResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_group/TakeResourceResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_turn/ActionTurnExecuteTurnResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_turn/ActionTurnExecuteTurnResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_turn/AddBonusCardResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_turn/AddBonusCardResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_turn/DeleteAllBonusCardsResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_turn/DeleteAllBonusCardsResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_turn/GetBonusCardsResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_turn/GetBonusCardsResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_turn/SetBonusCardsResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_turn/SetBonusCardsResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/AddBlockadeResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/AddBlockadeResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/AddBlockadeRevertResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/AddBlockadeRevertResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/BonusProductionCardResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/BonusProductionCardResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/BonusProductionCardRevertResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/BonusProductionCardRevertResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/CurePlaceResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/CurePlaceResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/DecreaseEmergencyPlaceResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/DecreaseEmergencyPlaceResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/DecreaseStrongholdPriceResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/DecreaseStrongholdPriceResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/DefaultCardResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/DefaultCardResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/IncreaseContagionLevelResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/IncreaseContagionLevelResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/IncreaseEmergencyPlaceResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/IncreaseEmergencyPlaceResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/IncreaseNumberActionResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/IncreaseNumberActionResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/MalusProductionCardResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/MalusProductionCardResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/MovePlaceResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/MovePlaceResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/QuarantinePlaceResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/QuarantinePlaceResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/QuarantinePlaceRevertResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/QuarantinePlaceRevertResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/RemoveTransportPawnResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/RemoveTransportPawnResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/TakeBonusCardResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/TakeBonusCardResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/emergency_turn/EmergencyTurnExecuteTurnResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/emergency_turn/EmergencyTurnExecuteTurnResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/event_turn/EventTurnExecuteTurnResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/event_turn/EventTurnExecuteTurnResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_group/InsertNewTransportPawnResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_group/InsertNewTransportPawnResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_group/MoveTransportPawnResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_group/MoveTransportPawnResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_group/RemoveTransportPawnResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_group/RemoveTransportPawnResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_turn/ChooseProductionCardResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_turn/ChooseProductionCardResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_turn/GetProductionCardsResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_turn/GetProductionCardsResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_turn/ProductionTurnExecuteTurnResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/production_turn/ProductionTurnExecuteTurnResponse.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/EmergencyReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/EmergencyReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/EndGameReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/EndGameReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/GroupReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/GroupReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/LanguageReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/LanguageReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/MapReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/MapReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/ResourceReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/ResourceReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/SetupReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/SetupReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/StrongholdInfosReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/StrongholdInfosReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/TurnReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/TurnReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/XmlCardsReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/XmlCardsReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/BonusCardReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/BonusCardReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/CardReaderFactory.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/CardReaderFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/ICardReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/ICardReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/PlaceCardReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/PlaceCardReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/ProductionCardReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/ProductionCardReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/StandardCardReader.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/xml_reader/card_reading/StandardCardReader.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" />
     </list>
     <ignored path="$PROJECT_DIR$/Engine/src/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -225,8 +37,8 @@
       <file leaf-file-name="RequestListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/connection/listeners/RequestListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -252,21 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
+      <file leaf-file-name="ProductionTurn.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="83" column="42" lean-forward="false" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetCurrentTurnResponse.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/response/GetCurrentTurnResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+            <state relative-caret-position="312">
+              <caret line="155" column="21" lean-forward="false" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -293,9 +95,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Server/fakeboard.html" />
-        <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" />
         <option value="$MAVEN_REPOSITORY$/io/socket/engine.io-client/0.8.3/engine.io-client-0.8.3.jar!/io/socket/thread/EventThread.class" />
         <option value="$PROJECT_DIR$/Server/server.js" />
+        <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" />
       </list>
     </option>
   </component>
@@ -330,6 +132,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -418,25 +221,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="entrypoint" />
+              <option name="myItemId" value="turn" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -731,6 +533,7 @@
       <setting name="passParentEnv" value="true" />
       <setting name="launchBrowser" value="true" />
       <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -945,6 +748,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -1112,7 +921,20 @@
       <option name="presentableId" value="Default" />
       <updated>1496132357487</updated>
       <workItem from="1496227701920" duration="569000" />
-      <workItem from="1496228495493" duration="24000" />
+      <workItem from="1496228495493" duration="555000" />
+      <workItem from="1496231182341" duration="1120000" />
+      <workItem from="1496232326556" duration="35000" />
+      <workItem from="1496232629448" duration="249000" />
+      <workItem from="1496245969278" duration="699000" />
+      <workItem from="1496246824982" duration="308000" />
+      <workItem from="1496247257432" duration="19000" />
+      <workItem from="1496252400191" duration="626000" />
+      <workItem from="1496253052393" duration="368000" />
+      <workItem from="1496253447859" duration="192000" />
+      <workItem from="1496307382844" duration="366000" />
+      <workItem from="1496308794819" duration="11000" />
+      <workItem from="1496337144689" duration="343000" />
+      <workItem from="1496337691336" duration="123000" />
     </task>
     <task id="LOCAL-00001" summary="Rimessi strutturaxml e la cartella resources nella posizione originale">
       <created>1496227846953</created>
@@ -1121,15 +943,22 @@
       <option name="project" value="LOCAL" />
       <updated>1496227846953</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Aggiunti file mancanti">
+      <created>1496228541976</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1496228541976</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="593000" />
+    <option name="totallyTimeSpent" value="5583000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1137,15 +966,15 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5028653" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5057307" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.49713466" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.49426934" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20200573" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24212034" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1153,7 +982,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39957717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39888424" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1173,19 +1002,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Rimessi strutturaxml e la cartella resources nella posizione originale" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rimessi strutturaxml e la cartella resources nella posizione originale" />
+    <MESSAGE value="Aggiunti file mancanti" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti file mancanti" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/connection/listeners/RequestListener.java</url>
-          <line>27</line>
+          <url>file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java</url>
+          <line>139</line>
           <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1194,6 +1024,166 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="83" column="42" lean-forward="false" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/response/GetCurrentTurnResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/entrypoint/EntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/connection/listeners/RequestListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4046">
+          <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Repository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="83" column="42" lean-forward="false" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/response/GetCurrentTurnResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/entrypoint/EntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/connection/listeners/RequestListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4046">
+          <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Repository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="83" column="42" lean-forward="false" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/response/GetCurrentTurnResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/entrypoint/EntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/connection/listeners/RequestListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4046">
+          <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Repository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="83" column="42" lean-forward="false" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/response/GetCurrentTurnResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/entrypoint/EntryPoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1337,13 +1327,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/socket/engine.io-client/0.8.3/engine.io-client-0.8.3.jar!/io/socket/emitter/Emitter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="23" column="93" lean-forward="false" selection-start-line="23" selection-start-column="93" selection-end-line="23" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/socket/engine.io-client/0.8.3/engine.io-client-0.8.3.jar!/io/socket/emitter/Emitter.class" />
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/xml_reader/EmergencyReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -1358,28 +1342,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="143" column="67" lean-forward="true" selection-start-line="143" selection-start-column="67" selection-end-line="143" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/socket/engine.io-client/0.8.3/engine.io-client-0.8.3.jar!/io/socket/thread/EventThread.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Repository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/socket/engine.io-client/0.8.3/engine.io-client-0.8.3.jar!/io/socket/thread/EventThread.class" />
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/entrypoint/EntryPoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1396,26 +1359,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/connection/listeners/RequestListener.java">
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/response/action_turn/ActionTurnExecuteTurnResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="170">
+          <caret line="29" column="66" lean-forward="true" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ActionTurn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="83" column="42" lean-forward="false" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+        <state relative-caret-position="17">
+          <caret line="75" column="21" lean-forward="false" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/response/GetCurrentTurnResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+        <state relative-caret-position="153">
+          <caret line="20" column="12" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="58" column="54" lean-forward="false" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Repository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/connection/listeners/RequestListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="155" column="21" lean-forward="false" selection-start-line="155" selection-start-column="21" selection-end-line="155" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1449,6 +1443,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Python 2.7.13 (C:\Program Files\Python27\python.exe) interpreter library</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
