@@ -473,6 +473,8 @@ public class GameState {
         if (tp.getPayload().isEmpty()) {
             //Remove from the map
             removePawn(tp);
+            //Remove from the production group
+            tp.getProductionGroup().removeTransportPawn(tp);
         }
         return result;
     }
