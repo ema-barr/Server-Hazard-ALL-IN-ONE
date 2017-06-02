@@ -1,5 +1,6 @@
 package it.uniba.hazard.engine.test;
 
+import it.uniba.hazard.engine.cards.MovePlace;
 import it.uniba.hazard.engine.connection.ServerConnection;
 import it.uniba.hazard.engine.groups.ActionGroup;
 import it.uniba.hazard.engine.groups.ProductionGroup;
@@ -106,6 +107,11 @@ public class ServerTest {
         GameInitialization gi = new GameInitialization("strutturaxml.xml");
         gi.initialization();
         Game g = gi.getGame();
+
+        Location l = (Location) Repository.getFromRepository("it.uniba.hazard.engine.map.Location_Location1");
+        ActionTurn ag = ((ActionTurn) g.getTurns().getTurnOrder().get(1));
+        ag.addBonusCard(g.getState(), new MovePlace("MovePlace", l, "test", "test"));
+
         ServerConnection sc = new ServerConnection("http://localhost:6882", g);
         sc.startConnection();
     }

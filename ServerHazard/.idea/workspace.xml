@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0984f990-e244-440e-9983-9eb22aa58c57" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MalusProductionCardInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MalusProductionCardInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameInitialization.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameInitialization.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn$ProductionTurnSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn$ProductionTurnSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/cards/MalusProductionCardInstance.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/cards/MalusProductionCardInstance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameInitialization.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameInitialization.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/cards/MovePlaceInstance.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/cards/MovePlaceInstance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/test/ServerTest.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/test/ServerTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/Engine/src/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -99,7 +95,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
               <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding />
+              <folding>
+                <marker date="1496403118924" expanded="true" signature="1357:1480" ph="/**...*/" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1033,7 +1031,7 @@
       <workItem from="1496308794819" duration="11000" />
       <workItem from="1496337144689" duration="343000" />
       <workItem from="1496337691336" duration="222000" />
-      <workItem from="1496396467816" duration="4063000" />
+      <workItem from="1496396467816" duration="4734000" />
     </task>
     <task id="LOCAL-00001" summary="Rimessi strutturaxml e la cartella resources nella posizione originale">
       <created>1496227846953</created>
@@ -1063,11 +1061,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496396623480</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix in ProductionTurn e MalusProductionCard">
+      <created>1496401932608</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1496401932608</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9745000" />
+    <option name="totallyTimeSpent" value="10416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -1118,7 +1123,8 @@
     <MESSAGE value="Aggiunti file mancanti" />
     <MESSAGE value="Fix in ProductionTurn quando si tenta di selezionare una carta non disponibile" />
     <MESSAGE value="Fixl workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixl workspace.xml" />
+    <MESSAGE value="Fix in ProductionTurn e MalusProductionCard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix in ProductionTurn e MalusProductionCard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1537,7 +1543,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1496403118924" expanded="true" signature="1357:1480" ph="/**...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
