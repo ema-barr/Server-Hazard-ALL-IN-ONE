@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0984f990-e244-440e-9983-9eb22aa58c57" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MovePlaceInstance.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/cards/MovePlaceInstance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup$ActionGroupSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup$ActionGroupSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/ServerTest.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/test/ServerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/BonusProductionCardResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/card/BonusProductionCardResponse.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState$GameStateSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState$GameStateSerializer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" />
     </list>
     <ignored path="$PROJECT_DIR$/Engine/src/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,72 +28,60 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4046">
-              <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Repository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Repository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2363">
-              <caret line="151" column="0" lean-forward="false" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
+            <state relative-caret-position="125">
+              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java">
+      <file leaf-file-name="ActionTurn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ActionTurn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6953">
-              <caret line="459" column="22" lean-forward="false" selection-start-line="459" selection-start-column="22" selection-end-line="459" selection-end-column="22" />
+            <state relative-caret-position="142">
+              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActionGroup.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductionTurn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="91">
+              <caret line="146" column="60" lean-forward="true" selection-start-line="146" selection-start-column="60" selection-end-line="146" selection-end-column="60" />
               <folding>
-                <marker date="1496424226262" expanded="true" signature="16580:16758" ph="/**...*/" />
-                <marker date="1496424226262" expanded="true" signature="16808:17109" ph="{...}" />
-                <marker date="1496424226262" expanded="true" signature="17115:17185" ph="/**...*/" />
-                <marker date="1496424226262" expanded="false" signature="17223:17234" ph=" { " />
-                <marker date="1496424226262" expanded="false" signature="17259:17265" ph=" }" />
-                <marker date="1496424226262" expanded="true" signature="17271:17334" ph="/**...*/" />
-                <marker date="1496424226262" expanded="false" signature="17372:17383" ph=" { " />
-                <marker date="1496424226262" expanded="false" signature="17401:17407" ph=" }" />
-                <marker date="1496424226262" expanded="true" signature="17413:17497" ph="/**...*/" />
-                <marker date="1496424226262" expanded="false" signature="17539:17550" ph=" { " />
-                <marker date="1496424226262" expanded="false" signature="17579:17585" ph=" }" />
-                <marker date="1496424226262" expanded="true" signature="17591:17668" ph="/**...*/" />
-                <marker date="1496424226262" expanded="false" signature="17719:17730" ph=" { " />
-                <marker date="1496424226262" expanded="false" signature="17759:17765" ph=" }" />
-                <marker date="1496424226262" expanded="true" signature="17771:17855" ph="/**...*/" />
-                <marker date="1496424226262" expanded="false" signature="17897:17908" ph=" { " />
-                <marker date="1496424226262" expanded="false" signature="17937:17943" ph=" }" />
-                <marker date="1496424226262" expanded="true" signature="17949:18072" ph="/**...*/" />
-                <marker date="1496424226262" expanded="false" signature="18120:18131" ph=" { " />
-                <marker date="1496424226262" expanded="false" signature="18166:18172" ph=" }" />
-                <marker date="1496424226262" expanded="true" signature="18178:18266" ph="/**...*/" />
-                <marker date="1496424226262" expanded="false" signature="18301:18312" ph=" { " />
-                <marker date="1496424226262" expanded="false" signature="18325:18331" ph=" }" />
-                <marker date="1496424226262" expanded="true" signature="18337:18418" ph="/**...*/" />
-                <marker date="1496424226262" expanded="true" signature="18451:18650" ph="{...}" />
-                <marker date="1496424226262" expanded="true" signature="18738:19156" ph="{...}" />
-                <marker date="1496424226262" expanded="true" signature="19207:19305" ph="{...}" />
-                <marker date="1496424226262" expanded="true" signature="19364:19608" ph="{...}" />
-                <marker date="1496424226262" expanded="true" signature="19684:21096" ph="{...}" />
-                <marker date="1496424226262" expanded="true" signature="19825:21090" ph="{...}" />
+                <marker date="1496425643762" expanded="false" signature="7787:7798" ph=" { " />
+                <marker date="1496425643762" expanded="false" signature="7811:7817" ph=" }" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductionCard.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/cards/ProductionCard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding>
+                <element signature="e#941#942#0" expanded="true" />
+                <element signature="e#968#969#0" expanded="true" />
+                <element signature="e#1443#1444#0" expanded="true" />
+                <element signature="e#1561#1562#0" expanded="true" />
+                <element signature="e#1592#1593#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,19 +90,44 @@
       <file leaf-file-name="ProductionGroup.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ProductionGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+            <state relative-caret-position="159">
+              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strutturaxml.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strutturaxml.xml">
+      <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2703">
-              <caret line="159" column="27" lean-forward="false" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="27" />
+            <state relative-caret-position="221">
+              <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Provisions.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Provisions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding>
+                <element signature="e#1718#1719#0" expanded="true" />
+                <element signature="e#1760#1761#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransportPawn.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/pawns/TransportPawn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding>
+                <element signature="e#1663#1664#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,11 +135,9 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
+            <state relative-caret-position="98">
               <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
-                <element signature="e#969#970#0" expanded="true" />
-                <element signature="e#1002#1003#0" expanded="true" />
                 <element signature="e#1070#1071#0" expanded="true" />
               </folding>
             </state>
@@ -144,6 +154,8 @@
       <find>transports</find>
       <find>production</find>
       <find>productioncard</find>
+      <find>takere</find>
+      <find>executeturn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,8 +172,9 @@
         <option value="$PROJECT_DIR$/Server/fakeboard.html" />
         <option value="$MAVEN_REPOSITORY$/io/socket/engine.io-client/0.8.3/engine.io-client-0.8.3.jar!/io/socket/thread/EventThread.class" />
         <option value="$PROJECT_DIR$/Server/server.js" />
-        <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" />
+        <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java" />
       </list>
     </option>
   </component>
@@ -1094,7 +1107,7 @@
       <workItem from="1496396467816" duration="5348000" />
       <workItem from="1496413311543" duration="1079000" />
       <workItem from="1496422090812" duration="2308000" />
-      <workItem from="1496424428392" duration="70000" />
+      <workItem from="1496424428392" duration="3776000" />
     </task>
     <task id="LOCAL-00001" summary="Rimessi strutturaxml e la cartella resources nella posizione originale">
       <created>1496227846953</created>
@@ -1138,19 +1151,27 @@
       <option name="project" value="LOCAL" />
       <updated>1496403270636</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Aggiornato engine">
+      <created>1496424514087</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1496424514087</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14487000" />
+    <option name="totallyTimeSpent" value="18193000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.49713466" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1170,12 +1191,11 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39888424" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39888424" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.49713466" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1208,12 +1228,24 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java</url>
-          <line>144</line>
+          <line>54</line>
           <properties />
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java</url>
+          <line>472</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java</url>
+          <line>148</line>
+          <properties />
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="10" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1222,6 +1254,22 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4046">
+          <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Repository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1207">
@@ -1248,6 +1296,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#648#649#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1293,6 +1346,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#648#649#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1338,51 +1396,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4046">
-          <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Repository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="83" column="42" lean-forward="false" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/response/GetCurrentTurnResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/entrypoint/EntryPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/connection/listeners/RequestListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#648#649#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1428,6 +1446,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#648#649#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1496,6 +1519,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#648#649#0" expanded="false" />
+            <element signature="e#683#684#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1503,14 +1531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1785">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/cards/MovePlaceInstance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1531,101 +1551,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#969#970#0" expanded="true" />
-            <element signature="e#1002#1003#0" expanded="true" />
-            <element signature="e#1070#1071#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2363">
-          <caret line="151" column="0" lean-forward="false" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/strutturaxml.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2703">
+        <state relative-caret-position="17">
           <caret line="159" column="27" lean-forward="false" selection-start-line="159" selection-start-column="13" selection-end-line="159" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java">
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/cards/MovePlaceInstance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+        <state relative-caret-position="267">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/pawns/TransportPawn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="e#1663#1664#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <element signature="e#1070#1071#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ActionTurn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="77" column="35" lean-forward="false" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+        <state relative-caret-position="142">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="83" column="37" lean-forward="false" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+        <state relative-caret-position="278">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="260" column="12" lean-forward="false" selection-start-line="260" selection-start-column="12" selection-end-line="260" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6953">
-          <caret line="459" column="22" lean-forward="false" selection-start-line="459" selection-start-column="22" selection-end-line="459" selection-end-column="22" />
+        <state relative-caret-position="221">
+          <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Provisions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
-            <marker date="1496424226262" expanded="true" signature="16580:16758" ph="/**...*/" />
-            <marker date="1496424226262" expanded="true" signature="16808:17109" ph="{...}" />
-            <marker date="1496424226262" expanded="true" signature="17115:17185" ph="/**...*/" />
-            <marker date="1496424226262" expanded="false" signature="17223:17234" ph=" { " />
-            <marker date="1496424226262" expanded="false" signature="17259:17265" ph=" }" />
-            <marker date="1496424226262" expanded="true" signature="17271:17334" ph="/**...*/" />
-            <marker date="1496424226262" expanded="false" signature="17372:17383" ph=" { " />
-            <marker date="1496424226262" expanded="false" signature="17401:17407" ph=" }" />
-            <marker date="1496424226262" expanded="true" signature="17413:17497" ph="/**...*/" />
-            <marker date="1496424226262" expanded="false" signature="17539:17550" ph=" { " />
-            <marker date="1496424226262" expanded="false" signature="17579:17585" ph=" }" />
-            <marker date="1496424226262" expanded="true" signature="17591:17668" ph="/**...*/" />
-            <marker date="1496424226262" expanded="false" signature="17719:17730" ph=" { " />
-            <marker date="1496424226262" expanded="false" signature="17759:17765" ph=" }" />
-            <marker date="1496424226262" expanded="true" signature="17771:17855" ph="/**...*/" />
-            <marker date="1496424226262" expanded="false" signature="17897:17908" ph=" { " />
-            <marker date="1496424226262" expanded="false" signature="17937:17943" ph=" }" />
-            <marker date="1496424226262" expanded="true" signature="17949:18072" ph="/**...*/" />
-            <marker date="1496424226262" expanded="false" signature="18120:18131" ph=" { " />
-            <marker date="1496424226262" expanded="false" signature="18166:18172" ph=" }" />
-            <marker date="1496424226262" expanded="true" signature="18178:18266" ph="/**...*/" />
-            <marker date="1496424226262" expanded="false" signature="18301:18312" ph=" { " />
-            <marker date="1496424226262" expanded="false" signature="18325:18331" ph=" }" />
-            <marker date="1496424226262" expanded="true" signature="18337:18418" ph="/**...*/" />
-            <marker date="1496424226262" expanded="true" signature="18451:18650" ph="{...}" />
-            <marker date="1496424226262" expanded="true" signature="18738:19156" ph="{...}" />
-            <marker date="1496424226262" expanded="true" signature="19207:19305" ph="{...}" />
-            <marker date="1496424226262" expanded="true" signature="19364:19608" ph="{...}" />
-            <marker date="1496424226262" expanded="true" signature="19684:21096" ph="{...}" />
-            <marker date="1496424226262" expanded="true" signature="19825:21090" ph="{...}" />
+            <element signature="e#1718#1719#0" expanded="true" />
+            <element signature="e#1760#1761#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="146" column="60" lean-forward="true" selection-start-line="146" selection-start-column="60" selection-end-line="146" selection-end-column="60" />
+          <folding>
+            <marker date="1496425643762" expanded="false" signature="7787:7798" ph=" { " />
+            <marker date="1496425643762" expanded="false" signature="7811:7817" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/cards/ProductionCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#968#969#0" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+            <element signature="e#1561#1562#0" expanded="true" />
+            <element signature="e#1592#1593#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ProductionGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+        <state relative-caret-position="159">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
