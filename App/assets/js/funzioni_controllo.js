@@ -23,16 +23,19 @@ function controlloStato(obj){
     "use strict";
     var stato_gioco=obj.gameState.currentState;
     var turno= obj.currentTurn.type;
-		
+	
+	
 	if (stato_gioco==="GAME_ACTIVE"){
 		if(turno==="ProductionTurn"){
-			$("#jumboInfo").text('Tocca al gruppo Produzione!');
+			var nomeGruppo = obj.currentTurn.group.name;
+			$("#jumboInfo").text('Tocca al '+nomeGruppo+'!');
 			$("#jumboInfo2").text('Passa il tablet');
 			$("#avanti").click(function(){
 				window.open('preproduzione.html','_self');
 			});
 		}else if(turno==="ActionTurn"){
-			$("#jumboInfo").text('Tocca al gruppo Croce Rossa!');
+			var nomeGruppo = obj.currentTurn.group.name;
+			$("#jumboInfo").text('Tocca all' '+nomeGruppo+'!');
 			$("#jumboInfo2").text('Passa il tablet');
 			$("#avanti").click(function(){
 				window.open('crocerossa.html','_self');
@@ -46,7 +49,8 @@ function controlloStato(obj){
 				});
 			});
 		}else{
-			$("#jumboInfo").text('Turno Emergenza');
+			var tipoEmergenza = obj.currentTurn.emergency;	
+			$("#jumboInfo").text('Emergenza '+tipoEmergenza);
 			$("#jumboInfo2").text('Passa il turno cliccando "Avanti"');
 			$("#avanti").click(function(){
 				socket.emit('nextTurn', JSON.parse('{}'), function(response) {

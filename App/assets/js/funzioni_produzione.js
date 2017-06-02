@@ -3,6 +3,7 @@ var socket;
 var LOCATIONID = "it.uniba.hazard.engine.map.Location_";
 var OBJECTID = "it.uniba.hazard.engine.pawns.TransportPawn_";
 var logs = []; //array di log
+var nomeGruppo; //nome del gruppo in gioco
 
 function settaSocket(s){
 	"use strict";
@@ -23,7 +24,7 @@ $(document).ready(function(){
 function inizializzaDati(oggetto){
     "use strict";
 	sessionStorage.numTurnoP = Number(sessionStorage.numTurnoP) + 1;
-	
+	nomeGruppo = oggetto.group.name;
     //Prelevo i dati dal server, e salvo i dati
 
     //Variabile per il numero di camion
@@ -156,7 +157,7 @@ function setModalLog (logString){
 
 function creaTabProduzione(arrCamion){
     "use strict";
-	$("#titoloTurno").html("Turno "+ sessionStorage.numTurnoP +" del Gruppo Produzione");
+	$("#titoloTurno").html("Turno "+ sessionStorage.numTurnoP +" del "+nomeGruppo);
 
     for(var i=0; i<arrCamion.length; i++){
        $("#pannelli").append("<div class='tab-pane' id='tab_"+i+"'>");
