@@ -138,9 +138,8 @@ function spostaButtonProduzione(i){
 			setModalLog(sposta.logString);
 			salvaLog(sposta.logString);
 		}else{
-			
 			setModalLog(sposta.logString);
-			$("#spostaButtonP_"+i).prop("disabled", true);
+			//$("#spostaButtonP_"+i).prop("disabled", true);
 		}
 		
 	});
