@@ -41,7 +41,7 @@ public class MovePlaceInstance implements BonusCardInstance{
     public Response executeAction(GameState gameState, Turn turn) {
         ActionTurn at = (ActionTurn) turn;
 
-        at.getPlayer().moveActionPawn(gameState,destination);
+        at.getPlayer().moveActionPawnNoCheck(gameState,destination);
 
         return new MovePlaceResponse(true,at.getPlayer(),destination);
     }

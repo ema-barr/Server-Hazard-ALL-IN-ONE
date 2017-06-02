@@ -166,6 +166,13 @@ public class ActionGroup {
         return buildStrongholdResponse;
     }
 
+    /**
+     *     Moves the action group in a new destination.
+     *     This method checks if the destination is adjacent to the current location of the group, so it should only
+     *     be used for the standard movement action, not for bonus cards.
+     *
+     */
+
     public ActionGroupMoveResponse moveActionPawn(GameState state, Location l) {
         ActionGroupMoveResponse actionGroupMoveResponse;
 
@@ -185,6 +192,17 @@ public class ActionGroup {
             //throw new CannotMovePawnException("Invalid movement");
         }
         return actionGroupMoveResponse;
+    }
+
+    /**
+     *  Moves the action group pawn in the specified destination.
+     *  This method does not check if the destination is adjacent, so it should not be used for the standard
+     *  movement action, only for special movement cases (e.g. bonus cards)
+     *
+     */
+    public ActionGroupMoveResponse moveActionPawnNoCheck(GameState state, Location l) {
+        state.movePawn(actionPawn, l);
+        return new ActionGroupMoveResponse(true, l, this);
     }
 
 
