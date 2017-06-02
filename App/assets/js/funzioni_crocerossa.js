@@ -63,6 +63,8 @@ function aggiornaDati(){
 					dati.tipoRisorsa.push(risorse.pawns[0].payload[ris].resource);
 					dati.quantitaRisorsa.push(risorse.pawns[0].payload[ris].quantity);
 				}
+			}else{
+				dati.risorseDisponibili = 0;
 			}
 			
 			// EMERGENZE
