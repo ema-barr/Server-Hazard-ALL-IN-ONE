@@ -47,6 +47,7 @@ public class MalusProductionCardInstance implements EventCardInstance{
      * @return null
      */
     public Response revertAction(GameState gameState){
+        gameState.setNumberOfProductionCards(gameState.getDefaultNumOfProductionCards());
         return null;
     }
 }

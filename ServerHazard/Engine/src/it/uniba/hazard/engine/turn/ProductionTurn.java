@@ -97,6 +97,9 @@ public class ProductionTurn implements PlayerTurn {
                 //If no cards can be chosen, set to movement state
                 state = StateTurn.MOVE_TRANSPORT_PAWN;
             }
+
+            //Set the number if cards that can be extracted in this turn
+            numberOfChoose = gameState.getNumberOfProductionCards();
             return new ProductionTurnExecuteTurnResponse(true, player, productionCards);
         } else {
             //If the max number of pawns has been reached, set to movement state
@@ -163,7 +166,7 @@ public class ProductionTurn implements PlayerTurn {
                 resp = new ChooseProductionCardResponse(false, player);
             }
             //Once the specified number of production cards has been chosen, the production turn switches into movement mode
-            if (selectedCards.size() >= numberOfChoose) {
+            if (selectedCards.size() >= numberOfChoose || (productionCards.size() - selectedCards.size()) == 0) {
                 state = StateTurn.MOVE_TRANSPORT_PAWN;
             }
         } else {
