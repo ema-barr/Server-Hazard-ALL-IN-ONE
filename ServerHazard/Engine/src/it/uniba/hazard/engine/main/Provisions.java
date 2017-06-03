@@ -92,4 +92,14 @@ public class Provisions {
             return result;
         }
     }
+
+    public Provisions clone(){
+        Provisions clone = new Provisions();
+        for (Resource res: this.getListResources()){
+            int quantity = this.getQuantity(res);
+            clone.addResource(res, quantity);
+        }
+
+        return  clone;
+    }
 }

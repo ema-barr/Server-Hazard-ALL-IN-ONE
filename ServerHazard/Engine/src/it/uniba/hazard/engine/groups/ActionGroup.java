@@ -67,7 +67,7 @@ public class ActionGroup {
     }
 
     public void setProvisions(Provisions provisions) {
-        this.provisions = provisions;
+        this.provisions = provisions.clone();
     }
 
     public ActionPawn getActionPawn() {

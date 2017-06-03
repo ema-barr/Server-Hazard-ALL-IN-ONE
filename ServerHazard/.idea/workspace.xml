@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0984f990-e244-440e-9983-9eb22aa58c57" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState$GameStateSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState$GameStateSerializer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/main/GameState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ProductionTurn.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ProductionGroup.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ProductionGroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Provisions.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Provisions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/pawns/TransportPawn.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/pawns/TransportPawn.java" />
     </list>
     <ignored path="$PROJECT_DIR$/Engine/src/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +30,7 @@
       <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
+            <state relative-caret-position="714">
               <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding />
             </state>
@@ -41,7 +40,7 @@
       <file leaf-file-name="ActionTurn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ActionTurn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
+            <state relative-caret-position="952">
               <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding />
             </state>
@@ -51,9 +50,31 @@
       <file leaf-file-name="ActionGroup.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="935">
+              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+              <folding>
+                <marker date="1496484967132" expanded="false" signature="2469:2475" ph=" }" />
+                <marker date="1496484967132" expanded="false" signature="2514:2525" ph=" { " />
+                <marker date="1496484967132" expanded="false" signature="2543:2549" ph=" }" />
+                <marker date="1496484967132" expanded="false" signature="2589:2600" ph=" { " />
+                <marker date="1496484967132" expanded="false" signature="2623:2629" ph=" }" />
+                <marker date="1496484967132" expanded="true" signature="2712:3310" ph="{...}" />
+                <marker date="1496484967132" expanded="false" signature="3346:3357" ph=" { " />
+                <marker date="1496484967132" expanded="false" signature="3368:3374" ph=" }" />
+                <marker date="1496484967132" expanded="false" signature="3414:3425" ph=" { " />
+                <marker date="1496484967132" expanded="false" signature="3446:3452" ph=" }" />
+                <marker date="1496484967132" expanded="true" signature="3539:5303" ph="{...}" />
+                <marker date="1496484967132" expanded="true" signature="5398:7091" ph="{...}" />
+                <marker date="1496484967132" expanded="true" signature="7097:7362" ph="/**...*/" />
+                <marker date="1496484967132" expanded="true" signature="7443:8170" ph="{...}" />
+                <marker date="1496484967132" expanded="true" signature="8176:8445" ph="/**...*/" />
+                <marker date="1496484967132" expanded="true" signature="8532:8637" ph="{...}" />
+                <marker date="1496484967132" expanded="true" signature="8672:8875" ph="{...}" />
+                <marker date="1496484967132" expanded="false" signature="8920:8931" ph=" { " />
+                <marker date="1496484967132" expanded="false" signature="8959:8965" ph=" }" />
+                <marker date="1496484967132" expanded="true" signature="9045:9399" ph="{...}" />
+                <marker date="1496484967132" expanded="true" signature="9190:9393" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,12 +82,9 @@
       <file leaf-file-name="ProductionTurn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="146" column="60" lean-forward="true" selection-start-line="146" selection-start-column="60" selection-end-line="146" selection-end-column="60" />
-              <folding>
-                <marker date="1496425643762" expanded="false" signature="7787:7798" ph=" { " />
-                <marker date="1496425643762" expanded="false" signature="7811:7817" ph=" }" />
-              </folding>
+            <state relative-caret-position="2142">
+              <caret line="146" column="60" lean-forward="false" selection-start-line="146" selection-start-column="60" selection-end-line="146" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,7 +92,7 @@
       <file leaf-file-name="ProductionCard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/cards/ProductionCard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
+            <state relative-caret-position="799">
               <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
                 <element signature="e#941#942#0" expanded="true" />
@@ -90,8 +108,8 @@
       <file leaf-file-name="ProductionGroup.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ProductionGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="-748">
+              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -100,7 +118,7 @@
       <file leaf-file-name="GameState.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="7174">
               <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
               <folding />
             </state>
@@ -110,7 +128,7 @@
       <file leaf-file-name="Provisions.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Provisions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="323">
               <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="e#1718#1719#0" expanded="true" />
@@ -123,10 +141,23 @@
       <file leaf-file-name="TransportPawn.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/pawns/TransportPawn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="680">
+              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
-                <element signature="e#1663#1664#0" expanded="true" />
+                <marker date="1496484967154" expanded="false" signature="1431:1442" ph=" { " />
+                <marker date="1496484967154" expanded="false" signature="1458:1464" ph=" }" />
+                <marker date="1496484967154" expanded="false" signature="1488:1499" ph=" { " />
+                <marker date="1496484967154" expanded="false" signature="1509:1515" ph=" }" />
+                <marker date="1496484967154" expanded="false" signature="1564:1575" ph=" { " />
+                <marker date="1496484967154" expanded="false" signature="1598:1604" ph=" }" />
+                <marker date="1496484967154" expanded="true" signature="1640:1651" ph=" { " />
+                <marker date="1496484967154" expanded="true" signature="1666:1672" ph=" }" />
+                <marker date="1496484967154" expanded="true" signature="1717:1850" ph="{...}" />
+                <marker date="1496484967154" expanded="true" signature="1899:2079" ph="{...}" />
+                <marker date="1496484967154" expanded="false" signature="2123:2134" ph=" { " />
+                <marker date="1496484967154" expanded="false" signature="2183:2189" ph=" }" />
+                <marker date="1496484967154" expanded="true" signature="2273:2743" ph="{...}" />
+                <marker date="1496484967154" expanded="true" signature="2422:2737" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -135,7 +166,7 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
+            <state relative-caret-position="595">
               <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="e#1070#1071#0" expanded="true" />
@@ -175,6 +206,7 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java" />
         <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java" />
+        <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ProductionGroup.java" />
       </list>
     </option>
   </component>
@@ -209,7 +241,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -396,6 +427,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
@@ -1107,7 +1139,8 @@
       <workItem from="1496396467816" duration="5348000" />
       <workItem from="1496413311543" duration="1079000" />
       <workItem from="1496422090812" duration="2308000" />
-      <workItem from="1496424428392" duration="3776000" />
+      <workItem from="1496424428392" duration="3823000" />
+      <workItem from="1496484950929" duration="193000" />
     </task>
     <task id="LOCAL-00001" summary="Rimessi strutturaxml e la cartella resources nella posizione originale">
       <created>1496227846953</created>
@@ -1158,20 +1191,26 @@
       <option name="project" value="LOCAL" />
       <updated>1496424514087</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Aggiornato engine">
+      <created>1496428249810</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1496428249810</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18193000" />
+    <option name="totallyTimeSpent" value="18433000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.49713466" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1183,7 +1222,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.256447" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26002866" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1191,11 +1230,12 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39888424" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39888424" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.49713466" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1258,7 +1298,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4046">
           <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1296,11 +1335,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#648#649#0" expanded="false" />
-            <element signature="e#683#684#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1308,7 +1342,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4046">
           <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1346,11 +1379,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#648#649#0" expanded="false" />
-            <element signature="e#683#684#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1358,7 +1386,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4046">
           <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1396,11 +1423,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#648#649#0" expanded="false" />
-            <element signature="e#683#684#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1408,7 +1430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4046">
           <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1446,11 +1467,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#648#649#0" expanded="false" />
-            <element signature="e#683#684#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1458,7 +1474,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4046">
           <caret line="238" column="14" lean-forward="true" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1519,11 +1534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#648#649#0" expanded="false" />
-            <element signature="e#683#684#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1539,7 +1549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4046">
           <caret line="238" column="14" lean-forward="false" selection-start-line="238" selection-start-column="14" selection-end-line="238" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1569,17 +1578,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/pawns/TransportPawn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="680">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
-            <element signature="e#1663#1664#0" expanded="true" />
+            <marker date="1496484967154" expanded="false" signature="1431:1442" ph=" { " />
+            <marker date="1496484967154" expanded="false" signature="1458:1464" ph=" }" />
+            <marker date="1496484967154" expanded="false" signature="1488:1499" ph=" { " />
+            <marker date="1496484967154" expanded="false" signature="1509:1515" ph=" }" />
+            <marker date="1496484967154" expanded="false" signature="1564:1575" ph=" { " />
+            <marker date="1496484967154" expanded="false" signature="1598:1604" ph=" }" />
+            <marker date="1496484967154" expanded="true" signature="1640:1651" ph=" { " />
+            <marker date="1496484967154" expanded="true" signature="1666:1672" ph=" }" />
+            <marker date="1496484967154" expanded="true" signature="1717:1850" ph="{...}" />
+            <marker date="1496484967154" expanded="true" signature="1899:2079" ph="{...}" />
+            <marker date="1496484967154" expanded="false" signature="2123:2134" ph=" { " />
+            <marker date="1496484967154" expanded="false" signature="2183:2189" ph=" }" />
+            <marker date="1496484967154" expanded="true" signature="2273:2743" ph="{...}" />
+            <marker date="1496484967154" expanded="true" signature="2422:2737" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
+        <state relative-caret-position="595">
           <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="e#1070#1071#0" expanded="true" />
@@ -1589,7 +1611,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ActionTurn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
+        <state relative-caret-position="952">
           <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding />
         </state>
@@ -1597,9 +1619,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="935">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <marker date="1496484967132" expanded="false" signature="2469:2475" ph=" }" />
+            <marker date="1496484967132" expanded="false" signature="2514:2525" ph=" { " />
+            <marker date="1496484967132" expanded="false" signature="2543:2549" ph=" }" />
+            <marker date="1496484967132" expanded="false" signature="2589:2600" ph=" { " />
+            <marker date="1496484967132" expanded="false" signature="2623:2629" ph=" }" />
+            <marker date="1496484967132" expanded="true" signature="2712:3310" ph="{...}" />
+            <marker date="1496484967132" expanded="false" signature="3346:3357" ph=" { " />
+            <marker date="1496484967132" expanded="false" signature="3368:3374" ph=" }" />
+            <marker date="1496484967132" expanded="false" signature="3414:3425" ph=" { " />
+            <marker date="1496484967132" expanded="false" signature="3446:3452" ph=" }" />
+            <marker date="1496484967132" expanded="true" signature="3539:5303" ph="{...}" />
+            <marker date="1496484967132" expanded="true" signature="5398:7091" ph="{...}" />
+            <marker date="1496484967132" expanded="true" signature="7097:7362" ph="/**...*/" />
+            <marker date="1496484967132" expanded="true" signature="7443:8170" ph="{...}" />
+            <marker date="1496484967132" expanded="true" signature="8176:8445" ph="/**...*/" />
+            <marker date="1496484967132" expanded="true" signature="8532:8637" ph="{...}" />
+            <marker date="1496484967132" expanded="true" signature="8672:8875" ph="{...}" />
+            <marker date="1496484967132" expanded="false" signature="8920:8931" ph=" { " />
+            <marker date="1496484967132" expanded="false" signature="8959:8965" ph=" }" />
+            <marker date="1496484967132" expanded="true" signature="9045:9399" ph="{...}" />
+            <marker date="1496484967132" expanded="true" signature="9190:9393" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1613,7 +1657,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
+        <state relative-caret-position="714">
           <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
@@ -1621,7 +1665,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="7174">
           <caret line="472" column="0" lean-forward="false" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
           <folding />
         </state>
@@ -1629,7 +1673,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Provisions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="323">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="e#1718#1719#0" expanded="true" />
@@ -1640,18 +1684,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ProductionTurn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="146" column="60" lean-forward="true" selection-start-line="146" selection-start-column="60" selection-end-line="146" selection-end-column="60" />
-          <folding>
-            <marker date="1496425643762" expanded="false" signature="7787:7798" ph=" { " />
-            <marker date="1496425643762" expanded="false" signature="7811:7817" ph=" }" />
-          </folding>
+        <state relative-caret-position="2142">
+          <caret line="146" column="60" lean-forward="false" selection-start-line="146" selection-start-column="60" selection-end-line="146" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/cards/ProductionCard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
+        <state relative-caret-position="799">
           <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
             <element signature="e#941#942#0" expanded="true" />
@@ -1665,8 +1706,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ProductionGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="-748">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>

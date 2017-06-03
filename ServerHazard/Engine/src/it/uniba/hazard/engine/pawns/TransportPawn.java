@@ -32,7 +32,7 @@ public class TransportPawn implements PlayerPawn{
         id++;
         objectID = this.getClass().getName() + "_" + productionGroup.toString() + "_" + id;
         this.productionGroup = productionGroup;
-        this.payload = payload;
+        this.payload = payload.clone();
         //this.location = location;
     }
 

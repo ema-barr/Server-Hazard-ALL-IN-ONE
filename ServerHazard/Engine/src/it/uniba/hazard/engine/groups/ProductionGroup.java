@@ -45,8 +45,9 @@ public class ProductionGroup {
 
     }*/
 
-    public InsertNewTransportPawnResponse insertNewTransportPawn(GameState state, Provisions payload, Location location){
+    public InsertNewTransportPawnResponse insertNewTransportPawn(GameState state, Provisions payloadToInsert, Location location){
         InsertNewTransportPawnResponse insertNewTransportPawnResponse;
+        Provisions payload = payloadToInsert.clone();
         int numTransportPawns = pawns.size();
         TransportPawn pawn = null;
         if (numTransportPawns < maxTransportPawns){
