@@ -6,6 +6,7 @@ var LOCATIONID = "it.uniba.hazard.engine.map.Location_";
 var EMERGENCYID = "it.uniba.hazard.engine.main.Emergency_";
 var logs = []; //array di log
 var dati = new Object();
+var nomeGruppo; //nome del gruppo in gioco
 
 function settaSocket(s){
 	"use strict";
@@ -39,6 +40,7 @@ function aggiornaDati(){
 	socket.emit('getCurrentTurn', "{}", function(response) {
 		console.log(response);
     	var oggetto = JSON.parse(response);
+		nomeGruppo = oggetto.group.name;
 		dati.origine = oggetto.pawn.location.name;
 		dati.gravita = oggetto.pawn.location.emergencyLevels[0].level;
 		dati.emergenza = oggetto.pawn.location.emergencyLevels[0].emergency;
@@ -109,7 +111,7 @@ function aggiornaDati(){
 function creaTabAzioni(dati){
     "use strict";
     
-	$("#titoloTurno").html("Turno " + sessionStorage.numTurnoCR + " del Gruppo Croce Rossa");
+	$("#titoloTurno").html("Turno " + sessionStorage.numTurnoCR + " dell' "+nomeGruppo);
 	
 	//SPOSTA
 	$("#pannelli").append("<div class='tab-pane' id='tab_1'>");

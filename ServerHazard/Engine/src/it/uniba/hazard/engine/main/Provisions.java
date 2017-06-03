@@ -95,11 +95,11 @@ public class Provisions {
 
     public Provisions clone(){
         Provisions clone = new Provisions();
-        for (Resource res: this.getListResources()){
+        for(Resource res: this.getListResources()){
             int quantity = this.getQuantity(res);
             clone.addResource(res, quantity);
         }
 
-        return  clone;
+        return clone;
     }
 }
