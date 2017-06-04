@@ -100,22 +100,22 @@ class Dashboard {
 		            },
 		            {
 		                min: 2,
-		                max: 3,
+		                max: 2,
 		                attrs: {
-		                    fill: "#B5EC03"
+		                    fill: "#FFD700"
 		                },
 		                label: "Livello 2"
 		            },
 		            {
-		                min: 4,
-		                max: 5,
+		                min: 3,
+		                max: 3,
 		                attrs: {
 		                    fill: "#FF9C01"
 		                },
 		                label: "Livello 3"
 		            },
 		            {
-		                min: 6,
+		                min: 4,
 		                attrs: {
 		                    fill: "#FE2701"
 		                },
@@ -183,6 +183,7 @@ class Dashboard {
 	chooseCardPopup(cardID){
 		this.modal.selectCard(cardID);
 		this.hideModal(3000);
+		this.addLog('INFO','E\' stata scelta la carta '+cardID);
 	}
 
 

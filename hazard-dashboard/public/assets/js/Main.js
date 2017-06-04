@@ -24,7 +24,7 @@ var GameState = require('./utils/GameState.js');
 	 * @return NA
 	 */
 	 constructor() {
-
+	 	this.INITIALIZED = false;
 	 	String.prototype.capitalizeFirstLetter = function() {
 	 		return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
 	 	}
@@ -61,16 +61,16 @@ var GameState = require('./utils/GameState.js');
 
 			console.log(socket);
 			socket.on('welcome',function(data){
-				console.log(data);
-				socket.emit('init_dashboard', data);
-				self.gameStart('./strutturaxml.xml');
+				if(!this.INITIALIZED){
+					socket.emit('init_dashboard', data);
+					self.gameStart('../../strutturaxml.xml');
+					this.INITIALIZED = true;
+				}
 			});
 
 			socket.on('update',function(data){
-				if(typeof(data) != `undefined`){
-					self.handleState(data);
-					console.log(data);
-				}
+				console.log(data);
+				self.handleState(data);
 			});
 
 			socket.on('popupMessage',function(data){
@@ -82,7 +82,8 @@ var GameState = require('./utils/GameState.js');
 			});
 
 			socket.on('chooseProductionCard',function(data){
-				if(typeof(data) != `undefined` && typeof(data.cardID) != `undefined`) self.hazard.chooseCardPopup(data.cardID);
+				console.log(data);
+				if(typeof(data) != `undefined` && typeof(data.cardIndex != `undefined`)) self.hazard.chooseCardPopup(data.cardIndex);
 			});
 
 			socket.on('init',function(data){
@@ -148,8 +149,8 @@ var GameState = require('./utils/GameState.js');
 	 		}
 	 		if(group.type == 'actionGroup'){
 	 			var position = {
-	 				'top': plots[group.startingPoint+'-plot'].longitude,
-	 				'left':plots[group.startingPoint+'-plot'].latitude
+	 				'top': plots[group.startingPoint+'-plot'].latitude,
+	 				'left':plots[group.startingPoint+'-plot'].longitude
 	 			};
 	 			var groupObj= {};
 	 			groupObj[key] = group.color;
@@ -211,11 +212,19 @@ var GameState = require('./utils/GameState.js');
 
 		//ciclo le l'xml di setup gioco
 		self.cards = json.xml.game.cards;					
-		self.endGame = json.xml.game.endGame;					
+		self.endGame = json.xml.game.endGame;
+		self.resources = json.xml.game.resources;					
 		//self.groups = json.xml.game.groups;
 		self.locale = json.xml.game.locale
 		self.locations = json.xml.game.map.area.location;
 		
+
+		if(typeof self.resources['name'] == 'string') self.hazard.changeResources(self.resources.name, 0);
+		else {
+			for(var i = 0; i<self.resources['name'].length;i++){
+				self.hazard.changeResources(self.resources['name'][i], 0);
+			}
+		}
 
 
 		for(var j = 0; j < self.locations.length; j++) {
@@ -229,7 +238,6 @@ var GameState = require('./utils/GameState.js');
 			self.plots[self.locations[j].name+'-plot'].size = config['DEFAULT_PLOT_SIZE'];
 			self.plots[self.locations[j].name+'-plot'].latitude = self.locations[j].latitude;
 			self.plots[self.locations[j].name+'-plot'].longitude = self.locations[j].longitude;
-
 
 
 
@@ -301,6 +309,9 @@ var GameState = require('./utils/GameState.js');
 							for(var j = 0; j<json.xml.game.groups[key][i]['headquarters'].headquarter.length;j++){
 								self.groups[keyName].hq.push(json.xml.game.groups[key][i]['headquarters']['headquarter'][j]);
 							}
+						}
+
+						if(key == 'actionGroup' || key == 'productionGroup'){
 							var groupColor = self.utils.getRandomColor();
 							self.groups[keyName].color = groupColor.rgb;
 						}
@@ -363,7 +374,7 @@ var GameState = require('./utils/GameState.js');
 			}
 			if (diff['locations']) {
 				var loc = diff['locations'];
-				for (var j = 0; j < loc.length; j++) {
+				for (var j = 0; j < loc.length && loc[j] != undefined; j++) {
 					for (var k = 0; k < loc[j].emergencyLevels.length; k++) {
 						if (loc[j].emergencyLevels[k].level == 1) {
 							/*Crea una nuova malattia nella nazione tramite createEmergency(LOCATIONID,NOMEEMERGENZA,LIVELLOEMERGENZA) */
@@ -391,7 +402,6 @@ var GameState = require('./utils/GameState.js');
 							"left" : this.plots[pawns[j].location+'-plot'].longitude
 
 						};
-
 						var group = {};
 						group[pawns[j].group] = this.groups[pawns[j].group].color;
 						this.hazard.setPawn(group, pawns[j].location,position );
@@ -449,10 +459,9 @@ var GameState = require('./utils/GameState.js');
 				this.hazard.updateTurn(lang['productionGroup']);
 			}
 			if (diff['group']) {
-				var group = diff['group'];
-				for (var j = 0; j < group.resources.length; j++) {
+				for (var j = 0; j < diff['resources'].length && diff['resources'] != undefined; j++) {
 					/* Cambia le risorse presenti nella schermata del giocatore  tramite changeResources(risorsa,numero)*/
-					this.hazard.changeResources(group.resources[j].resource, group.resources[j].quantity);
+					this.hazard.changeResources(diff['resources'][j].resource, diff['resources'][j].quantity);
 				}
 			}
 

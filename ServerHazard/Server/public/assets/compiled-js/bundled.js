@@ -12263,7 +12263,7 @@
 
 			//LEGENDA
 			'LEGEND_MODE': 'horizontal',
-			'LEGEND': [{ color: "#5BCA09", value: '0,1', text: 'Livello 1' }, { color: "#B5EC03", value: '2,3', text: 'Livello 2' }, { color: "#FF9C01", value: '2,3', text: 'Livello 3' }, { color: "#FE2701", value: '6,20', text: 'Livello 4' }],
+			'LEGEND': [{ color: "#5BCA09", value: '0,1', text: 'Livello 1' }, { color: "#FFD700", value: '2,3', text: 'Livello 2' }, { color: "#FF9C01", value: '2,3', text: 'Livello 3' }, { color: "#FE2701", value: '6,20', text: 'Livello 4' }],
 
 			//IDs
 			'PROGRESS_BAR_ID': '#progressinf',
@@ -12378,20 +12378,20 @@
 								label: "Livello 1"
 							}, {
 								min: 2,
-								max: 3,
+								max: 2,
 								attrs: {
-									fill: "#B5EC03"
+									fill: "#FFD700"
 								},
 								label: "Livello 2"
 							}, {
-								min: 4,
-								max: 5,
+								min: 3,
+								max: 3,
 								attrs: {
 									fill: "#FF9C01"
 								},
 								label: "Livello 3"
 							}, {
-								min: 6,
+								min: 4,
 								attrs: {
 									fill: "#FE2701"
 								},
@@ -12457,6 +12457,7 @@
 			chooseCardPopup(cardID) {
 				this.modal.selectCard(cardID);
 				this.hideModal(3000);
+				this.addLog('INFO', 'E\' stata scelta la carta ' + cardID);
 			}
 
 			setActions(current, max) {
@@ -12660,7 +12661,7 @@
     * @return NA
     */
 			constructor() {
-
+				this.INITIALIZED = false;
 				String.prototype.capitalizeFirstLetter = function () {
 					return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
 				};
@@ -12695,16 +12696,16 @@
 
 				console.log(socket);
 				socket.on('welcome', function (data) {
-					console.log(data);
-					socket.emit('init_dashboard', data);
-					self.gameStart('./strutturaxml.xml');
+					if (!this.INITIALIZED) {
+						socket.emit('init_dashboard', data);
+						self.gameStart('../../strutturaxml.xml');
+						this.INITIALIZED = true;
+					}
 				});
 
 				socket.on('update', function (data) {
-					if (typeof data != `undefined`) {
-						self.handleState(data);
-						console.log(data);
-					}
+					console.log(data);
+					self.handleState(data);
 				});
 
 				socket.on('popupMessage', function (data) {});
@@ -12714,7 +12715,8 @@
 				});
 
 				socket.on('chooseProductionCard', function (data) {
-					if (typef(data) != `undefined` && typeof data.cardID != `undefined`) self.hazard.chooseCardPopup(data.cardID);
+					console.log(data);
+					if (typeof data != `undefined` && typeof (data.cardIndex != `undefined`)) self.hazard.chooseCardPopup(data.cardIndex);
 				});
 
 				socket.on('init', function (data) {
@@ -12777,8 +12779,8 @@
 					}
 					if (group.type == 'actionGroup') {
 						var position = {
-							'top': plots[group.startingPoint + '-plot'].longitude,
-							'left': plots[group.startingPoint + '-plot'].latitude
+							'top': plots[group.startingPoint + '-plot'].latitude,
+							'left': plots[group.startingPoint + '-plot'].longitude
 						};
 						var groupObj = {};
 						groupObj[key] = group.color;
@@ -12840,9 +12842,16 @@
 						//ciclo le l'xml di setup gioco
 						self.cards = json.xml.game.cards;
 						self.endGame = json.xml.game.endGame;
+						self.resources = json.xml.game.resources;
 						//self.groups = json.xml.game.groups;
 						self.locale = json.xml.game.locale;
 						self.locations = json.xml.game.map.area.location;
+
+						if (typeof self.resources['name'] == 'string') self.hazard.changeResources(self.resources.name, 0);else {
+							for (var i = 0; i < self.resources['name'].length; i++) {
+								self.hazard.changeResources(self.resources['name'][i], 0);
+							}
+						}
 
 						for (var j = 0; j < self.locations.length; j++) {
 							self.areas[self.locations[j].name] = {};
@@ -12919,6 +12928,9 @@
 										for (var j = 0; j < json.xml.game.groups[key][i]['headquarters'].headquarter.length; j++) {
 											self.groups[keyName].hq.push(json.xml.game.groups[key][i]['headquarters']['headquarter'][j]);
 										}
+									}
+
+									if (key == 'actionGroup' || key == 'productionGroup') {
 										var groupColor = self.utils.getRandomColor();
 										self.groups[keyName].color = groupColor.rgb;
 									}
@@ -12976,7 +12988,7 @@
 				}
 				if (diff['locations']) {
 					var loc = diff['locations'];
-					for (var j = 0; j < loc.length; j++) {
+					for (var j = 0; j < loc.length && loc[j] != undefined; j++) {
 						for (var k = 0; k < loc[j].emergencyLevels.length; k++) {
 							if (loc[j].emergencyLevels[k].level == 1) {
 								/*Crea una nuova malattia nella nazione tramite createEmergency(LOCATIONID,NOMEEMERGENZA,LIVELLOEMERGENZA) */
@@ -13004,7 +13016,6 @@
 								"left": this.plots[pawns[j].location + '-plot'].longitude
 
 							};
-
 							var group = {};
 							group[pawns[j].group] = this.groups[pawns[j].group].color;
 							this.hazard.setPawn(group, pawns[j].location, position);
@@ -13049,10 +13060,9 @@
 					this.hazard.updateTurn(lang['productionGroup']);
 				}
 				if (diff['group']) {
-					var group = diff['group'];
-					for (var j = 0; j < group.resources.length; j++) {
+					for (var j = 0; j < diff['resources'].length && diff['resources'] != undefined; j++) {
 						/* Cambia le risorse presenti nella schermata del giocatore  tramite changeResources(risorsa,numero)*/
-						this.hazard.changeResources(group.resources[j].resource, group.resources[j].quantity);
+						this.hazard.changeResources(diff['resources'][j].resource, diff['resources'][j].quantity);
 					}
 				}
 
@@ -16675,7 +16685,7 @@
 										changes['locations'] = [];
 										for (var j = 0; j < this.state.gameState.gameMap.locations.length; j++) {
 											if (j == diffs[i].path[base + 2]) {
-												changes['locations'].push(this.state.gameState.gameMap.locations[i]);
+												changes['locations'].push(this.state.gameState.gameMap.locations[j]);
 											}
 										}
 									} else {
@@ -16904,6 +16914,18 @@
 				this.setContent(html);
 			}
 
+			setContentCardsTextOnly(cards) {
+				this.cards = cards;
+				var html = `<div class="row">`;
+				var cols = Math.floor(12 / cards.length);
+				for (card in cards) {
+					html += `<div class="col-md-${cols} col-xl-${cols}">`;
+					html += `<p id="${card.name}">${card.name}</p>`;
+					html += `</div>`;
+				}
+				html += '</div>';
+				this.setContent(html);
+			}
 			/**
     * Seleziono la carta scelta
     * @param {int} id [Carta selezionata]

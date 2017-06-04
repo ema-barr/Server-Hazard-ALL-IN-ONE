@@ -55,6 +55,18 @@ class ModalDialog {
 		this.setContent(html);
 	}
 
+	setContentCardsTextOnly(cards){
+		this.cards = cards;
+		var html = `<div class="row">`;
+		var cols = Math.floor(12/cards.length);
+		for(card in cards){
+			html += `<div class="col-md-${cols} col-xl-${cols}">`;
+			html += `<p id="${card.name}">${card.name}</p>`;
+			html += `</div>`;
+		}
+		html += '</div>';
+		this.setContent(html);
+	}
 	/**
 	 * Seleziono la carta scelta
 	 * @param {int} id [Carta selezionata]

@@ -38,7 +38,7 @@ module.exports = {
 	'LEGEND_MODE' : 'horizontal',
 	'LEGEND' : [
 		{color : "#5BCA09", value : '0,1', text:'Livello 1'},
-		{color : "#B5EC03", value : '2,3', text:'Livello 2'},
+		{color : "#FFD700", value : '2,3', text:'Livello 2'},
 		{color : "#FF9C01", value : '2,3', text:'Livello 3'},
 		{color : "#FE2701", value : '6,20', text:'Livello 4'},
 

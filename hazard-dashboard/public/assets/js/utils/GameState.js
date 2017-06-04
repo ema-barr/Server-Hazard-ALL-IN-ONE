@@ -58,7 +58,7 @@ class GameState {
 								changes['locations'] = [];
 								for(var j = 0;j<this.state.gameState.gameMap.locations.length;j++){
 									if(j == diffs[i].path[base+2]){
-										changes['locations'].push(this.state.gameState.gameMap.locations[i]);
+										changes['locations'].push(this.state.gameState.gameMap.locations[j]);
 									}
 								}
 							}else{
