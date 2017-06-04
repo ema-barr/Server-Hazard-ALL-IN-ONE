@@ -1,6 +1,7 @@
 package it.uniba.hazard.engine.util.response.card;
 
 import com.google.gson.JsonObject;
+import it.uniba.hazard.engine.cards.RemoveTransportPawn;
 import it.uniba.hazard.engine.main.Repository;
 import it.uniba.hazard.engine.map.Location;
 import it.uniba.hazard.engine.pawns.TransportPawn;
@@ -42,7 +43,7 @@ public class RemoveTransportPawnResponse implements Response{
     public String toJson() {
         JsonObject res = new JsonObject();
         res.addProperty("success", success);
-        res.addProperty("actionName", "EVENT_CARD_QUARANTINE_PLACE");
+        res.addProperty("actionName", "EVENT_CARD_REMOVE_TRANSPORT_PAWN");
         res.addProperty("TransportPawn", tp.toString());
         res.addProperty("location", location.toString());
         res.addProperty("logString", logString);

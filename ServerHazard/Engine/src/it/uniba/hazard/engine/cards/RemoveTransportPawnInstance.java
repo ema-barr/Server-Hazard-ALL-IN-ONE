@@ -6,11 +6,11 @@ import it.uniba.hazard.engine.map.Location;
 import it.uniba.hazard.engine.pawns.GamePawn;
 import it.uniba.hazard.engine.pawns.TransportPawn;
 import it.uniba.hazard.engine.util.response.Response;
+import it.uniba.hazard.engine.util.response.card.DefaultCardResponse;
+import it.uniba.hazard.engine.util.response.card.RemoveTransportPawnNoPawnsResponse;
 import it.uniba.hazard.engine.util.response.card.RemoveTransportPawnResponse;
 
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Instances RemoveTransportPawn.
@@ -42,22 +42,39 @@ public class RemoveTransportPawnInstance implements EventCardInstance {
      */
     @Override
     public Response executeAction(GameState gameState, Turn turn) {
-        Set<Map.Entry<GamePawn,Location>> allPawns = gameState.getAllPawns().entrySet();
+        List<GamePawn> allPawns = new ArrayList<>();
+        allPawns.addAll(gameState.getAllPawns().keySet());
 
-        //Map.entry permette di poter prendere sia la chiave , sia il valore del dizionario
-        Map.Entry<GamePawn,Location>[] gl = new Map.Entry[allPawns.size()];
-        allPawns.toArray(gl);
+        //Get all the transport pawns
+        List<TransportPawn> transportPawns = getTransportPawns(allPawns);
 
-        while(true){
-            int randomIndex = new Random().nextInt()*gl.length-1;
+        if (transportPawns.size() > 0) {
+            int randomIndex = (int) (Math.random() * (transportPawns.size() - 1));
+            TransportPawn selected = transportPawns.get(randomIndex);
 
-            //verifico che la pedina scelta random sia una pedina trasporto
-            if(gameState.isOccupiedByTransportPawn(gl[randomIndex].getValue())){
-                gameState.removePawn(gl[randomIndex].getKey());
+            //Get the location before the pawn is removed
+            Location l = gameState.getLocationInMap(selected);
 
-                return new RemoveTransportPawnResponse(true,(TransportPawn) gl[randomIndex].getKey(),gl[randomIndex].getValue());
+            gameState.removePawn(selected);
+
+            return new RemoveTransportPawnResponse(true, selected, l);
+        }
+
+        //If there were no transport pawns, still send a success, but with a different message
+        return new RemoveTransportPawnNoPawnsResponse(true, "RemoveTransportPawn");
+    }
+
+    /*
+     * Gets all the transport pawns given the entire pawn list
+     */
+    private List<TransportPawn> getTransportPawns(List<GamePawn> pawns) {
+        List<TransportPawn> result = new ArrayList<>();
+        for (GamePawn p: pawns) {
+            if (p instanceof TransportPawn) {
+                result.add((TransportPawn) p);
             }
         }
+        return result;
     }
 
     /**
