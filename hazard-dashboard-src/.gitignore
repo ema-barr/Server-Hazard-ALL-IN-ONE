@@ -1,0 +1,11 @@
+# Release Subfolder
+release/
+
+# Backup
+backup/
+
+# Node Modules
+node_modules/
+
+# Animation
+animate-test/
