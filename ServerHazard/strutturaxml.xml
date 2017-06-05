@@ -233,8 +233,8 @@
           <name>Australia</name>
           <visualName>Australia</visualName>
           <value>0</value>
-          <latitude>316</latitude>
-          <longitude>65</longitude>
+          <longitude>316</longitude>
+          <latitude>65</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -254,8 +254,8 @@
           <name>NewZeland</name>
           <visualName>Nuova Zelanda</visualName>
           <value>0</value>
-          <latitude>354</latitude>
-          <longitude>50</longitude>
+          <longitude>354</longitude>
+          <latitude>50</latitude>
           <offsetLeft>-10</offsetLeft>
           <leds>
             <led>
@@ -275,8 +275,8 @@
           <name>Russia</name>
           <visualName>Russia</visualName>
           <value>0</value>
-          <latitude>278</latitude>
-          <longitude>150</longitude>
+          <longitude>278</longitude>
+          <latitude>150</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -297,8 +297,8 @@
           <name>ChinaArea</name>
           <visualName>Area Cinese</visualName>
           <value>0</value>
-          <latitude>285</latitude>
-          <longitude>124</longitude>
+          <longitude>285</longitude>
+          <latitude>124</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -320,8 +320,8 @@
         <location>
           <name>CentralAsia</name>
           <value>0</value>
-          <latitude>250</latitude>
-          <longitude>140</longitude>
+          <longitude>250</longitude>
+          <latitude>140</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -343,8 +343,8 @@
         <location>
           <name>India</name>
           <value>0</value>
-          <latitude>259</latitude>
-          <longitude>113</longitude>
+          <longitude>259</longitude>
+          <latitude>113</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -364,8 +364,8 @@
         <location>
           <name>SouthEastAsia</name>
           <value>0</value>
-          <latitude>300</latitude>
-          <longitude>91</longitude>
+          <longitude>300</longitude>
+          <latitude>91</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -384,8 +384,8 @@
         <location>
           <name>MiddleEast</name>
           <value>0</value>
-          <latitude>226</latitude>
-          <longitude>123</longitude>
+          <longitude>226</longitude>
+          <latitude>123</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -406,8 +406,8 @@
         <location>
           <name>Japan</name>
           <value>0</value>
-          <latitude>321</latitude>
-          <longitude>129</longitude>
+          <longitude>321</longitude>
+          <latitude>129</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -427,8 +427,8 @@
         <location>
           <name>NorthAfrica</name>
           <value>0</value>
-          <latitude>186</latitude>
-          <longitude>119</longitude>
+          <longitude>186</longitude>
+          <latitude>119</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -447,8 +447,8 @@
         <location>
           <name>CentralAfrica</name>
           <value>0</value>
-          <latitude>202</latitude>
-          <longitude>99</longitude>
+          <longitude>202</longitude>
+          <latitude>99</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -468,8 +468,8 @@
         <location>
           <name>SouthAfrica</name>
           <value>0</value>
-          <latitude>204</latitude>
-          <longitude>70</longitude>
+          <longitude>204</longitude>
+          <latitude>70</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -488,8 +488,8 @@
         <location>
           <name>Madagascar</name>
           <value>0</value>
-          <latitude>227</latitude>
-          <longitude>71</longitude>
+          <longitude>227</longitude>
+          <latitude>71</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -508,8 +508,8 @@
         <location>
           <name>EuWest</name>
           <value>0</value>
-          <latitude>178</latitude>
-          <longitude>131</longitude>
+          <longitude>178</longitude>
+          <latitude>131</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -529,8 +529,8 @@
         <location>
           <name>EuEast</name>
           <value>0</value>
-          <latitude>205</latitude>
-          <longitude>141</longitude>
+          <longitude>205</longitude>
+          <latitude>141</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -551,8 +551,8 @@
         <location>
           <name>UK</name>
           <value>0</value>
-          <latitude>176</latitude>
-          <longitude>147</longitude>
+          <longitude>176</longitude>
+          <latitude>147</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -572,8 +572,8 @@
         <location>
           <name>Iceland</name>
           <value>0</value>
-          <latitude>161</latitude>
-          <longitude>155</longitude>
+          <longitude>161</longitude>
+          <latitude>155</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -594,8 +594,8 @@
         <location>
           <name>Scandinavia</name>
           <value>0</value>
-          <latitude>196</latitude>
-          <longitude>155</longitude>
+          <longitude>196</longitude>
+          <latitude>155</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -617,8 +617,8 @@
         <location>
           <name>Greenland</name>
           <value>0</value>
-          <latitude>138</latitude>
-          <longitude>170</longitude>
+          <longitude>138</longitude>
+          <latitude>170</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -637,8 +637,8 @@
         <location>
           <name>Canada</name>
           <value>0</value>
-          <latitude>77</latitude>
-          <longitude>155</longitude>
+          <longitude>77</longitude>
+          <latitude>155</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -657,8 +657,8 @@
         <location>
           <name>USA</name>
           <value>0</value>
-          <latitude>95</latitude>
-          <longitude>130</longitude>
+          <longitude>95</longitude>
+          <latitude>130</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -678,8 +678,8 @@
         <location>
           <name>CentralAmerica</name>
           <value>0</value>
-          <latitude>75</latitude>
-          <longitude>110</longitude>
+          <longitude>75</longitude>
+          <latitude>110</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -698,8 +698,8 @@
         <location>
           <name>SouthAmericaCB</name>
           <value>0</value>
-          <latitude>110</latitude>
-          <longitude>95</longitude>
+          <longitude>110</longitude>
+          <latitude>95</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -718,8 +718,8 @@
         <location>
           <name>SouthAmericaBR</name>
           <value>0</value>
-          <latitude>131</latitude>
-          <longitude>79</longitude>
+          <longitude>131</longitude>
+          <latitude>79</latitude>
           <leds>
             <led>
               <number>10</number>
@@ -738,8 +738,8 @@
         <location>
           <name>SouthAmericaUR</name>
           <value>0</value>
-          <latitude>110</latitude>
-          <longitude>50</longitude>
+          <longitude>110</longitude>
+          <latitude>50</latitude>
           <leds>
             <led>
               <number>10</number>
