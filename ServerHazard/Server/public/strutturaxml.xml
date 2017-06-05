@@ -247,6 +247,7 @@
           </leds>
           <neighborhood>
             <neighbor>NewZeland</neighbor>
+            <neighbor>SouthEastAsia</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -288,6 +289,8 @@
           </leds>
           <neighborhood>
             <neighbor>Japan</neighbor>
+            <neighbor>ChinaArea</neighbor>
+            <neighbor>CentralAsia</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -306,7 +309,13 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>Russia</neighbor>
+              <neighbor>Japan</neighbor>
+              <neighbor>India</neighbor>
+              <neighbor>CentralAsia</neighbor>
+              <neighbor>SouthEastAsia</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>CentralAsia</name>
@@ -323,7 +332,13 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>Russia</neighbor>
+              <neighbor>ChinaArea</neighbor>
+              <neighbor>India</neighbor>
+              <neighbor>MiddleEast</neighbor>
+              <neighbor>EuEast</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>India</name>
@@ -340,7 +355,11 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>ChinaArea</neighbor>
+              <neighbor>CentralAsia</neighbor>
+              <neighbor>MiddleEast</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>SouthEastAsia</name>
@@ -357,7 +376,10 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>Australia</neighbor>
+              <neighbor>ChinaArea</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>MiddleEast</name>
@@ -374,7 +396,12 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>CentralAsia</neighbor>
+              <neighbor>India</neighbor>
+              <neighbor>EuEast</neighbor>
+              <neighbor>CentralAfrica</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>Japan</name>
@@ -393,7 +420,7 @@
           </leds>
           <neighborhood>
             <neighbor>Russia</neighbor>
-            <neighbor>SouthAfrica</neighbor>
+            <neighbor>ChinaArea</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -411,7 +438,10 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>EuWest</neighbor>
+              <neighbor>CentralAfrica</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>CentralAfrica</name>
@@ -428,7 +458,11 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>SouthAfrica</neighbor>
+              <neighbor>NorthAfrica</neighbor>
+              <neighbor>Madagascar</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>SouthAfrica</name>
@@ -446,7 +480,6 @@
             </led>
           </leds>
           <neighborhood>
-            <neighbor>Japan</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -464,7 +497,10 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>CentralAfrica</neighbor>
+              <neighbor>Madagascar</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>EuWest</name>
@@ -483,6 +519,8 @@
           </leds>
           <neighborhood>
             <neighbor>USA</neighbor>
+            <neighbor>UK</neighbor>
+            <neighbor>EuEast</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -500,7 +538,12 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>EuWest</neighbor>
+              <neighbor>Scandinavia</neighbor>
+              <neighbor>CentralAsia</neighbor>
+              <neighbor>MiddleEast</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>UK</name>
@@ -517,7 +560,11 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>EuWest</neighbor>
+              <neighbor>Scandinavia</neighbor>
+              <neighbor>Iceland</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>Iceland</name>
@@ -534,7 +581,11 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>UK</neighbor>
+              <neighbor>Greenland</neighbor>
+              <neighbor>Scandinavia</neighbor>
+          </neighborhood>
         </location>
 
         <location>
@@ -554,6 +605,9 @@
           </leds>
           <neighborhood>
                 <neighbor>Russia</neighbor>
+                <neighbor>Iceland</neighbor>
+                <neighbor>UK</neighbor>
+                <neighbor>EuEast</neighbor>
           </neighborhood>
         </location>
 
@@ -572,7 +626,10 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>Iceland</neighbor>
+              <neighbor>Canada</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>Canada</name>
@@ -589,7 +646,10 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>Greenland</neighbor>
+              <neighbor>USA</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>USA</name>
@@ -608,6 +668,8 @@
           </leds>
           <neighborhood>
             <neighbor>EuWest</neighbor>
+              <neighbor>Canada</neighbor>
+              <neighbor>CentralAmerica</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -625,7 +687,10 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>USA</neighbor>
+              <neighbor>SouthAmericaCB</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>SouthAmericaCB</name>
@@ -642,7 +707,10 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>SouthAmericaBR</neighbor>
+              <neighbor>SouthAmericaUR</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>SouthAmericaBR</name>
@@ -659,7 +727,10 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>SouthAmericaCB</neighbor>
+              <neighbor>SouthAmericaUR</neighbor>
+          </neighborhood>
         </location>
         <location>
           <name>SouthAmericaUR</name>
@@ -676,7 +747,10 @@
               <emergency>Peste</emergency>
             </led>
           </leds>
-          <neighborhood></neighborhood>
+          <neighborhood>
+              <neighbor>SouthAmericaCB</neighbor>
+              <neighbor>SouthAmericaBR</neighbor>
+          </neighborhood>
         </location>
       </area>
     </map>
