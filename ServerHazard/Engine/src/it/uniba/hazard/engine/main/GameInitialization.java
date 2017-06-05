@@ -10,6 +10,7 @@ import it.uniba.hazard.engine.groups.ProductionGroup;
 import it.uniba.hazard.engine.map.Area;
 import it.uniba.hazard.engine.map.GameMap;
 import it.uniba.hazard.engine.map.Location;
+import it.uniba.hazard.engine.map.MapGraph;
 import it.uniba.hazard.engine.pawns.ActionPawn;
 import it.uniba.hazard.engine.turn.ActionTurn;
 import it.uniba.hazard.engine.turn.EmergencyTurn;
@@ -98,7 +99,7 @@ public class GameInitialization {
         }
         Repository.insertInRepository("locationsList", locationsList);
 
-        UndirectedGraph<Location, DefaultEdge> graph = createGraph();
+        MapGraph graph = createGraph();
 
         ArrayList<Area> areasList = (ArrayList<Area>) MapReader.readAreas(pathXML);
         System.out.println(messages.getString("InitializationMap"));
@@ -266,8 +267,8 @@ public class GameInitialization {
         }
     }
 
-    private UndirectedGraph<Location, DefaultEdge> createGraph(){
-        UndirectedGraph<Location, DefaultEdge> graph = new SimpleGraph<>(DefaultEdge.class);
+    private MapGraph createGraph(){
+        MapGraph graph = new MapGraph();
         ArrayList<Location> locationsList = (ArrayList<Location>) Repository.getFromRepository("locationsList");
         for (Location loc: locationsList){
             graph.addVertex(loc);
