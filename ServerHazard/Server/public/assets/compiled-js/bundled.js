@@ -12360,8 +12360,12 @@
 							attrs: {
 								stroke: "#7C7C7C",
 								"stroke-width": 0.2
+							},
+							attrsHover: {
+								fill: "#5BCA09"
 							}
 						}
+
 					},
 					//QUI DEFINISCO I COLORI DELLE AREE
 					areas: a,
@@ -12720,7 +12724,7 @@
 				});
 
 				socket.on('init', function (data) {
-					self.gameStart();
+					self.gameStart('../../strutturaxml.xml');
 				});
 
 				/*socket.on('parsingXML',function(data){
@@ -12894,9 +12898,9 @@
 									self.links[link].attrs['stroke-width'] = config['DEFAULT_PLOT_STROKE'];
 									self.links[link].attrs['stroke-linecap'] = "round";
 								}
-							} else if (typeof self.locations[j].neighborhood.neighbor != 'undefined' && typeof self.locations[j].neighborhood.neighbor == 'array') {
-								for (var neigh in self.locations[j].neighborhood.neighbor) {
-									//var neigh = self.locations[j].neighborhood.neighbor[i];
+							} else if (typeof self.locations[j].neighborhood.neighbor != 'undefined' && typeof self.locations[j].neighborhood.neighbor == 'object') {
+								for (var i = 0; i < self.locations[j].neighborhood.neighbor.length; i++) {
+									var neigh = self.locations[j].neighborhood.neighbor[i];
 									var link = self.utils.getLinkIdentifier(neigh, self.locations[j].name);
 									if (typeof self.links[link] == 'undefined') {
 										self.links[link] = {};

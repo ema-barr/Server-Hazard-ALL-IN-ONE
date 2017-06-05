@@ -87,7 +87,7 @@ var GameState = require('./utils/GameState.js');
 			});
 
 			socket.on('init',function(data){
-				self.gameStart();
+				self.gameStart('../../strutturaxml.xml');
 			});
 
 			/*socket.on('parsingXML',function(data){
@@ -271,9 +271,9 @@ var GameState = require('./utils/GameState.js');
 						self.links[link].attrs['stroke-linecap'] = "round";
 					}
 
-				}else if(typeof self.locations[j].neighborhood.neighbor != 'undefined' && typeof self.locations[j].neighborhood.neighbor == 'array') {
-					for(var neigh in self.locations[j].neighborhood.neighbor){
-						//var neigh = self.locations[j].neighborhood.neighbor[i];
+				}else if(typeof self.locations[j].neighborhood.neighbor != 'undefined' && typeof self.locations[j].neighborhood.neighbor == 'object') {
+					for(var i=0;i<self.locations[j].neighborhood.neighbor.length;i++){
+						var neigh = self.locations[j].neighborhood.neighbor[i];
 						var link = self.utils.getLinkIdentifier(neigh,self.locations[j].name);
 						if( typeof(self.links[link]) == 'undefined') {
 							self.links[link] = {};

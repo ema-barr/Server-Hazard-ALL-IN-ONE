@@ -80,8 +80,12 @@ class Dashboard {
 				attrs: {
 					stroke: "#7C7C7C",
 					"stroke-width": 0.2
-				}
-			}
+				},
+				attrsHover : {
+					fill: "#5BCA09",
+				},
+			},
+
 		},
 		//QUI DEFINISCO I COLORI DELLE AREE
 		areas : a ,
