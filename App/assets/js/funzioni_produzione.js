@@ -206,7 +206,12 @@ function creaTabProduzione(arrCamion){
 function terminaTurnoProduzione(){
    "use strict";
     var spostamentiTot= getSommaSpostamenti();
-	$("#fineTurnoPBody").html("Hai ancora "+spostamentiTot+" spostamenti che potresti effettuare: <br>sei sicuro di terminare il turno?");
+	if(spostamentiTot===0){
+		$("#fineTurnoPBody").html("Hai terminato gli spostamenti da effettuare.");
+	}else{
+		$("#fineTurnoPBody").html("Hai ancora "+spostamentiTot+" spostamenti che potresti effettuare: <br>sei sicuro di terminare il turno?");
+	}
+	
     $("#fineTurnoPDialog").modal();
 }
 

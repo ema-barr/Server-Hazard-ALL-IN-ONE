@@ -421,7 +421,12 @@ function giocaCarta(i){
 function terminaTurnoCR(){
    "use strict";
     var azioniRimaste = dati.maxAzioni - dati.azioneAttuale;
-	$("#fineTurnoCRBody").html("Hai ancora "+azioniRimaste+" azioni che potresti effettuare: <br>sei sicuro di terminare il turno?");
+	if(azioniRimaste===0){
+		$("#fineTurnoCRBody").html("Hai terminato le azioni da eseguire.");
+	}else{
+		$("#fineTurnoCRBody").html("Hai ancora "+azioniRimaste+" azioni che potresti effettuare: <br>sei sicuro di terminare il turno?");
+	}
+	
     $("#fineTurnoCRDialog").modal();
 }
 

@@ -17,16 +17,14 @@
 				
 			});
 
-      socket.on('productionStateChanged', function(data){
-        window.open('produzione.html','_self');
-      });
-			
 			//Controllo lo stato del gruppo produzione
 		  	socket.emit('getCurrentTurn', JSON.parse('{}'), function(response) {
 				var obj = JSON.parse(response);
 				if(obj.state === "CHOOSE_PRODUCTION_CARDS"){
 					//Rimango in attesa del messaggio del server, quando lo ricevo apro la finestra
-
+					socket.on('productionStateChanged', function(data){
+						window.open('produzione.html','_self');
+					});
 				}else{
 					window.open('produzione.html','_self');
 				}
