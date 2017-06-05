@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0984f990-e244-440e-9983-9eb22aa58c57" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/map/MapGraph.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/test/RemoveTransportPawnTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Server/public/strutturaxml.xml" afterPath="$PROJECT_DIR$/Server/public/strutturaxml.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/strutturaxml.xml" afterPath="$PROJECT_DIR$/strutturaxml.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/Engine/src/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,8 +68,8 @@
       <file leaf-file-name="strutturaxml.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/strutturaxml.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1158">
-              <caret line="758" column="34" lean-forward="false" selection-start-line="758" selection-start-column="34" selection-end-line="758" selection-end-column="34" />
+            <state relative-caret-position="427">
+              <caret line="423" column="12" lean-forward="false" selection-start-line="423" selection-start-column="12" selection-end-line="423" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -100,6 +100,8 @@
       <find>map</find>
       <find>sout</find>
       <find>seasia</find>
+      <find>southafrica</find>
+      <find>japan</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,8 +123,8 @@
         <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameState.java" />
         <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ProductionGroup.java" />
         <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/Provisions.java" />
-        <option value="$PROJECT_DIR$/strutturaxml.xml" />
         <option value="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/main/GameInitialization.java" />
+        <option value="$PROJECT_DIR$/strutturaxml.xml" />
       </list>
     </option>
   </component>
@@ -967,7 +969,7 @@
       <workItem from="1496484950929" duration="509000" />
       <workItem from="1496653948867" duration="2355000" />
       <workItem from="1496661037806" duration="1768000" />
-      <workItem from="1496662874284" duration="586000" />
+      <workItem from="1496662874284" duration="1332000" />
     </task>
     <task id="LOCAL-00001" summary="Rimessi strutturaxml e la cartella resources nella posizione originale">
       <created>1496227846953</created>
@@ -1032,15 +1034,22 @@
       <option name="project" value="LOCAL" />
       <updated>1496485157627</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Aggiunti file">
+      <created>1496663474487</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1496663474487</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23458000" />
+    <option name="totallyTimeSpent" value="24204000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1056,7 +1065,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27005732" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27005732" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1090,7 +1099,8 @@
     <MESSAGE value="Fix in ProductionTurn e MalusProductionCard" />
     <MESSAGE value="Aggiornato engine" />
     <MESSAGE value="Aggiunta classe RemoveTransportPawnResponseNoPawns&#10;Aggiornato xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta classe RemoveTransportPawnResponseNoPawns&#10;Aggiornato xml" />
+    <MESSAGE value="Aggiunti file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1482,8 +1492,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/strutturaxml.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1158">
-          <caret line="758" column="34" lean-forward="false" selection-start-line="758" selection-start-column="34" selection-end-line="758" selection-end-column="34" />
+        <state relative-caret-position="427">
+          <caret line="423" column="12" lean-forward="false" selection-start-line="423" selection-start-column="12" selection-end-line="423" selection-end-column="12" />
           <folding />
         </state>
       </provider>

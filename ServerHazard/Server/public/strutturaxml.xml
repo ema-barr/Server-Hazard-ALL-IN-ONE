@@ -421,6 +421,7 @@
           <neighborhood>
             <neighbor>Russia</neighbor>
             <neighbor>ChinaArea</neighbor>
+            <neighbor>Australia</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -480,6 +481,8 @@
             </led>
           </leds>
           <neighborhood>
+              <neighbor>CentralAfrica</neighbor>
+              <neighbor>Madagascar</neighbor>
           </neighborhood>
         </location>
         <location>
