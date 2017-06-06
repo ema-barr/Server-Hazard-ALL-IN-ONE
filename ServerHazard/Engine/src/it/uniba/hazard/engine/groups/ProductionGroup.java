@@ -14,8 +14,10 @@ import it.uniba.hazard.engine.util.response.production_group.RemoveTransportPawn
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
 
 public class ProductionGroup {
+    private final static java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(ProductionGroup.class.getName());
     private String objectID;
     private List<TransportPawn> pawns;
     private String nameProductionGroup;
@@ -46,17 +48,22 @@ public class ProductionGroup {
     }*/
 
     public InsertNewTransportPawnResponse insertNewTransportPawn(GameState state, Provisions payloadToInsert, Location location){
+        LOGGER.log(Level.INFO, "Called insertNewTransportPawn method");
+        LOGGER.log(Level.INFO, "Destination is " + location.toString());
         InsertNewTransportPawnResponse insertNewTransportPawnResponse;
         Provisions payload = payloadToInsert.clone();
         int numTransportPawns = pawns.size();
+        LOGGER.log(Level.INFO, "Current number of transport pawns is " + numTransportPawns);
         TransportPawn pawn = null;
         if (numTransportPawns < maxTransportPawns){
+            LOGGER.log(Level.INFO, "numTransportPawns < maxTransportPawns");
             pawn = new TransportPawn(this, payload, location);
             state.addTransportPawn(pawn, location);
             pawns.add(pawn);
             insertNewTransportPawnResponse = new InsertNewTransportPawnResponse(true, location, pawn);
         }else {
             //throw new MaxNumberOfTransportPawnsReachedException("Max number of transport pawns reached");
+            LOGGER.log(Level.INFO, "Cannot create pawn because the max number of pawns has already been reached.");
             insertNewTransportPawnResponse = new InsertNewTransportPawnResponse(false, location, pawn);
         }
         return insertNewTransportPawnResponse;
@@ -83,6 +90,9 @@ public class ProductionGroup {
     }
 
     public MoveTransportPawnResponse moveTransportPawn(GameState state, TransportPawn transportPawn, Location location){
+        LOGGER.log(Level.INFO, "Called moveTransportPawn method");
+        LOGGER.log(Level.INFO, "Pawn's objectID is " + transportPawn.getObjectID() + ", destination is " + location.getObjectID());
+        LOGGER.log(Level.INFO, "Pawn's origin is " + state.getLocationInMap(transportPawn).getObjectID());
         MoveTransportPawnResponse moveTransportPawnResponse;
 
         Set<Location> adjacentLocations = state.getAdjacentLocations(transportPawn);
@@ -94,14 +104,17 @@ public class ProductionGroup {
             }
         }
         if (found){
+            LOGGER.log(Level.INFO, "Destination is adjacent, moving...");
             try {
                 state.movePawn(transportPawn, location);
+                LOGGER.log(Level.INFO, "Pawn's objectID is still " + transportPawn.getObjectID());
                 moveTransportPawnResponse = new MoveTransportPawnResponse(true, transportPawn, location);
             } catch (CannotMovePawnException e) {
                 moveTransportPawnResponse = new MoveTransportPawnResponse(false, transportPawn, location, e);
             }
         } else {
             //throw new CannotMovePawnException("Invalid location");
+            LOGGER.log(Level.INFO, "Destination is not adjacent, cannot move pawn");
             moveTransportPawnResponse = new MoveTransportPawnResponse(false, transportPawn, location);
         }
         return moveTransportPawnResponse;

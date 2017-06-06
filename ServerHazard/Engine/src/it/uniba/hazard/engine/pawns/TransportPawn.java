@@ -10,8 +10,10 @@ import it.uniba.hazard.engine.map.Location;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 
 public class TransportPawn implements PlayerPawn{
+    private final static java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(TransportPawn.class.getName());
     private String objectID;
     private static int id = -1;
     private int thisId;
@@ -19,18 +21,13 @@ public class TransportPawn implements PlayerPawn{
     private Provisions payload;
     //private Location location;
 
-    public TransportPawn(ProductionGroup productionGroup, Location location){
+    public TransportPawn(ProductionGroup productionGroup, Provisions payload, Location location){
+        LOGGER.log(Level.INFO, "Called TransportPawn constructor");
         id++;
         thisId = id;
         objectID = this.getClass().getName() + "_" + productionGroup.toString() + "_" + id;
-        this.productionGroup = productionGroup;
-        this.payload = new Provisions();
-        //this.location = location;
-    }
-
-    public TransportPawn(ProductionGroup productionGroup, Provisions payload, Location location){
-        id++;
-        objectID = this.getClass().getName() + "_" + productionGroup.toString() + "_" + id;
+        LOGGER.log(Level.INFO, "New pawn's ObjectID is " + objectID);
+        LOGGER.log(Level.INFO, "thisId is " + thisId);
         this.productionGroup = productionGroup;
         this.payload = payload.clone();
         //this.location = location;

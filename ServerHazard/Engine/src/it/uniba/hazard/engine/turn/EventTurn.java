@@ -11,12 +11,14 @@ import it.uniba.hazard.engine.util.response.event_turn.EventTurnExecuteTurnRespo
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 
 /**
  * Created by maccn on 25/12/2016.
  */
 
 public class EventTurn implements Turn {
+    private final static java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(EventTurn.class.getName());
 
     // Lista di carte evento
     private List<EventCard> eventCards;
@@ -51,12 +53,15 @@ public class EventTurn implements Turn {
     // metodo da chiamare per eseguire le azioni di inizio turno
     @Override
     public Response executeTurn(GameState gameState) {
+        LOGGER.log(Level.INFO, "Called EventTurn.executeTurn method");
+        LOGGER.log(Level.INFO, "numberOfCards=" + numberOfCards, ", numberOfExecutions=" + numberOfExecutions);
         ArrayList<Response> responses = new ArrayList<>();
         revertEventCards(gameState);
         if (numberOfExecutions <= numberOfCards) {
             eventCards = gameState.getEventCards(numberOfCards);
             for (EventCard e : eventCards) {
                 // attiva gli effetti della carta evento
+                LOGGER.log(Level.INFO, "Event card is " + e.getObjectID());
                 EventCardInstance cardInstance = e.getInstance();
                 responses.add(cardInstance.executeAction(gameState, this));
                 activatedCards.add(cardInstance);

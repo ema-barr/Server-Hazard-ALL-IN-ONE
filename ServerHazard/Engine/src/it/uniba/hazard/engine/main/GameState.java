@@ -17,11 +17,14 @@ import it.uniba.hazard.engine.pawns.TransportPawn;
 
 import java.lang.reflect.Type;
 import java.util.*;
+import java.util.logging.Level;
 
 /**
  * Created by andrea_iovine on 24/12/2016.
  */
 public class GameState {
+    private final static java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(GameState.class.getName());
+
     private enum EndState {
         GAME_ACTIVE,
         GAME_VICTORY,
@@ -125,16 +128,22 @@ public class GameState {
      * @param l
      */
     public void movePawn(GamePawn p, Location l) {
+        LOGGER.log(Level.INFO, "Called movePawn method");
+        LOGGER.log(Level.INFO, "Pawn is " + p.getObjectID() + ", destination is " + l.getObjectID());
         if (p instanceof TransportPawn) {
             //Check if the location is not occupied by another transport pawn
+            LOGGER.log(Level.INFO, "p is a TransportPawn");
             if (isOccupiedByTransportPawn(l)) {
-                throw new CannotMovePawnException("The pawn cannot be moved in this location.");
+                LOGGER.log(Level.INFO, "Cannot move pawn to the destination, ");
+                throw new CannotMovePawnException("The pawn cannot be moved in this location because it is occupied by another transport pawn");
             }
         }
         //Check if the pawn exists in the map
         if (!gameMap.containsPawn(p)) {
+            LOGGER.log(Level.INFO, "The pawn is not in the game");
             throw new NoSuchPawnException("The pawn is not in the game");
         }
+        LOGGER.log(Level.INFO, "Moving pawn...");
         gameMap.placePawn(p, l);
     }
 
