@@ -186,49 +186,48 @@ public class ActionTurn implements PlayerTurn {
     @Override
     public Response runCommand(GameState gameState, String[] param) {
         Response response = null;
-        if (numCurrentActions < numActions) {
-            switch (param[0]) {
-                case "moveActionPawn":
-                    response = this.moveActionPawn(gameState, param[1]);
-                    break;
+        //If the requested action is "useBonusCard", ignore the check on the available actions
+        if (param[0].equals("useBonusCard")) {
+            response = this.useBonusCard(gameState, param[1]);
+        } else {
+            if (numCurrentActions < numActions) {
+                switch (param[0]) {
+                    case "moveActionPawn":
+                        response = this.moveActionPawn(gameState, param[1]);
+                        break;
 
-                case "solveEmergency":
-                    response = this.solveEmergency(gameState, param[1]);
-                    break;
+                    case "solveEmergency":
+                        response = this.solveEmergency(gameState, param[1]);
+                        break;
 
-                case "takeResources":
-                    response = this.takeResources(gameState, param[1]);
-                    break;
+                    case "takeResources":
+                        response = this.takeResources(gameState, param[1]);
+                        break;
 
-                case "buildStronghold":
-                    response = this.buildStronghold(gameState, param[1], param[2]);
-                    break;
+                    case "buildStronghold":
+                        response = this.buildStronghold(gameState, param[1], param[2]);
+                        break;
 
-                case "setBonusCards":
-                    response = this.setBonusCards(gameState, param[1]);
-                    break;
+                    case "setBonusCards":
+                        response = this.setBonusCards(gameState, param[1]);
+                        break;
 
-                case "getBonusCards":
-                    response = this.getBonusCards(gameState);
-                    break;
+                    case "getBonusCards":
+                        response = this.getBonusCards(gameState);
+                        break;
+                    case "deleteAllBonusCard":
+                        response = this.deleteAllBonusCard(gameState);
+                        break;
+                    case "addBonusCard":
+                        response = this.addBonusCard(gameState);
+                        break;
 
-                case "useBonusCard":
-                    response = this.useBonusCard(gameState, param[1]);
-                    break;
-
-                case "deleteAllBonusCard":
-                    response = this.deleteAllBonusCard(gameState);
-                    break;
-
-                case "addBonusCard":
-                    response = this.addBonusCard(gameState);
-                    break;
-
+                }
             }
-        }
-        else {
-            //throw new NoActionsAvailableException("The maximum number of actions for this turn is reached");
-            response = new NoActionAvailableResponse();
+            else {
+                //throw new NoActionsAvailableException("The maximum number of actions for this turn is reached");
+                response = new NoActionAvailableResponse();
+            }
         }
         return response;
     }
