@@ -335,17 +335,20 @@ public class GameState {
      * @param l
      */
     public void solveEmergency(Emergency e, Location l) {
+        LOGGER.log(Level.INFO, "Called GameState.solveEmergency");
         int decrease = 1;
         Area a = gameMap.getAreaByLocation(l);
         List<Stronghold> strongholds = a.getStrongholds();
         for (Stronghold s : strongholds) {
             if (s.getEmergency().equals(e)) {
                 //If the stronghold for the emergency exists in the area, decrease the emergency level to 0
+                LOGGER.log(Level.INFO, "There is a stronghold for this emergency in the area. The emergency level will be set to zero");
                 decrease = l.getEmergencyLevel(e);
             }
         }
         int currentLevel = l.getEmergencyLevel(e);
         l.setEmergencyLevel(e, currentLevel - decrease);
+        LOGGER.log(Level.INFO, "The new emergency level is " + l.getEmergencyLevel(e));
     }
 
     /**
@@ -467,9 +470,14 @@ public class GameState {
      * @return
      */
     public Provisions takeResources(List<Resource> reqResources, ActionPawn ap, TransportPawn tp) {
+        LOGGER.log(Level.INFO, "Called GameState.takeResources");
+        LOGGER.log(Level.INFO, "ActionPawn is in " + gameMap.getLocation(ap) + ", TransportPawn is in " + gameMap.getLocation(tp));
+        LOGGER.log(Level.INFO, "reqResources is " + reqResources.toString());
         if (!gameMap.getLocation(ap).equals(gameMap.getLocation(tp))) {
+            LOGGER.log(Level.INFO, "Cannot take resources. The pawns are not in the same location");
             throw new CannotTakeResourcesException("The action pawn is not in the same location as the transport pawn.");
         }
+        LOGGER.log(Level.INFO, "Proceeding to take resources from the TransportPawn");
         Provisions result = new Provisions();
         Provisions p = tp.getPayload();
         for (Resource r : p.getListResources()) {
@@ -480,6 +488,7 @@ public class GameState {
         }
         //Check if the transport pawn is empty
         if (tp.getPayload().isEmpty()) {
+            LOGGER.log(Level.INFO, "TransportPawn is now empty. Removing...");
             //Remove from the map
             removePawn(tp);
             //Remove from the production group

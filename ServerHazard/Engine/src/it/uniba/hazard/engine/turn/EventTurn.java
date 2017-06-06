@@ -73,8 +73,10 @@ public class EventTurn implements Turn {
 
     // annulla l'effetto degli eventi del turno precedente
     private void revertEventCards (GameState gameState) {
+        LOGGER.log(Level.INFO, "Resetting previous cards...");
         if (!activatedCards.isEmpty()) {
             for (EventCardInstance e : activatedCards) {
+                LOGGER.log(Level.INFO, "Event card to reset is: " + e.getObjectID());
                 e.revertAction(gameState);
             }
             activatedCards.removeAll(activatedCards);

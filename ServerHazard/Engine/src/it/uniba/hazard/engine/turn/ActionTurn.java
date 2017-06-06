@@ -15,11 +15,13 @@ import it.uniba.hazard.engine.util.response.NoActionAvailableResponse;
 import it.uniba.hazard.engine.util.response.Response;
 import it.uniba.hazard.engine.util.response.action_group.*;
 import it.uniba.hazard.engine.util.response.action_turn.*;
+import sun.rmi.runtime.Log;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
 
 /**
  * Created by maccn on 25/12/2016.
@@ -29,7 +31,7 @@ import java.util.List;
     azioniRimanenti: numero di azioni rimanenti, anche dello stesso tipo
  */
 public class ActionTurn implements PlayerTurn {
-
+    private final static java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(ActionTurn.class.getName());
     // attributo rappresentante il gruppo azione
     private ActionGroup player;
 
@@ -58,7 +60,10 @@ public class ActionTurn implements PlayerTurn {
     }
 
     private Response solveEmergency (GameState gameState, String emergencyStr) {
+        LOGGER.log(Level.INFO, "Called ActionTurn.solveEmergency");
+        LOGGER.log(Level.INFO, "Emergency to solve is " + emergencyStr);
         Emergency e = (Emergency) Repository.getFromRepository(emergencyStr);
+        LOGGER.log(Level.INFO, "Emergency got from Repository is " + e.getObjectID());
         Response resp = player.solveEmergency(gameState, e);
         if (((SolveEmergencyResponse) resp).success())
             numCurrentActions++;
@@ -66,6 +71,8 @@ public class ActionTurn implements PlayerTurn {
     }
 
     private Response moveActionPawn (GameState gameState, String locationStr) {
+        LOGGER.log(Level.INFO, "Called ActionTurn.moveActionPawn");
+        LOGGER.log(Level.INFO, "Destination is " + locationStr);
         Location destination = (Location) Repository.getFromRepository(locationStr);
         Response resp = player.moveActionPawn(gameState, destination);
         if (((ActionGroupMoveResponse) resp).success())
@@ -74,7 +81,10 @@ public class ActionTurn implements PlayerTurn {
     }
 
     private Response takeResources (GameState gameState, String pawnStr) {
+        LOGGER.log(Level.INFO, "Called ActionTurn.takeResources");
+        LOGGER.log(Level.INFO, "Transport Pawn ID to take resources from is " + pawnStr);
         TransportPawn tp = (TransportPawn) Repository.getFromRepository(pawnStr);
+        LOGGER.log(Level.INFO, "Pawn got from repository is " + tp.getObjectID());
         Response resp = player.takeResources(gameState, tp);
         if (((TakeResourceResponse) resp).success())
             numCurrentActions++;
@@ -100,7 +110,9 @@ public class ActionTurn implements PlayerTurn {
     }
 
     private Response useBonusCard (GameState gameState, String cardStr) {
+        LOGGER.log(Level.INFO, "Called useBonusCard");
         int numCard = Integer.valueOf(cardStr);
+        LOGGER.log(Level.INFO, "Selected card index is " + numCard + ", card type is " + bonusCards.get(numCard).getObjectID());
         BonusCardInstance cardInstance = bonusCards.get(numCard).getInstance();
         Response resp = cardInstance.executeAction(gameState, this);
         //Add the selected card to the activated cards list
@@ -139,6 +151,9 @@ public class ActionTurn implements PlayerTurn {
     }
 
     private Response buildStronghold (GameState gameState, String emergencyStr, String locationStr) {
+        LOGGER.log(Level.INFO, "Called ActionTurn.buildStronghold");
+        LOGGER.log(Level.INFO, "Emergency is " + emergencyStr);
+        LOGGER.log(Level.INFO, "Locations is " + locationStr);
         Emergency emergencyStronghold = (Emergency) Repository.getFromRepository(emergencyStr);
         Location locationStronghold = (Location) Repository.getFromRepository(locationStr);
         Response resp = player.buildStronghold(gameState, emergencyStronghold, locationStronghold);
@@ -169,15 +184,18 @@ public class ActionTurn implements PlayerTurn {
 
     @Override
     public Response executeTurn(GameState gameState) {
+        LOGGER.log(Level.INFO, "Called ActionTurn.executeTurn");
         numCurrentActions = 0;
         revertAllActivatedCards(gameState);
         return new ActionTurnExecuteTurnResponse(true, player);
     }
 
     private void revertAllActivatedCards(GameState state) {
+        LOGGER.log(Level.INFO, "Reverting all activated cards...");
         Iterator it = activatedCards.iterator();
         while (it.hasNext()) {
             BonusCardInstance c = (BonusCardInstance) it.next();
+            LOGGER.log(Level.INFO, "Card: " + c.getObjectID());
             c.revertAction(state);
         }
         activatedCards.removeAll(activatedCards);
@@ -188,8 +206,10 @@ public class ActionTurn implements PlayerTurn {
         Response response = null;
         //If the requested action is "useBonusCard", ignore the check on the available actions
         if (param[0].equals("useBonusCard")) {
+            LOGGER.log(Level.INFO, "Using bonus card, skipping check on number of actions...");
             response = this.useBonusCard(gameState, param[1]);
         } else {
+            LOGGER.log(Level.INFO, "Number of executed actions: " + numCurrentActions + ", number of available actions: numActions");
             if (numCurrentActions < numActions) {
                 switch (param[0]) {
                     case "moveActionPawn":
@@ -226,6 +246,7 @@ public class ActionTurn implements PlayerTurn {
             }
             else {
                 //throw new NoActionsAvailableException("The maximum number of actions for this turn is reached");
+                LOGGER.log(Level.INFO, "The action group is out of actions for this turn");
                 response = new NoActionAvailableResponse();
             }
         }
