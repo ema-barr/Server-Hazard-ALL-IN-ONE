@@ -80,7 +80,7 @@ public class ActionGroup {
     }
 
     public TakeResourceResponse takeResources(GameState state, TransportPawn tp) {
-        LOGGER.log(Level.INFO, "Called ActionTurn.takeResources");
+        LOGGER.log(Level.INFO, "Called ActionGroup.takeResources");
         TakeResourceResponse takeResourceResponse;
 
         try {
@@ -162,8 +162,8 @@ public class ActionGroup {
         //Check if there is sufficient resources to solve the emergency
         Resource res = si.getResourceNeeded();
         int resQuantity = provisions.getQuantity(res);
-        LOGGER.log(Level.INFO, "ActionGroup needs " + resQuantity + " " + res.getObjectID() + " to build the stronghold");
-        if (resQuantity - state.getCurrentStrongholdCost() <= 0) {
+        LOGGER.log(Level.INFO, "ActionGroup needs " + state.getCurrentStrongholdCost() + " " + res.getObjectID() + " to build the stronghold");
+        if (resQuantity - state.getCurrentStrongholdCost() < 0) {
             //throw new InsufficientResourcesException("Not enough resources to execute the requested action.");
             LOGGER.log(Level.INFO, "ActionGroup cannot build the stronghold. Not enough resources");
             buildStrongholdResponse = new BuildStrongholdResponse(false, this, e , l,

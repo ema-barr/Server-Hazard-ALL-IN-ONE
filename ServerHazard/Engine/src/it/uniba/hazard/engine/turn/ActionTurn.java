@@ -209,7 +209,7 @@ public class ActionTurn implements PlayerTurn {
             LOGGER.log(Level.INFO, "Using bonus card, skipping check on number of actions...");
             response = this.useBonusCard(gameState, param[1]);
         } else {
-            LOGGER.log(Level.INFO, "Number of executed actions: " + numCurrentActions + ", number of available actions: numActions");
+            LOGGER.log(Level.INFO, "Number of executed actions: " + numCurrentActions + ", number of available actions: " + numActions);
             if (numCurrentActions < numActions) {
                 switch (param[0]) {
                     case "moveActionPawn":
