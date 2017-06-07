@@ -228,7 +228,7 @@ public class GameInitialization {
                         randomIndexLoc = random.nextInt(numLocations);
 
                         Location l = locationsList.get(randomIndexLoc);
-                        locationsStart.put(l, value);
+                        locationsStart.put(l, key);
 
                         locationsList.remove(randomIndexLoc);
                     }
