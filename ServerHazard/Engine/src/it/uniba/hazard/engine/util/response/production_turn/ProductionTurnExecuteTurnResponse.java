@@ -48,7 +48,7 @@ public class ProductionTurnExecuteTurnResponse implements Response {
         res.addProperty("productionGroup", productionGroup.toString());
         res.addProperty("logString", logString);
         JsonArray cardsJson = new JsonArray();
-        if (productionCards.size() >0){
+        if (productionCards != null){
             for(ProductionCard c : productionCards) {
                 cardsJson.add(c.toJson());
             }
