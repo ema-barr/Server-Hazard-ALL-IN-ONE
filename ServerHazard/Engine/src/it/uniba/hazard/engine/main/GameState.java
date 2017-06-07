@@ -228,6 +228,7 @@ public class GameState {
      * @param startLocations
      */
     public void diffuseEmergency(Emergency e, Map<Location, Integer> startLocations) {
+        LOGGER.log(Level.INFO, "Called GameState.diffuseEmergency");
         //Reset the list of diffused locations
         lastDiffusedLocations = new ArrayList<Location>();
         List<Location> toDiffuse = new ArrayList<Location>();
@@ -241,6 +242,7 @@ public class GameState {
 
         while (!toDiffuse.isEmpty()) {
             Location l = toDiffuse.get(0);
+            LOGGER.log(Level.INFO, "Currently diffusing emergency in " + l.getObjectID() + "..." );
             //Check if the location is not quarantined and has not been diffused yet
             if (!l.isQuarantined() && !diffused.contains(l)) {
                 int emergencyLevel = l.getEmergencyLevel(e);
@@ -249,8 +251,11 @@ public class GameState {
                 if (startLocations.containsKey(l)) {
                     increase = startLocations.get(l);
                 }
+                LOGGER.log(Level.INFO, "Current emergency level is " + emergencyLevel);
                 l.setEmergencyLevel(e, emergencyLevel + increase);
+                LOGGER.log(Level.INFO, "New level is " + l.getEmergencyLevel(e));
                 if (l.getEmergencyLevel(e) > maxEmergencyLevel) {
+                    LOGGER.log(Level.INFO, "Emergency level is over the max level! Adjacent locations will be infected");
                     //Set to the maximum level, in case it is greater than that
                     l.setEmergencyLevel(e, maxEmergencyLevel);
                     Set<Location> adjacentLocations = gameMap.getAdjacentLocations(l);
@@ -260,6 +265,8 @@ public class GameState {
                     }
                 }
                 diffused.add(l);
+            } else {
+                LOGGER.log(Level.INFO, "Location is quarantined or already been diffused. Skipping");
             }
             toDiffuse.remove(l);
         }

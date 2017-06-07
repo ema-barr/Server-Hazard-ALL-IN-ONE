@@ -38,7 +38,7 @@ public class SolveEmergencyResponse implements Response{
             logString = formatter.format(messageArgs);
         } else {
             Object[] messageArgs = {actionGroup.getNameActionGroup(), emergencyToSolve.toString()};
-            formatter.applyPattern(messages.getString("SolveEmergencyResponse_failure"));
+            formatter.applyPattern(messages.getString("SolveEmergencyResponse_failure_nothing_to_solve"));
             logString = formatter.format(messageArgs);
         }
     }
@@ -48,7 +48,13 @@ public class SolveEmergencyResponse implements Response{
                                   ActionGroup actionGroup,
                                   EmergencyMismatchException e){
         this(success, emergencyToSolve, actionGroup);
-        logString = String.format(CANNOT_CURE_STRING, actionGroup.getNameActionGroup(), emergencyToSolve.toString());
+
+        MessageFormat formatter= (MessageFormat) Repository.getFromRepository("messageFormat");
+        ResourceBundle messages = (ResourceBundle) Repository.getFromRepository("resourceBundle");
+
+        Object[] messageArgs = {actionGroup.getNameActionGroup(), emergencyToSolve.toString()};
+        formatter.applyPattern(messages.getString("SolveEmergencyResponse_failure"));
+        logString = formatter.format(messageArgs);
     }
 
     public SolveEmergencyResponse(boolean success,
@@ -56,6 +62,13 @@ public class SolveEmergencyResponse implements Response{
                                   ActionGroup actionGroup,
                                   InsufficientResourcesException e){
         this(success, emergencyToSolve, actionGroup);
+
+        MessageFormat formatter= (MessageFormat) Repository.getFromRepository("messageFormat");
+        ResourceBundle messages = (ResourceBundle) Repository.getFromRepository("resourceBundle");
+
+        Object[] messageArgs = {emergencyToSolve.toString()};
+        formatter.applyPattern(messages.getString("SolveEmergencyResponse_failure_insufficient_resources"));
+        logString = formatter.format(messageArgs);
         logString = String.format(INSUFFICIENT_FUNDS_STRING, emergencyToSolve.toString());
     }
 
