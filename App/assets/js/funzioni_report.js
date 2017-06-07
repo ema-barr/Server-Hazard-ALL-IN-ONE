@@ -1,3 +1,15 @@
+
+$(document).ready(function(){
+    "use strict";
+    $("#nomeGruppo").html("Report " + sessionStorage.nomeGruppo);
+});
+
+
+function settaSocket(s){
+	"use strict";
+	socket=s;
+}
+
 function caricaLog(logs){
 	for(var i=logs.length - 1; i>= 0; i--){
 		$("#containerLogs").append('<div id="logNum'+ i +'" class="panel panel-primary">');

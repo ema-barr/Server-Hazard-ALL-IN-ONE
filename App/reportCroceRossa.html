@@ -8,13 +8,25 @@
 	  <script src="assets/js/jquery.min.js"></script>
       <script src="assets/bootstrap/js/bootstrap.min.js"></script>
       <script src="assets/js/funzioni_report.js"></script>
+	  <script src="http://localhost:6882/socket.io/socket.io.js"></script>
+	  <script>
+		  var socket = io.connect(sessionStorage.ipAddress);
+
+			socket.on('welcome', function(data) {
+				// Respond with a message including this clients' id sent from the server
+				socket.emit('init_client', data);
+			});
+
+			settaSocket(socket); 
+ 
+	  </script>
    </head>
    <body>
       <div class="container">
          <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                <div class="page-header">
-                  <h1><small>Gruppo Crocerossa</small></h1>
+                  <h1><small id="nomeGruppo"></small></h1>
                </div>
             </div>
          </div>

@@ -36,8 +36,12 @@ function inizializzaDati(oggetto){
     for(var j=0; j<numeroCamion; j++){
       var camion = new Object();
 	  camion.pawnID = oggetto.group.transportPawns[j].pawnID;
-      camion.origine=oggetto.pawnLocations[j].location.name;
-
+      //camion.origine=oggetto.pawnLocations[j].location.name;
+	  for(var i=0; i<oggetto.pawnLocations.length; i++){
+		  if(oggetto.pawnLocations[i].pawnID===camion.pawnID){
+			  camion.origine=oggetto.pawnLocations[j].location.name;
+		  }
+	  }
 	  camion.risorseTrasportate = oggetto.group.transportPawns[j].payload.length;
 	  camion.quantità = [];
 	  camion.tipologia = [];
@@ -223,7 +227,7 @@ function confermaFT(){
 	socket.emit('nextTurn', "{}", function(response) {
 		
 	}); 
-	
+	sessionStorage.nomeGruppo=nomeGruppo;
 	// salva i log nella sessionStorage
 	var storedLogs = JSON.parse(sessionStorage.logProduzione);
 	storedLogs.push(logs);

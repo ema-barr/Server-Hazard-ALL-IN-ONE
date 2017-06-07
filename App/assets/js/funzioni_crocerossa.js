@@ -244,7 +244,7 @@ function aggiornaAzioni(){
 	$("#numAzione").html("Azione "+dati.azioneAttuale+" di "+dati.maxAzioni);
 	
     if(dati.azioneAttuale >= dati.maxAzioni){
-		alert("Entro qui");
+	
         $("#spostaButtonCrR").prop("disabled", true);
         $("#curaCheck").prop("disabled", true);
         $("#prelevaCheck").prop("disabled", true);
@@ -437,6 +437,8 @@ function confermaFTCR(){
 	socket.emit('nextTurn', "{}", function(response) {
 		
 	});
+	
+	sessionStorage.nomeGruppo=nomeGruppo;
 	// salva i log nella sessionStorage
 	var storedLogs = JSON.parse(sessionStorage.logCrocerossa);
 	storedLogs.push(logs);

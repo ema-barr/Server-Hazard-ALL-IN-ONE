@@ -14,9 +14,10 @@
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/jquery.flipster.min.js"></script>
   <script src="assets/js/funzioni_produzione.js"></script>
+  <script src="assets/js/funzioni_report.js"></script>
   <script src="http://localhost:6882/socket.io/socket.io.js"></script>
       <script>
-			var socket = io.connect('http://localhost:6882');
+			var socket = io.connect(sessionStorage.ipAddress);
 
 			socket.on('welcome', function(data) {
 				// Respond with a message including this clients' id sent from the server
