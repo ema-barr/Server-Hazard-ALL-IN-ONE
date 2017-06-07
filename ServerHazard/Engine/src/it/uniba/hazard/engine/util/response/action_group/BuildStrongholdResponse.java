@@ -6,6 +6,8 @@ import it.uniba.hazard.engine.exception.StrongholdAlreadyPresentException;
 import it.uniba.hazard.engine.groups.ActionGroup;
 import it.uniba.hazard.engine.main.Emergency;
 import it.uniba.hazard.engine.main.Repository;
+import it.uniba.hazard.engine.main.Stronghold;
+import it.uniba.hazard.engine.main.StrongholdInfo;
 import it.uniba.hazard.engine.map.Location;
 import it.uniba.hazard.engine.util.response.Response;
 
@@ -24,11 +26,13 @@ public class BuildStrongholdResponse implements Response {
     private Location location;
     private String logString;
     private ActionGroup actionGroup;
+    private StrongholdInfo stronghold;
 
     public BuildStrongholdResponse(boolean success,
                                    ActionGroup actionGroup,
                                    Emergency emergency,
-                                   Location location){
+                                   Location location,
+                                   StrongholdInfo stronghold){
         this.success = success;
         this.emergency = emergency;
         this.location = location;
@@ -38,7 +42,7 @@ public class BuildStrongholdResponse implements Response {
         ResourceBundle messages = (ResourceBundle) Repository.getFromRepository("resourceBundle");
 
         if (success){
-            Object[] messageArgs = {location.toString(), emergency.toString(), actionGroup.getNameActionGroup()};
+            Object[] messageArgs = {location.toString(), emergency.toString(), actionGroup.getNameActionGroup(), stronghold.getStrongholdName()};
             formatter.applyPattern(messages.getString("BuildStrongholdResponse_success"));
             logString = formatter.format(messageArgs);
         } else {
@@ -51,8 +55,9 @@ public class BuildStrongholdResponse implements Response {
                                    ActionGroup actionGroup,
                                    Emergency emergency,
                                    Location location,
+                                   StrongholdInfo stronghold,
                                    StrongholdAlreadyPresentException e){
-        this(success, actionGroup, emergency, location);
+        this(success, actionGroup, emergency, location, stronghold);
         logString = String.format(STRONGHOLD_ALREADY_PRESENT_STRING, emergency.getNameEmergency());
     }
 
@@ -60,8 +65,9 @@ public class BuildStrongholdResponse implements Response {
                                    ActionGroup actionGroup,
                                    Emergency emergency,
                                    Location location,
+                                   StrongholdInfo stronghold,
                                    InsufficientResourcesException e){
-        this(success, actionGroup, emergency, location);
+        this(success, actionGroup, emergency, location, stronghold);
         logString = INSUFFICIENT_FUNDS_STRING;
     }
 

@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0984f990-e244-440e-9983-9eb22aa58c57" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup$ActionGroupSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup$ActionGroupSerializer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/groups/ActionGroup.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ActionTurn$ActionTurnSerializer.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ActionTurn$ActionTurnSerializer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ActionTurn.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/turn/ActionTurn.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_group/BuildStrongholdResponse.class" afterPath="$PROJECT_DIR$/Engine/src/target/classes/it/uniba/hazard/engine/util/response/action_group/BuildStrongholdResponse.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ActionTurn.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/turn/ActionTurn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/response/action_group/BuildStrongholdResponse.java" afterPath="$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/util/response/action_group/BuildStrongholdResponse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/MessageBundle_it_IT.properties" afterPath="$PROJECT_DIR$/resources/MessageBundle_it_IT.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/Engine/src/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,8 +54,8 @@
       <file leaf-file-name="ActionGroup.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="165" column="60" lean-forward="false" selection-start-line="165" selection-start-column="60" selection-end-line="165" selection-end-column="60" />
+            <state relative-caret-position="790">
+              <caret line="186" column="92" lean-forward="false" selection-start-line="186" selection-start-column="92" selection-end-line="186" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -1125,7 +1131,7 @@
       <workItem from="1496734780617" duration="2274000" />
       <workItem from="1496741350168" duration="6557000" />
       <workItem from="1496776218551" duration="41000" />
-      <workItem from="1496820400946" duration="1311000" />
+      <workItem from="1496820400946" duration="2836000" />
     </task>
     <task id="LOCAL-00001" summary="Rimessi strutturaxml e la cartella resources nella posizione originale">
       <created>1496227846953</created>
@@ -1218,15 +1224,22 @@
       <option name="project" value="LOCAL" />
       <updated>1496776249534</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Correzioni nel log&#10;Corretto bug in buildStronghold: la costruzione falliva se la quantità di risorse a disposizione è uguale al costo corrente del presidio">
+      <created>1496821713430</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1496821713430</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34420000" />
+    <option name="totallyTimeSpent" value="35945000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1689,8 +1702,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Engine/src/it/uniba/hazard/engine/groups/ActionGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="165" column="60" lean-forward="false" selection-start-line="165" selection-start-column="60" selection-end-line="165" selection-end-column="60" />
+        <state relative-caret-position="790">
+          <caret line="186" column="92" lean-forward="false" selection-start-line="186" selection-start-column="92" selection-end-line="186" selection-end-column="92" />
           <folding />
         </state>
       </provider>
