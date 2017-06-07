@@ -42,8 +42,9 @@ function aggiornaDati(){
     	var oggetto = JSON.parse(response);
 		nomeGruppo = oggetto.group.name;
 		dati.origine = oggetto.pawn.location.name;
-		dati.gravita = oggetto.pawn.location.emergencyLevels[0].level;
-		dati.emergenza = oggetto.pawn.location.emergencyLevels[0].emergency;
+		dati.gravita=0;
+		//dati.gravita = oggetto.pawn.location.emergencyLevels[0].level;
+		dati.emergenzeLocation = oggetto.pawn.location.emergencyLevels;
 		dati.maxAzioni= oggetto.maxNumActions;
 		dati.pawnID = oggetto.pawn.pawnID;
 		dati.carteBonus = oggetto.bonusCards;
@@ -140,13 +141,21 @@ function creaTabAzioni(dati){
 		$("#tabellaEmergenza").append("<colgroup id='colgroupEmergenza'>");
 		$("#colgroupEmergenza").append("<col style='width: 160px'>");
 		$("#colgroupEmergenza").append("<col style='width: 160px'>");
+		$("#colgroupEmergenza").append("<col style='width: 160px'>");
 		$("#tabellaEmergenza").append("<tr id='trEmergenza'>");
 		$("#trEmergenza").append("<th class='tg-baqh'>Emergenza</th>");
+		$("#trEmergenza").append("<th class='tg-baqh'>Livello</th>");
 		$("#trEmergenza").append("<th class='tg-baqh'>Costo</th>");
 		$("#trEmergenza").append("<th class='tg-baqh'>Cura</th>");		
 		for(var riga=0; riga<dati.emergenze.length; riga++){
+			for(var livello=0; livello<dati.emergenzeLocation.length; livello++){
+				if(dati.emergenze[riga].name===dati.emergenzeLocation[livello].emergency){
+					dati.gravita=dati.emergenzeLocation[livello].level;
+				}
+			}
 			$("#tabellaEmergenza").append("<tr id='trRisorseEmergenza_"+riga+"'>"+
 			"<td>"+dati.emergenze[riga].name+ "</td>"+
+			"<td>"+dati.gravita+ "</td>"+
 			"<td> 1 " +dati.emergenze[riga].resourceNeeded.name+"</td>"+
 			"<td><button class='btn btn-success btn-lg btn-block' type='button' id='curaEmergenzaButton"+ riga +"'onclick='curaEmergenza("+ riga +")'>Cura</button></td>");
 		}

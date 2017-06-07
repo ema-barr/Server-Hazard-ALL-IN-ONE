@@ -39,7 +39,7 @@ function inizializzaDati(oggetto){
       //camion.origine=oggetto.pawnLocations[j].location.name;
 	  for(var i=0; i<oggetto.pawnLocations.length; i++){
 		  if(oggetto.pawnLocations[i].pawnID===camion.pawnID){
-			  camion.origine=oggetto.pawnLocations[j].location.name;
+			  camion.origine=oggetto.pawnLocations[i].location.name;
 		  }
 	  }
 	  camion.risorseTrasportate = oggetto.group.transportPawns[j].payload.length;
