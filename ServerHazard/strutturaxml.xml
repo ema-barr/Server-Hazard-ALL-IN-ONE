@@ -619,6 +619,7 @@
           </leds>
           <neighborhood>
             <neighbor>CentralAfrica</neighbor>
+            <neighbor>SouthAfrica</neighbor>
           </neighborhood>
         </location>
       </area>
