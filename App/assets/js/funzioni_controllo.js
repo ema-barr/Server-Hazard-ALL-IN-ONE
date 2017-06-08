@@ -59,12 +59,10 @@ function controlloStato(obj){
 			});
 		}
 	}else if (stato_gioco==="GAME_VICTORY"){
-		$("#jumboInfo").text('Complimenti!');
-		$("#jumboInfo2").text('Vittoria');
+		$("#jumboInfo").html('<center>Complimenti! <br> Avete sconfitto la malattia!<br>Vittoria!</center>');
 		$("#avanti").hide();
 	}else{
-		$("#jumboInfo").text('Peccato!');
-		$("#jumboInfo2").text('Sconfitta');
+		$("#jumboInfo").html('<center>Non siete riusciti a sconfiggere la malattia!<br> Sconfitta!</center>');
 		$("#avanti").hide();
 	}
 	
