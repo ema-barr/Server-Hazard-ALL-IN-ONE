@@ -4,6 +4,8 @@
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.minM2.css">
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/socket.io.js"></script>
+	
 	<script>
 		function inizia() {
 			"use strict";
@@ -14,7 +16,20 @@
 			sessionStorage.logProduzione = JSON.stringify(arr);
 			sessionStorage.logCrocerossa = JSON.stringify(arr);
 			sessionStorage.ipAddress=$("#ipAddress").val();
-			window.open('transito.html','_self');
+			var socket = io.connect(sessionStorage.ipAddress);
+			socket.on('reconnecting', function reconnectCallback(tries) {
+				if (tries === 1) {
+					 alert("Impossibile connettersi! Controlla l'indirizzo IP inserito");
+				}
+			});
+
+			socket.on('connect', function connectCallback() {
+				//handle successful connection here then disconnect
+				window.open('transito.html','_self');
+				//socket.disconnect();
+			});
+			
+			
 		}
 		
 	</script>
