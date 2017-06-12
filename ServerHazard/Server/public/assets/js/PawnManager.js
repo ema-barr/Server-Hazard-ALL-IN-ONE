@@ -18,8 +18,33 @@ class PawnManager {
 		return -1;
 	}
 
+	deletePawnByGroup(group){
+		var fakePosition = {};
+		fakePosition.top = -9999;
+		fakePosition.left = -9999;
+		this.movePawn(group,'dummy',fakePosition);
+		this.cleanPawns();
+	}
 
+	cleanPawns(){
+		for(var pIndex in this.pawns){
+			if(this.pawns[pIndex].literalPosition == 'dummy') {
+				$('#'+this.pawns[pIndex].id).remove();
+				this.pawns.splice(pIndex,1);
+			}else if(this.pawns[pIndex].getGroupsNumber() == 0) {
+				$('#'+this.pawns[pIndex].id).remove();
+				this.pawns.splice(pIndex,1);
+			}
+		}
+
+	}
 	movePawn(group,to,position){
+		if(config['DEBUG']){
+			for(pIndex in this.pawns){
+				console.log(this.pawns[pIndex]);
+			}
+		}
+		this.cleanPawns();
 		var done = false;
 
 		//Controllo che la posizione "to" non sia occupata da un'altra pedina
@@ -81,12 +106,7 @@ class PawnManager {
 			if(groupsLeft == 0) {
 				//La pedina non ha più gruppi
 				oldPawn.setPosition(pawn.getPosition(),destination,true);
-
-				
-					$.when(self.promise).then(function(){
-						self.promise = null;
-						self.animationCallback(pawn,oldPawn,groupAway);
-					});
+				self.animationCallback(pawn,oldPawn,groupAway);
 	
 					
 
@@ -105,12 +125,10 @@ class PawnManager {
 				animationPawn.setPosition(pawn.getPosition(),destination);
 				//animationPawn.clear();
 				animationPawn.setPosition(position,destination,true);
-				$.when(self.promise).then(function(){
-					self.promise = null;
-					self.animationCallback(pawn,animationPawn,groupAway);
-					self.animationPawn = {};
-					delete(self.animationPawn)
-				});
+
+				self.animationCallback(pawn,animationPawn,groupAway);
+				self.animationPawn = {};
+				delete(self.animationPawn)
 
 				/*var self = this;
 				self.animationPawn = {};

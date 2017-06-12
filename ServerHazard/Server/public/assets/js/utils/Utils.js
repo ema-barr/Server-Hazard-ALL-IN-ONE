@@ -18,12 +18,13 @@ class Utils {
 		content_text += `<li><span style=\"font-weight:bold;\">`+lang['zone']+`</span>` + name+`</li>`;
 
 		for(var key in vars){
-			if(vars[key] == -1) continue;
-			var i = this.getIndexByValue(vars[key]);
+			if(vars[key].level == -1) continue;
+			var i = this.getIndexByValue(vars[key].level);
+			var symbol = (vars[key].hasStronghold) ? `&#9733;` : '';
 			content_text += `
 							<li><div class="float-wrapper">
 							<span>`+key+` :</span>
-							<div id="`+key+`-`+name+`" style="background-color:`+config['LEGEND'][i].color+`"></div>
+							<div id="`+key+`-`+name+`" style="background-color:`+config['LEGEND'][i].color+`">`+symbol+`</div>
 							</li></div>`;
 		}
 		content_text += `</ul>`;
@@ -105,10 +106,13 @@ class Utils {
 		Colors.random = function() {
 		    var result;
 		    var count = 0;
-		    for (var prop in this.names)
+		    for (var prop in this.names) 
 		        if (Math.random() < 1/++count)
 		           result = prop;
-            return { name: result, rgb: this.names[result]};
+		    var returnRgb = this.names[result];
+		    var self = this;
+		    delete self.names[result];
+            return { name: result, rgb: returnRgb};
 
 		};
 

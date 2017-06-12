@@ -46,14 +46,23 @@ class Pawn{
 	}
 
 	addGroup(group){
-		var key = Object.keys(group)[0];
-		this.groups[key] = group[key];
+		if(typeof group == 'string'){
+			this.groups[group+"_0"] = group+"_0";
+		}else {
+			var key = Object.keys(group)[0];
+			this.groups[key] = group[key];
+		}
 		return this.getGroupsNumber();
 	}
 
 	removeGroup(group){
 		try {
-			var key = Object.keys(group)[0];
+			if(typeof group == 'object') {
+				var key = Object.keys(group)[0];
+
+			}else{
+				var key = group;
+			}
 			delete(this.groups[key]);
 			return this.getGroupsNumber();
 		}catch (err){
@@ -63,7 +72,13 @@ class Pawn{
 	}
 
 	groupInPawn(group){
-		var key = Object.keys(group)[0];
+		if(typeof group == 'string'){
+			var key = group;
+		}else if(typeof group == 'object'){
+			var key = Object.keys(group)[0];
+		}else {
+			throw("Expecting string or object, received "+(typeof group)+" in groupInPawn");
+		}
 		if($.inArray(key,Object.keys(this.groups)) > -1) return true;
 		return false;
 	}
@@ -92,6 +107,8 @@ class Pawn{
 	merge(newGroups){
 		if(typeof this.groups == 'object')
 			Object.assign(this.groups,newGroups);
+		else if (typeof this.groups == 'string')
+			this.groups[newGroups] = '#000000';
 		else
 			this.groups.concat(newGroups);
 	}
@@ -120,6 +137,8 @@ class Pawn{
     	this.svgObject.load(this.__svg, {addTo: true, onLoad: callback, changeSize:true});
     	//$($('#'+this.id+'> *')).animate({svgHeight: self.DEFAULT_PAWN_SIZE.H, svgWidth : self.DEFAULT_PAWN_SIZE.W}, 400);
     	$('#'+this.id).children().fadeIn();
+    	$('#'+this.id).addClass('animated bounce');
+    	$('#'+this.id).removeClass('animated bounce');
 
 	}
 

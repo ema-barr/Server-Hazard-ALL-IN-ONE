@@ -38,11 +38,7 @@ class MapUtils {
 	 * @param {Number} duration [Durata dell'animazione in ms, default: 500]
 	 */
 	RemoveLink(link, duration = 500){
-		var self = this;
-		$(config['MAP_CONTAINER']).trigger('update'[{
-			deleteLinkKeys : self.link,
-			animDuration : self.duration,
-		}]);
+		$('[data-id="'+link+'"]').attr({'stroke': config['LINK_CLOSED_COLOR']});
 
 	}
 
@@ -54,20 +50,7 @@ class MapUtils {
 	 * @param {Integer} duration [Durata dell'animazione in ms, default: 500]
 	 */
 	AddLink(from,to,style,duration = 500){
-		var self = this;
-		$(config['MAP_CONTAINER']).trigger('update'[{
-			newLinks : {
-				link : {
-					factor : config['DEFAULT_PLOT_FACTOR'],
-					between : [self.from,self.to],
-					attrs : {
-						'stroke-width': config['DEFAULT_PLOT_STROKE'],
-						'stroke-dasharray' : self.style
-					},
-				},
-			},
-			animDuration : self.duration,
-		}]);
+		$('[data-id="'+link+'"]').attr({'stroke': config['LINK_OPEN_COLOR']});
 	}
 
 
@@ -76,7 +59,7 @@ class MapUtils {
 	 * @param {String} fromv [ID univoco del plot relativo all'area di partenza (Plot)]
 	 * @param {String} tov   [ID univoco del plot relativo all'area di arrivo (Plot)]
 	 */
-	MovePlayer(fromv,tov) {
+	/*MovePlayer(fromv,tov) {
 		var movement = {
 			from: fromv,
 			to: tov,
@@ -94,7 +77,7 @@ class MapUtils {
 	 * @param  {String} plot [ID univoco del plot]
 	 * @return NA
 	 */
-	__removePlayer(plot){
+	/*__removePlayer(plot){
 		 var updatedOptions = {'plots': {}};
 		 updatedOptions.plots[plot] = {
 		 	type: config['DEFAULT_PLOT_TYPE'],
@@ -108,7 +91,7 @@ class MapUtils {
 	 * @param  {String} plot [ID univoco del plot]
 	 * @return NA
 	 */
-	__setPlayer(plot){
+	/*__setPlayer(plot){
 		 var updatedOptions = {'plots': {}};
 		 updatedOptions.plots[plot] = {
 		 	type: 'image',
@@ -117,7 +100,7 @@ class MapUtils {
 		 	height: config['DEFAULT_PLOT_ICON_HEIGHT'],
 		 }
 		 this.UpdateMap(updatedOptions);
-	}
+	}*/
 }
 
 module.exports = MapUtils;

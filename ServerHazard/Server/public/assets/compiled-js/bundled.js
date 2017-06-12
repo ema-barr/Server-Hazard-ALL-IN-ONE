@@ -12265,6 +12265,8 @@
 			'LEGEND_MODE': 'horizontal',
 			'LEGEND': [{ color: "#5BCA09", value: '0,1', text: 'Livello 1' }, { color: "#FFD700", value: '2,3', text: 'Livello 2' }, { color: "#FF9C01", value: '2,3', text: 'Livello 3' }, { color: "#FE2701", value: '6,20', text: 'Livello 4' }],
 
+			'LINK_CLOSED_COLOR': '#c42b44',
+			'LINK_OPEN_COLOR': '#0088db',
 			//IDs
 			'PROGRESS_BAR_ID': '#progressinf',
 			'PROGRESS_BALLS_ID': '#progress',
@@ -12308,11 +12310,9 @@
 			/*TEST DA RIMUOVERE*/
 
 			testBasic() {
-				this.setProgress(30);
-				this.setLevel(+1);
-				this.changeResources('gatti', 100);
-				this.updateTurn('Mario');
+				this.CloseLink('Canada-plot.USA-plot');
 			}
+
 			test() {
 				var self = this;
 				var updatedOptions = { 'areas': {}, 'plots': {} };
@@ -12346,6 +12346,7 @@
 					//document.addEventListener("DOMContentLoaded", function(event) { 
 					for (var i = 0; i < config['MAX_LEVEL']; i++) {
 						$(config['PROGRESS_BALLS_ID']).append('<li id="layer' + (i + 1) + '" class="ball"></li>');
+						//self.testBasic();
 					}
 					//self.showModal(lang['gamestart'],lang['oktostart']);
 				});
@@ -12420,6 +12421,9 @@
 				this.PawnMan.movePawn(group, location, position);
 			}
 
+			removePawn(group) {
+				this.PawnMan.deletePawnByGroup(group);
+			}
 			/**
     * Imposta un HQ per un gruppo contrassegnato dal colore color
     * @param {[type]} location [description]
@@ -12458,7 +12462,14 @@
 				$('#' + area + '-tooltiplist').replaceWith(this.utils.__buildTooltip(area, emergency));
 			}
 
-			chooseCardPopup(cardID) {
+			chooseCardPopup(cards) {
+				this.modal.setTitle('Carte Produzione');
+				this.modal.setup();
+				this.modal.setContentCardsTextOnly(cards);
+				this.modal.show();
+			}
+
+			chooseCard(cardID) {
 				this.modal.selectCard(cardID);
 				this.hideModal(3000);
 				this.addLog('INFO', 'E\' stata scelta la carta ' + cardID);
@@ -12531,12 +12542,14 @@
     * @return NA       
     */
 			changeResources(resource, quantity) {
-				var item = $(config['RESOURCES_LOCATION']).find('#' + resource);
-				if (item.length) {
-					item.html(quantity);
-				} else {
-					$(config['RESOURCES_LOCATION']).append('<li><i class="' + config['RESOURCES_ICON'] + '" id="' + resource + '" aria-hidden="true" title="' + resource.capitalizeFirstLetter() + '"></i>' + resource.capitalizeFirstLetter() + ' : ' + quantity + '</li>');
-				}
+				$(config['RESOURCES_LOCATION']).append('<li><i class="' + config['RESOURCES_ICON'] + '" id="' + resource + '" aria-hidden="true" title="' + resource.capitalizeFirstLetter() + '"></i>' + resource.capitalizeFirstLetter() + ' : <span id="qty">' + quantity + '</span></li>');
+			}
+
+			/** Elimina tutte le risorse visualizzate
+    *  @return NA    
+    */
+			clearResources() {
+				$(config['RESOURCES_LOCATION']).empty();
 			}
 
 			/**
@@ -12546,6 +12559,10 @@
     */
 
 			addLog(type, text) {
+				if (text == null || typeof text == 'undefined') {
+					console.warn("Logging text undefined");
+					return;
+				}
 				var d = new Date();
 				var time = d.getHours() + ":" + d.getMinutes();
 				var timestamp = d.getTime();
@@ -12619,21 +12636,16 @@
 			}
 
 			/**
-    * Blocca un collegamento (tratteggio)
+    * Blocca un collegamento (rosso)
     * @param {String} link [ID Univoco del collegamento]
-    * @param {Boolean} enabled [True se il link è attraversabile, false altrimenti]
     * @param {Integer} time [Tempo in millisecondi prima che il link venga ricreato, default: 500]
     */
-			CloseLink(link, enabled = true, time = 500) {
-				var linkedPlots = link.split('.');
-				var strokeStyle = enabled ? '-' : '--';
-				var self = this;
+			CloseLink(link, time = 500) {
+				this.map.RemoveLink(link, time);
+			}
 
-				this.RemoveLink(link);
-
-				setTimeout(function () {
-					this.AddLink(linkedPlots[0], linkedPlots[1], strokeStyle);
-				}, time);
+			OpenLink(link, time = 500) {
+				this.map.AddLink(link, time);
 			}
 
 		}
@@ -12695,16 +12707,17 @@
 				this.utils = new Utils();
 
 				var self = this;
-				//var socket = io.connect();
 				var socket = io();
 
-				console.log(socket);
 				socket.on('welcome', function (data) {
 					if (!this.INITIALIZED) {
 						socket.emit('init_dashboard', data);
 						self.gameStart('../../strutturaxml.xml');
 						this.INITIALIZED = true;
 					}
+					socket.emit('getState', '{}', function (data) {
+						self.handleState(data);
+					});
 				});
 
 				socket.on('update', function (data) {
@@ -12712,7 +12725,9 @@
 					self.handleState(data);
 				});
 
-				socket.on('popupMessage', function (data) {});
+				socket.on('popupMessage', function (data) {
+					console.log("Popup Message " + data);
+				});
 
 				socket.on('closePopup', function (data) {
 					self.hazard.hideModal();
@@ -12720,16 +12735,15 @@
 
 				socket.on('chooseProductionCard', function (data) {
 					console.log(data);
-					if (typeof data != `undefined` && typeof (data.cardIndex != `undefined`)) self.hazard.chooseCardPopup(data.cardIndex);
+					if (typeof data != `undefined` && typeof (data.cardIndex != `undefined`)) {
+						self.hazard.chooseCard(data.cardIndex);
+						self.handleState(data);
+					}
 				});
 
-				socket.on('init', function (data) {
-					self.gameStart('../../strutturaxml.xml');
-				});
-
-				/*socket.on('parsingXML',function(data){
-    	self.parseXML('test.xml',[self.hazard.initMap,self.placePawnsCallback]);	// DA RIVEDERE
-    });*/
+				/**socket.on('init',function(data){
+    	self.gameStart('../../strutturaxml.xml');
+    }); **/
 
 				socket.on('connection_error', function () {
 					console.log("Waiting for connection ...");
@@ -12787,7 +12801,7 @@
 							'left': plots[group.startingPoint + '-plot'].longitude
 						};
 						var groupObj = {};
-						groupObj[key] = group.color;
+						groupObj[key + "_0"] = group.color;
 						hazard.setPawn(groupObj, group.startingPoint, position);
 					}
 				}
@@ -12815,14 +12829,17 @@
 
 				for (var g in this.groups) {
 					var pawn = {};
-					pawn['pawnID'] = 'it.uniba.hazard.engine.pawns.' + this.groups[g].type + '_' + g;
+					pawn['pawnID'] = 'it.uniba.hazard.engine.pawns.' + this.groups[g].type + '_';
+					if (g.includes('action') || g.includes('Action')) {
+						pawn['pawnID'] += "ActionPawn";
+					}
 					pawn['type'] = this.groups[g].type;
 					pawn['location'] = this.groups[g].startingPoint;
 					pawn['group'] = g;
 					dummyState.state.gameState.gameMap.pawns.push(pawn);
 				}
 				this.gameState.setState(dummyState.state);
-				console.log('Dummy State: ' + JSON.stringify(dummyState));
+				//console.log('Dummy State: '+JSON.stringify(dummyState));
 			}
 
 			/**
@@ -12849,9 +12866,15 @@
 						self.resources = json.xml.game.resources;
 						//self.groups = json.xml.game.groups;
 						self.locale = json.xml.game.locale;
-						self.locations = json.xml.game.map.area.location;
+						self.locations = [];
 
-						if (typeof self.resources['name'] == 'string') self.hazard.changeResources(self.resources.name, 0);else {
+						for (var i = 0; i < json.xml.game.map.area.length; i++) {
+							self.locations = self.locations.concat(json.xml.game.map.area[i].location);
+						}
+
+						if (typeof self.resources['name'] == 'string') {
+							self.hazard.changeResources(self.resources.name, 0);
+						} else {
 							for (var i = 0; i < self.resources['name'].length; i++) {
 								self.hazard.changeResources(self.resources['name'][i], 0);
 							}
@@ -12869,7 +12892,10 @@
 							self.plots[self.locations[j].name + '-plot'].latitude = self.locations[j].latitude;
 							self.plots[self.locations[j].name + '-plot'].longitude = self.locations[j].longitude;
 
-							for (var em in json.xml.game.emergencies.emergency) self.setEmergency(self.locations[j].name, json.xml.game.emergencies.emergency[em].name, 0);
+							for (var em in json.xml.game.emergencies.emergency) {
+								self.areas[self.locations[j].name].emergencies[json.xml.game.emergencies.emergency[em].name] = {};
+								self.setEmergency(self.locations[j].name, json.xml.game.emergencies.emergency[em].name, 0);
+							}
 
 							self.plots[self.locations[j].name + '-plot'].tooltip = {};
 							self.areas[self.locations[j].name].visualName = self.locations[j].visualName;
@@ -12925,10 +12951,13 @@
 									var keyName = json.xml.game.groups[key][i]['name'];
 									self.groups[keyName] = {};
 									self.groups[keyName].type = key;
+									self.groups[keyName].pawns = [];
 									if (key == 'actionGroup') {
 										self.groups[keyName].hq = [];
+										self.groups[keyName].pawns[0] = {};
+										self.groups[keyName].pawns[0].location = json.xml.game.groups[key][i].startingPoint;
 										self.groups[keyName].startingPoint = json.xml.game.groups[key][i].startingPoint;
-										self.groups[keyName].location = json.xml.game.groups[key][i].startingPoint;
+										//self.groups[keyName].location = json.xml.game.groups[key][i].startingPoint;
 										for (var j = 0; j < json.xml.game.groups[key][i]['headquarters'].headquarter.length; j++) {
 											self.groups[keyName].hq.push(json.xml.game.groups[key][i]['headquarters']['headquarter'][j]);
 										}
@@ -12957,14 +12986,19 @@
    }*/
 
 			eliminateEmergency(locationID, area) {
-				this.areas[locationID].emergencies[emergency] = -1;
+				this.areas[locationID].emergencies[emergency].level = -1;
 				this.hazard.updateEmergenciesTooltip(locationID, this.areas[locationID].emergencies);
 			}
 
 			setEmergency(locationID, emergency, level) {
 				var initialization = typeof this.areas[locationID].emergencies[emergency] == 'undefined';
-				this.areas[locationID].emergencies[emergency] = level;
-				if (!initialization) this.hazard.updateEmergenciesTooltip(locationID, this.areas[locationID].emergencies);
+				this.areas[locationID].emergencies[emergency].level = level;
+				if (!initialization) this.hazard.updateEmergenciesTooltip(locationID, this.areas[locationID].emergencies);else this.areas[locationID].emergencies[emergency].hasStronghold = false;
+			}
+
+			buildStronghold(emergency, location) {
+				this.areas[location].emergencies[emergency].hasStronghold = true;
+				this.hazard.updateEmergenciesTooltip(location, this.areas[location].emergencies);
 			}
 
 			handleState(data) {
@@ -12972,9 +13006,15 @@
 					console.warn('Parameter data is a string, parsing as JSON Object');
 					data = JSON.parse(data);
 				}
+				this.hazard.testBasic();
+				if (data.hasOwnProperty('response')) var response = data.response;else var response = {};
 
-				var response = data.response;
-				var data = data.state;
+				if (data.hasOwnProperty('state')) var data = data.state;
+				if (data.hasOwnProperty('currentTurn')) {
+					if (data.currentTurn.hasOwnProperty('cards')) {
+						this.hazard.chooseCardPopup(data.currentTurn.cards);
+					}
+				}
 
 				var diff = this.gameState.setState(data);
 				if (diff.length == 0) return;
@@ -13012,31 +13052,60 @@
 					var pawns = diff['pawns'];
 					for (var j = 0; j < pawns.length; j++) {
 						/* Muove la pedina tramite movePawns(IDPEDINA,LOCAZIONESUCCESSIVA) */
-						if (this.groups[pawns[j].group].location != pawns[j].location) {
-							/** Si è spostata la pedina pawnID del gruppo pawns[j].group in posizione pawns[j].location */
-							this.groups[pawns[j].group].location = pawns[j].location; //Aggiorno la posizione corrente della pedina del grupp
-							var position = {
-								"top": this.plots[pawns[j].location + '-plot'].latitude,
-								"left": this.plots[pawns[j].location + '-plot'].longitude
+						var id;
+						var condition;
+						var self = this;
+						if (pawns[j].hasOwnProperty('objectID')) {
+							this.buildStronghold(pawns[j].objectID.substr(pawns[j].objectID.lastIndexOf("_") + 1), pawns[j].location);
+						} else {
+							pawns[j].type == 'ActionPawn' ? id = 0 : id = pawns[j].pawnID.substr(pawns[j].pawnID.lastIndexOf("_") + 1);
+							try {
+								condition = typeof self.groups[pawns[j].group].pawns[id] == 'undefined' && self.groups[pawns[j].group].type == 'productionGroup' || self.groups[pawns[j].group].pawns[id].location != pawns[j].location;
+							} catch (e) {
+								condition = false;
+							} finally {
+								if (condition) {
+									console.log("Moving " + pawns[j].group + ", Pawn Number: " + id);
+									/** Si è spostata la pedina pawnID del gruppo pawns[j].group in posizione pawns[j].location */
+									this.groups[pawns[j].group].pawns[id] = {};
+									this.groups[pawns[j].group].pawns[id].location = pawns[j].location; //Aggiorno la posizione corrente della pedina del grupp
+									var position = {
+										"top": this.plots[pawns[j].location + '-plot'].latitude,
+										"left": this.plots[pawns[j].location + '-plot'].longitude
 
-							};
-							var group = {};
-							group[pawns[j].group] = this.groups[pawns[j].group].color;
-							this.hazard.setPawn(group, pawns[j].location, position);
+									};
+									var pawn = {};
+									pawn[pawns[j].group + '_' + id] = this.groups[pawns[j].group].color;
+									this.hazard.setPawn(pawn, pawns[j].location, position);
+								}
+							}
+
+							//var id = pawns[j].pawnID.substr(pawns[j].pawnID.lastIndexOf("_") + 1);
 						}
 					}
 				}
 
-				if (diff['blockades']) {
-					for (blockade in diff['blockades']) {
-						var link = this.utils.getLinkIdentifier(blockade[0], blockade[1]);
-						if (typeof this.links[link] == `undefined`) throw new Error('Undefined type for blockade');else this.hazard.CloseLink(link);
+				if (diff['removedPawns']) {
+					for (var j = 0; j < diff['removedPawns'].length; j++) {
+						var pawn = diff['removedPawns'][j];
+						var id = pawn.substr(pawn.indexOf("_") + 1);
+						var group = {};
+						group[id] = "#FFFFFF";
+						this.hazard.removePawn(group);
 					}
 				}
 
-				if (diff['emergencies']) {}
-				if (diff['maxEmergencyLevel']) {}
-				if (diff['numOfProductionCards']) {}
+				if (diff['blockades']) {
+					for (var j = 0; j < diff['blockades'].length; j++) {
+						if (diff["blockades"][j].hasOwnProperty('location')) {
+							var link = this.utils.getLinkIdentifier(diff["blockades"][j].location[0], diff["blockades"][j].location[1]);
+						} else {
+							var link = this.utils.getLinkIdentifier(diff["blockades"][j][0], diff["blockades"][j][1]);
+						}
+
+						if (typeof this.links[link] == `undefined`) throw new Error('Undefined type for blockade');else this.hazard.CloseLink(link);
+					}
+				}
 
 				if (diff['contagionRatios']) {
 					this.hazard.setProgress(diff.contagionRatios[0].contagionRatio);
@@ -13063,18 +13132,26 @@
 					this.hazard.addLog("INFO", l);
 					this.hazard.updateTurn(lang['productionGroup']);
 				}
-				if (diff['group']) {
-					for (var j = 0; j < diff['resources'].length && diff['resources'] != undefined; j++) {
-						/* Cambia le risorse presenti nella schermata del giocatore  tramite changeResources(risorsa,numero)*/
-						this.hazard.changeResources(diff['resources'][j].resource, diff['resources'][j].quantity);
+
+				try {
+					if (diff['group'] && Object.keys(diff['resources']).length > 0) {
+						try {
+							this.hazard.clearResources();
+							for (var j = 0; j < diff['resources'].length; j++) {
+								/* Cambia le risorse presenti nella schermata del giocatore  tramite changeResources(risorsa,numero)*/
+								this.hazard.changeResources(diff['resources'][j].resource, diff['resources'][j].quantity);
+							}
+						} catch (e) {
+							console.warn("Empty resources");
+						}
 					}
-				}
+				} catch (e) {}
 
 				if (diff['numActions'] || diff['maxNumActions']) {
 					this.hazard.setActions(diff['numActions'], diff['maxNumActions']);
 				}
 
-				this.hazard.addLog("INFO", logString);
+				if (diff['type'] == "EventTurn") this.hazard.addLog("INFO", response[0].logString);else this.hazard.addLog("INFO", logString);
 			}
 
 			//}
@@ -13130,14 +13207,22 @@
 			}
 
 			addGroup(group) {
-				var key = Object.keys(group)[0];
-				this.groups[key] = group[key];
+				if (typeof group == 'string') {
+					this.groups[group + "_0"] = group + "_0";
+				} else {
+					var key = Object.keys(group)[0];
+					this.groups[key] = group[key];
+				}
 				return this.getGroupsNumber();
 			}
 
 			removeGroup(group) {
 				try {
-					var key = Object.keys(group)[0];
+					if (typeof group == 'object') {
+						var key = Object.keys(group)[0];
+					} else {
+						var key = group;
+					}
 					delete this.groups[key];
 					return this.getGroupsNumber();
 				} catch (err) {
@@ -13147,7 +13232,13 @@
 			}
 
 			groupInPawn(group) {
-				var key = Object.keys(group)[0];
+				if (typeof group == 'string') {
+					var key = group;
+				} else if (typeof group == 'object') {
+					var key = Object.keys(group)[0];
+				} else {
+					throw "Expecting string or object, received " + typeof group + " in groupInPawn";
+				}
 				if ($.inArray(key, Object.keys(this.groups)) > -1) return true;
 				return false;
 			}
@@ -13174,7 +13265,7 @@
 			}
 
 			merge(newGroups) {
-				if (typeof this.groups == 'object') Object.assign(this.groups, newGroups);else this.groups.concat(newGroups);
+				if (typeof this.groups == 'object') Object.assign(this.groups, newGroups);else if (typeof this.groups == 'string') this.groups[newGroups] = '#000000';else this.groups.concat(newGroups);
 			}
 
 			clear() {
@@ -13200,6 +13291,8 @@
 				this.svgObject.load(this.__svg, { addTo: true, onLoad: callback, changeSize: true });
 				//$($('#'+this.id+'> *')).animate({svgHeight: self.DEFAULT_PAWN_SIZE.H, svgWidth : self.DEFAULT_PAWN_SIZE.W}, 400);
 				$('#' + this.id).children().fadeIn();
+				$('#' + this.id).addClass('animated bounce');
+				$('#' + this.id).removeClass('animated bounce');
 			}
 
 			__updateDesign() {
@@ -13229,7 +13322,32 @@
 				return -1;
 			}
 
+			deletePawnByGroup(group) {
+				var fakePosition = {};
+				fakePosition.top = -9999;
+				fakePosition.left = -9999;
+				this.movePawn(group, 'dummy', fakePosition);
+				this.cleanPawns();
+			}
+
+			cleanPawns() {
+				for (var pIndex in this.pawns) {
+					if (this.pawns[pIndex].literalPosition == 'dummy') {
+						$('#' + this.pawns[pIndex].id).remove();
+						this.pawns.splice(pIndex, 1);
+					} else if (this.pawns[pIndex].getGroupsNumber() == 0) {
+						$('#' + this.pawns[pIndex].id).remove();
+						this.pawns.splice(pIndex, 1);
+					}
+				}
+			}
 			movePawn(group, to, position) {
+				if (config['DEBUG']) {
+					for (pIndex in this.pawns) {
+						console.log(this.pawns[pIndex]);
+					}
+				}
+				this.cleanPawns();
 				var done = false;
 
 				//Controllo che la posizione "to" non sia occupata da un'altra pedina
@@ -13289,11 +13407,7 @@
 					if (groupsLeft == 0) {
 						//La pedina non ha più gruppi
 						oldPawn.setPosition(pawn.getPosition(), destination, true);
-
-						$.when(self.promise).then(function () {
-							self.promise = null;
-							self.animationCallback(pawn, oldPawn, groupAway);
-						});
+						self.animationCallback(pawn, oldPawn, groupAway);
 
 						/*oldPawn.clear();
       var self = this;
@@ -13310,12 +13424,10 @@
 						animationPawn.setPosition(pawn.getPosition(), destination);
 						//animationPawn.clear();
 						animationPawn.setPosition(position, destination, true);
-						$.when(self.promise).then(function () {
-							self.promise = null;
-							self.animationCallback(pawn, animationPawn, groupAway);
-							self.animationPawn = {};
-							delete self.animationPawn;
-						});
+
+						self.animationCallback(pawn, animationPawn, groupAway);
+						self.animationPawn = {};
+						delete self.animationPawn;
 
 						/*var self = this;
       self.animationPawn = {};
@@ -16651,12 +16763,39 @@
 
 				if (this.initialized) {
 					var diffs = this.__getDifferences(newState);
+					var oldPawnPath = this.state.gameState.gameMap.pawns;
+					var newPawnPath = newState.gameState.gameMap.pawns;
 				} else {
 					this.initialized = true;
 				}
+
 				this.state = newState;
-				var simpleDiffsObject = this.__analyzeDifferences(diffs);
+				var simpleDiffsObject = this.__analyzeDifferences(diffs, oldPawnPath, newPawnPath);
+
 				return simpleDiffsObject;
+			}
+
+			__getDeletedPawns(o, n) {
+				if (o == null || n == null) {
+					console.warn("Null Object in __getDeletedPawns");
+					return [];
+				}
+				var found = false;
+				var differences = [];
+				if (o.length > n.length) {
+					for (var i = 0; i < o.length; i++) {
+						found = false;
+						for (var j = 0; j < n.length; j++) {
+							if (o[i].pawnID.substr(o[i].pawnID.indexOf("_") + 1) == n[j].pawnID.substr(n[j].pawnID.indexOf("_") + 1)) {
+								found = true;
+							}
+						}
+						if (!found) {
+							differences.push(o[i].pawnID);
+						}
+					}
+				}
+				return differences;
 			}
 
 			/**
@@ -16666,14 +16805,29 @@
     * @return {Object}          [Differenze ottenute da deep-diff]
     */
 			__getDifferences(newState) {
-				return diff(newState, this.state);
+				return diff(this.state, newState);
 			}
 
-			__analyzeDifferences(diffs) {
+			__analyzeDifferences(diffs, oldPawnPath, newPawnPath) {
 				if (diffs == null) return [];
 				var changes = {};
+				changes['locations'] = [];
+				changes['removedPawns'] = this.__getDeletedPawns(oldPawnPath, newPawnPath);;
 				var base = 1;
 				for (var i = 0; i < diffs.length; i++) {
+					/*if(diffs[i].kind == "D") {
+     	var path = diffs[i].path.join('.');
+     		if(diffs[i].path[base-1] == 'gameState'){
+     		switch(diffs[i].path[base]){
+     			case 'gameMap':
+     				if(diffs[i].path[base+1] == 'pawns') {
+     					changes['removedPawns'].push(diffs[i].lhs.pawnID);
+     				}
+     			break;
+     		}
+     		}
+     }*/
+
 					if (diffs[i].kind == "E") {
 						var path = diffs[i].path.join('.');
 
@@ -16686,7 +16840,7 @@
 									break;
 								case 'gameMap':
 									if (diffs[i].path[base + 1] == "locations") {
-										changes['locations'] = [];
+
 										for (var j = 0; j < this.state.gameState.gameMap.locations.length; j++) {
 											if (j == diffs[i].path[base + 2]) {
 												changes['locations'].push(this.state.gameState.gameMap.locations[j]);
@@ -16779,11 +16933,7 @@
     * @param {Number} duration [Durata dell'animazione in ms, default: 500]
     */
 			RemoveLink(link, duration = 500) {
-				var self = this;
-				$(config['MAP_CONTAINER']).trigger('update'[{
-					deleteLinkKeys: self.link,
-					animDuration: self.duration
-				}]);
+				$('[data-id="' + link + '"]').attr({ 'stroke': config['LINK_CLOSED_COLOR'] });
 			}
 
 			/**
@@ -16794,20 +16944,7 @@
     * @param {Integer} duration [Durata dell'animazione in ms, default: 500]
     */
 			AddLink(from, to, style, duration = 500) {
-				var self = this;
-				$(config['MAP_CONTAINER']).trigger('update'[{
-					newLinks: {
-						link: {
-							factor: config['DEFAULT_PLOT_FACTOR'],
-							between: [self.from, self.to],
-							attrs: {
-								'stroke-width': config['DEFAULT_PLOT_STROKE'],
-								'stroke-dasharray': self.style
-							}
-						}
-					},
-					animDuration: self.duration
-				}]);
+				$('[data-id="' + link + '"]').attr({ 'stroke': config['LINK_OPEN_COLOR'] });
 			}
 
 			/**
@@ -16880,7 +17017,7 @@
     */
 			setup(modalClass = config['MODAL_CLASS']) {
 				$(config['MODAL_BUTTONS_ID']).empty();
-				$(config['MODAL_BUTTONS_ID']).append('<button type="button" id="start-game-button" disabled=true class="btn btn-default" data-dismiss="modal"><i class="fa fa-spinner fa-spin fa-2x"></i></button>');
+				$(config['MODAL_BUTTONS_ID']).append('<button type="button" id="start-game-button" disabled=true class="btn btn-default" data-target="#myModal" data-toggle="modal" data-dismiss="modal"><i class="fa fa-spinner fa-spin fa-2x"></i></button>');
 				$(config['MODAL_ID']).removeClass();
 				$(config['MODAL_ID']).addClass('modal fade ' + modalClass);
 			}
@@ -16922,9 +17059,9 @@
 				this.cards = cards;
 				var html = `<div class="row">`;
 				var cols = Math.floor(12 / cards.length);
-				for (card in cards) {
+				for (var i = 0; i < cards.length; i++) {
 					html += `<div class="col-md-${cols} col-xl-${cols}">`;
-					html += `<p id="${card.name}">${card.name}</p>`;
+					html += `<p id="${i}">${cards[i].location}</p>`;
 					html += `</div>`;
 				}
 				html += '</div>';
@@ -16935,12 +17072,16 @@
     * @param {int} id [Carta selezionata]
     */
 			selectCard(id) {
-				for (card in cards) {
-					if (card.name != id) {
-						$(card.name).addClass('animate zoomOut');
+				if (typeof this.cards == 'undefined') {
+					console.warn('Undefined cards');
+					return;
+				}
+				for (var i = 0; i < this.cards.length; i++) {
+					if (i != id) {
+						$('#' + i).addClass('animated zoomOut');
 					}
 				}
-				$(id).addClass('animate pulse');
+				$('#' + id).addClass('animated pulse');
 			}
 
 			show() {
@@ -16984,12 +17125,13 @@
 				content_text += `<li><span style=\"font-weight:bold;\">` + lang['zone'] + `</span>` + name + `</li>`;
 
 				for (var key in vars) {
-					if (vars[key] == -1) continue;
-					var i = this.getIndexByValue(vars[key]);
+					if (vars[key].level == -1) continue;
+					var i = this.getIndexByValue(vars[key].level);
+					var symbol = vars[key].hasStronghold ? `&#9733;` : '';
 					content_text += `
 							<li><div class="float-wrapper">
 							<span>` + key + ` :</span>
-							<div id="` + key + `-` + name + `" style="background-color:` + config['LEGEND'][i].color + `"></div>
+							<div id="` + key + `-` + name + `" style="background-color:` + config['LEGEND'][i].color + `">` + symbol + `</div>
 							</li></div>`;
 				}
 				content_text += `</ul>`;
@@ -17070,7 +17212,10 @@
 					var result;
 					var count = 0;
 					for (var prop in this.names) if (Math.random() < 1 / ++count) result = prop;
-					return { name: result, rgb: this.names[result] };
+					var returnRgb = this.names[result];
+					var self = this;
+					delete self.names[result];
+					return { name: result, rgb: returnRgb };
 				};
 
 				return Colors.random();

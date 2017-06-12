@@ -27,11 +27,9 @@ class Dashboard {
 	/*TEST DA RIMUOVERE*/
 
 	testBasic () {
-		this.setProgress(30);
-		this.setLevel(+1);
-		this.changeResources('gatti',100);
-		this.updateTurn('Mario');
+		this.CloseLink('Canada-plot.USA-plot');
 	}
+
 	test() {
 	   var self = this;
 	   var updatedOptions = {'areas': {}, 'plots': {}};
@@ -65,9 +63,12 @@ class Dashboard {
 		//document.addEventListener("DOMContentLoaded", function(event) { 
 			for(var i = 0; i<config['MAX_LEVEL'];i++){
 				$(config['PROGRESS_BALLS_ID']).append('<li id="layer'+(i+1)+'" class="ball"></li>');
+				//self.testBasic();
 			}
 			//self.showModal(lang['gamestart'],lang['oktostart']);
 		});
+
+
 	}
 
 
@@ -145,6 +146,9 @@ class Dashboard {
 		this.PawnMan.movePawn(group,location,position);
 	}
 
+	removePawn(group) {
+		this.PawnMan.deletePawnByGroup(group);
+	}
 	/**
 	 * Imposta un HQ per un gruppo contrassegnato dal colore color
 	 * @param {[type]} location [description]
@@ -184,12 +188,19 @@ class Dashboard {
 	}
 
 
-	chooseCardPopup(cardID){
+	chooseCardPopup(cards){
+		this.modal.setTitle('Carte Produzione');
+		this.modal.setup();
+		this.modal.setContentCardsTextOnly(cards);
+		this.modal.show();
+
+	}
+
+	chooseCard(cardID) {
 		this.modal.selectCard(cardID);
 		this.hideModal(3000);
 		this.addLog('INFO','E\' stata scelta la carta '+cardID);
-	}
-
+	}	
 
 	setActions(current,max){
 		$('#actions').html('Azioni Disponibili: '+current+'/'+max);
@@ -252,6 +263,7 @@ class Dashboard {
 	}
 
 
+
 	/**
 	 * Modifica le risorse visualizzate per l'area corrente
 	 * @param  {String} resource [Identificatore univoco della risorsa]
@@ -259,14 +271,15 @@ class Dashboard {
 	 * @return NA       
 	 */
     changeResources(resource,quantity){
-    	var item = $(config['RESOURCES_LOCATION']).find('#'+resource);
-    	if(item.length) {
-    		item.html(quantity);
-    	}else {
-    		$(config['RESOURCES_LOCATION']).append('<li><i class="'+config['RESOURCES_ICON']+'" id="'+resource+'" aria-hidden="true" title="'+resource.capitalizeFirstLetter()+'"></i>'+resource.capitalizeFirstLetter()+' : '+quantity+'</li>');
-    	}
+		$(config['RESOURCES_LOCATION']).append('<li><i class="'+config['RESOURCES_ICON']+'" id="'+resource+'" aria-hidden="true" title="'+resource.capitalizeFirstLetter()+'"></i>'+resource.capitalizeFirstLetter()+' : <span id="qty">'+quantity+'</span></li>');
     }
 
+    /** Elimina tutte le risorse visualizzate
+     *  @return NA    
+     */
+    clearResources(){
+    	$(config['RESOURCES_LOCATION']).empty();
+    }
 
 	/**
 	 * Scrive un log
@@ -275,6 +288,10 @@ class Dashboard {
 	 */
 	
 	addLog(type,text){
+		if(text == null || typeof text == 'undefined') {
+			console.warn("Logging text undefined");
+			return;
+		}
 		var d = new Date();
 		var time = d.getHours() + ":" + d.getMinutes();
 		var timestamp = d.getTime();
@@ -351,22 +368,16 @@ class Dashboard {
 
 
 	/**
-	 * Blocca un collegamento (tratteggio)
+	 * Blocca un collegamento (rosso)
 	 * @param {String} link [ID Univoco del collegamento]
-	 * @param {Boolean} enabled [True se il link è attraversabile, false altrimenti]
 	 * @param {Integer} time [Tempo in millisecondi prima che il link venga ricreato, default: 500]
 	 */
-	CloseLink(link,enabled=true,time = 500){
-		var linkedPlots = link.split('.');
-		var strokeStyle = enabled ? '-' : '--';
-		var self = this;
+	CloseLink(link,time = 500){
+		this.map.RemoveLink(link,time);
+	}
 
-		this.RemoveLink(link);
-
-		setTimeout(
-			function(){
-				this.AddLink(linkedPlots[0],linkedPlots[1],strokeStyle);
-			},time);
+	OpenLink(link,time=500) {
+		this.map.AddLink(link,time);
 	}
 
 }

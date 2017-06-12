@@ -44,6 +44,9 @@ module.exports = {
 
 	],
 
+
+	'LINK_CLOSED_COLOR' : '#c42b44',
+	'LINK_OPEN_COLOR': '#0088db',
 	//IDs
 	'PROGRESS_BAR_ID' : '#progressinf',
 	'PROGRESS_BALLS_ID' : '#progress',

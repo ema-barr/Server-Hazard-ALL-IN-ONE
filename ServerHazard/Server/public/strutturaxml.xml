@@ -228,7 +228,274 @@
         <resolution>1280x720</resolution>
       </image>
       <area>
-        <name>Area1</name>
+        <name>Europe</name>
+        <location>
+          <name>EuWest</name>
+          <value>0</value>
+          <longitude>178</longitude>
+          <latitude>131</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>USA</neighbor>
+            <neighbor>UK</neighbor>
+            <neighbor>EuEast</neighbor>
+          </neighborhood>
+        </location>
+        <location>
+          <name>EuEast</name>
+          <value>0</value>
+          <longitude>205</longitude>
+          <latitude>141</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>EuWest</neighbor>
+            <neighbor>Scandinavia</neighbor>
+            <neighbor>CentralAsia</neighbor>
+            <neighbor>MiddleEast</neighbor>
+          </neighborhood>
+        </location>
+        <location>
+          <name>UK</name>
+          <value>0</value>
+          <longitude>176</longitude>
+          <latitude>147</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>EuWest</neighbor>
+            <neighbor>Scandinavia</neighbor>
+            <neighbor>Iceland</neighbor>
+          </neighborhood>
+        </location>
+        <location>
+          <name>Iceland</name>
+          <value>0</value>
+          <longitude>161</longitude>
+          <latitude>155</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>UK</neighbor>
+            <neighbor>Greenland</neighbor>
+            <neighbor>Scandinavia</neighbor>
+          </neighborhood>
+        </location>
+
+        <location>
+          <name>Scandinavia</name>
+          <value>0</value>
+          <longitude>196</longitude>
+          <latitude>155</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>Russia</neighbor>
+            <neighbor>Iceland</neighbor>
+            <neighbor>UK</neighbor>
+            <neighbor>EuEast</neighbor>
+          </neighborhood>
+        </location>
+      </area>
+      <area>
+        <name>Asia</name>
+        <location>
+          <name>Russia</name>
+          <visualName>Russia</visualName>
+          <value>0</value>
+          <longitude>278</longitude>
+          <latitude>150</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>Japan</neighbor>
+            <neighbor>ChinaArea</neighbor>
+            <neighbor>CentralAsia</neighbor>
+          </neighborhood>
+        </location>
+        <location>
+          <name>ChinaArea</name>
+          <visualName>Area Cinese</visualName>
+          <value>0</value>
+          <longitude>285</longitude>
+          <latitude>124</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>Russia</neighbor>
+            <neighbor>Japan</neighbor>
+            <neighbor>India</neighbor>
+            <neighbor>CentralAsia</neighbor>
+            <neighbor>SouthEastAsia</neighbor>
+          </neighborhood>
+        </location>
+        <location>
+          <name>CentralAsia</name>
+          <value>0</value>
+          <longitude>250</longitude>
+          <latitude>140</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>Russia</neighbor>
+            <neighbor>ChinaArea</neighbor>
+            <neighbor>India</neighbor>
+            <neighbor>MiddleEast</neighbor>
+            <neighbor>EuEast</neighbor>
+          </neighborhood>
+        </location>
+        <location>
+          <name>India</name>
+          <value>0</value>
+          <longitude>259</longitude>
+          <latitude>113</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>ChinaArea</neighbor>
+            <neighbor>CentralAsia</neighbor>
+            <neighbor>MiddleEast</neighbor>
+          </neighborhood>
+        </location>
+        <location>
+          <name>SouthEastAsia</name>
+          <value>0</value>
+          <longitude>300</longitude>
+          <latitude>91</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>Australia</neighbor>
+            <neighbor>ChinaArea</neighbor>
+          </neighborhood>
+        </location>
+        <location>
+          <name>MiddleEast</name>
+          <value>0</value>
+          <longitude>226</longitude>
+          <latitude>123</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>CentralAsia</neighbor>
+            <neighbor>India</neighbor>
+            <neighbor>EuEast</neighbor>
+            <neighbor>CentralAfrica</neighbor>
+          </neighborhood>
+        </location>
+        <location>
+          <name>Japan</name>
+          <value>0</value>
+          <longitude>321</longitude>
+          <latitude>129</latitude>
+          <leds>
+            <led>
+              <number>10</number>
+              <emergency>Malattia</emergency>
+            </led>
+            <led>
+              <number>11</number>
+              <emergency>Peste</emergency>
+            </led>
+          </leds>
+          <neighborhood>
+            <neighbor>Russia</neighbor>
+            <neighbor>ChinaArea</neighbor>
+            <neighbor>Australia</neighbor>
+          </neighborhood>
+        </location>
+      </area>
+      <area>
+        <name>Oceania</name>
         <location>
           <name>Australia</name>
           <visualName>Australia</visualName>
@@ -271,159 +538,9 @@
             <neighbor>Australia</neighbor>
           </neighborhood>
         </location>
-        <location>
-          <name>Russia</name>
-          <visualName>Russia</visualName>
-          <value>0</value>
-          <longitude>278</longitude>
-          <latitude>150</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Japan</neighbor>
-            <neighbor>ChinaArea</neighbor>
-            <neighbor>CentralAsia</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>ChinaArea</name>
-          <visualName>Area Cinese</visualName>
-          <value>0</value>
-          <longitude>285</longitude>
-          <latitude>124</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-              <neighbor>Russia</neighbor>
-              <neighbor>Japan</neighbor>
-              <neighbor>India</neighbor>
-              <neighbor>CentralAsia</neighbor>
-              <neighbor>SouthEastAsia</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>CentralAsia</name>
-          <value>0</value>
-          <longitude>250</longitude>
-          <latitude>140</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-              <neighbor>Russia</neighbor>
-              <neighbor>ChinaArea</neighbor>
-              <neighbor>India</neighbor>
-              <neighbor>MiddleEast</neighbor>
-              <neighbor>EuEast</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>India</name>
-          <value>0</value>
-          <longitude>259</longitude>
-          <latitude>113</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-              <neighbor>ChinaArea</neighbor>
-              <neighbor>CentralAsia</neighbor>
-              <neighbor>MiddleEast</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>SouthEastAsia</name>
-          <value>0</value>
-          <longitude>300</longitude>
-          <latitude>91</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-              <neighbor>Australia</neighbor>
-              <neighbor>ChinaArea</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>MiddleEast</name>
-          <value>0</value>
-          <longitude>226</longitude>
-          <latitude>123</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-              <neighbor>CentralAsia</neighbor>
-              <neighbor>India</neighbor>
-              <neighbor>EuEast</neighbor>
-              <neighbor>CentralAfrica</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>Japan</name>
-          <value>0</value>
-          <longitude>321</longitude>
-          <latitude>129</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Russia</neighbor>
-            <neighbor>ChinaArea</neighbor>
-            <neighbor>Australia</neighbor>
-          </neighborhood>
-        </location>
+      </area>
+      <area>
+        <name>Africa</name>
         <location>
           <name>NorthAfrica</name>
           <value>0</value>
@@ -440,8 +557,8 @@
             </led>
           </leds>
           <neighborhood>
-              <neighbor>EuWest</neighbor>
-              <neighbor>CentralAfrica</neighbor>
+            <neighbor>EuWest</neighbor>
+            <neighbor>CentralAfrica</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -460,9 +577,9 @@
             </led>
           </leds>
           <neighborhood>
-              <neighbor>SouthAfrica</neighbor>
-              <neighbor>NorthAfrica</neighbor>
-              <neighbor>Madagascar</neighbor>
+            <neighbor>SouthAfrica</neighbor>
+            <neighbor>NorthAfrica</neighbor>
+            <neighbor>Madagascar</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -481,8 +598,8 @@
             </led>
           </leds>
           <neighborhood>
-              <neighbor>CentralAfrica</neighbor>
-              <neighbor>Madagascar</neighbor>
+            <neighbor>CentralAfrica</neighbor>
+            <neighbor>Madagascar</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -501,119 +618,13 @@
             </led>
           </leds>
           <neighborhood>
-              <neighbor>CentralAfrica</neighbor>
-              <neighbor>Madagascar</neighbor>
+            <neighbor>CentralAfrica</neighbor>
+            <neighbor>SouthAfrica</neighbor>
           </neighborhood>
         </location>
-        <location>
-          <name>EuWest</name>
-          <value>0</value>
-          <longitude>178</longitude>
-          <latitude>131</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>USA</neighbor>
-            <neighbor>UK</neighbor>
-            <neighbor>EuEast</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>EuEast</name>
-          <value>0</value>
-          <longitude>205</longitude>
-          <latitude>141</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-              <neighbor>EuWest</neighbor>
-              <neighbor>Scandinavia</neighbor>
-              <neighbor>CentralAsia</neighbor>
-              <neighbor>MiddleEast</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>UK</name>
-          <value>0</value>
-          <longitude>176</longitude>
-          <latitude>147</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-              <neighbor>EuWest</neighbor>
-              <neighbor>Scandinavia</neighbor>
-              <neighbor>Iceland</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>Iceland</name>
-          <value>0</value>
-          <longitude>161</longitude>
-          <latitude>155</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-              <neighbor>UK</neighbor>
-              <neighbor>Greenland</neighbor>
-              <neighbor>Scandinavia</neighbor>
-          </neighborhood>
-        </location>
-
-        <location>
-          <name>Scandinavia</name>
-          <value>0</value>
-          <longitude>196</longitude>
-          <latitude>155</latitude>
-          <leds>
-            <led>
-              <number>10</number>
-              <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-                <neighbor>Russia</neighbor>
-                <neighbor>Iceland</neighbor>
-                <neighbor>UK</neighbor>
-                <neighbor>EuEast</neighbor>
-          </neighborhood>
-        </location>
-
+      </area>
+      <area>
+        <name>Americas</name>
         <location>
           <name>Greenland</name>
           <value>0</value>
@@ -630,8 +641,8 @@
             </led>
           </leds>
           <neighborhood>
-              <neighbor>Iceland</neighbor>
-              <neighbor>Canada</neighbor>
+            <neighbor>Iceland</neighbor>
+            <neighbor>Canada</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -650,8 +661,8 @@
             </led>
           </leds>
           <neighborhood>
-              <neighbor>Greenland</neighbor>
-              <neighbor>USA</neighbor>
+            <neighbor>Greenland</neighbor>
+            <neighbor>USA</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -671,8 +682,8 @@
           </leds>
           <neighborhood>
             <neighbor>EuWest</neighbor>
-              <neighbor>Canada</neighbor>
-              <neighbor>CentralAmerica</neighbor>
+            <neighbor>Canada</neighbor>
+            <neighbor>CentralAmerica</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -691,8 +702,8 @@
             </led>
           </leds>
           <neighborhood>
-              <neighbor>USA</neighbor>
-              <neighbor>SouthAmericaCB</neighbor>
+            <neighbor>USA</neighbor>
+            <neighbor>SouthAmericaCB</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -711,8 +722,8 @@
             </led>
           </leds>
           <neighborhood>
-              <neighbor>SouthAmericaBR</neighbor>
-              <neighbor>SouthAmericaUR</neighbor>
+            <neighbor>SouthAmericaBR</neighbor>
+            <neighbor>SouthAmericaUR</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -731,8 +742,8 @@
             </led>
           </leds>
           <neighborhood>
-              <neighbor>SouthAmericaCB</neighbor>
-              <neighbor>SouthAmericaUR</neighbor>
+            <neighbor>SouthAmericaCB</neighbor>
+            <neighbor>SouthAmericaUR</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -751,8 +762,8 @@
             </led>
           </leds>
           <neighborhood>
-              <neighbor>SouthAmericaCB</neighbor>
-              <neighbor>SouthAmericaBR</neighbor>
+            <neighbor>SouthAmericaCB</neighbor>
+            <neighbor>SouthAmericaBR</neighbor>
           </neighborhood>
         </location>
       </area>
