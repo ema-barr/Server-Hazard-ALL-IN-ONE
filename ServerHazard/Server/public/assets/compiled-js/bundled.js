@@ -12691,7 +12691,7 @@
 				this.links = {};
 				this.pawns = {};
 				// Inizializzazione variabili di gioco
-				this.cards = {};
+				this.cards = [];
 				this.endGame = {};
 				this.groups = {};
 				this.locale = {};
@@ -12715,7 +12715,7 @@
 						self.gameStart('../../strutturaxml.xml');
 						this.INITIALIZED = true;
 					}
-					socket.emit('getState', '{}', function (data) {
+					socket.emit('getState', {}, function (data) {
 						self.handleState(data);
 					});
 				});
@@ -12736,7 +12736,7 @@
 				socket.on('chooseProductionCard', function (data) {
 					console.log(data);
 					if (typeof data != `undefined` && typeof (data.cardIndex != `undefined`)) {
-						//self.hazard.chooseCard(data.cardIndex);
+						self.hazard.chooseCard(data.cardIndex);
 						self.handleState(data);
 					}
 				});
@@ -13011,11 +13011,12 @@
 
 				if (data.hasOwnProperty('state')) var data = data.state;
 
-				/*if(data.hasOwnProperty('currentTurn')) {
-    	if(data.currentTurn.hasOwnProperty('cards')){
-    		this.hazard.chooseCardPopup(data.currentTurn.cards);
-    	}
-    }*/
+				if (data.hasOwnProperty('currentTurn')) {
+					if (data.currentTurn.hasOwnProperty('cards')) {
+						this.cards = data.currentTurn.cards;
+						//this.hazard.chooseCardPopup(data.currentTurn.cards);
+					}
+				}
 
 				var diff = this.gameState.setState(data);
 				if (diff.length == 0) return;
@@ -16786,9 +16787,13 @@
 				if (o.length > n.length) {
 					for (var i = 0; i < o.length; i++) {
 						found = false;
-						for (var j = 0; j < n.length; j++) {
-							if (o[i].pawnID.substr(o[i].pawnID.indexOf("_") + 1) == n[j].pawnID.substr(n[j].pawnID.indexOf("_") + 1)) {
-								found = true;
+						for (var j = 0; j < n.length && !found; j++) {
+							try {
+								if (o[i].pawnID.substr(o[i].pawnID.indexOf("_") + 1) == n[j].pawnID.substr(n[j].pawnID.indexOf("_") + 1)) {
+									found = true;
+								}
+							} catch (e) {
+								continue;
 							}
 						}
 						if (!found) {
@@ -17009,6 +17014,7 @@
 		class ModalDialog {
 			constructor() {
 				this.visible = false;
+				this.setup();
 			}
 
 			/**
@@ -17017,10 +17023,19 @@
     * @return NA
     */
 			setup(modalClass = config['MODAL_CLASS']) {
-				$(config['MODAL_BUTTONS_ID']).empty();
-				$(config['MODAL_BUTTONS_ID']).append('<button type="button" id="start-game-button" disabled=true class="btn btn-default" data-target="#myModal"><i class="fa fa-spinner fa-spin fa-2x"></i></button>');
 				$(config['MODAL_ID']).removeClass();
 				$(config['MODAL_ID']).addClass('modal fade ' + modalClass);
+				//$(config['MODAL_BUTTONS_ID']).empty();
+				//$(config['MODAL_BUTTONS_ID']).append('<button type="button" id="start-game-button" disabled=true class="btn btn-default" data-target="#myModal"><i class="fa fa-spinner fa-spin fa-2x"></i></button>');
+
+
+				$(config['MODAL_ID']).on('hide.bs.modal', function (e) {
+					console.log("Required modal close");
+				});
+
+				$(config['MODAL_ID']).on('show.bs.modal', function (e) {
+					console.log("Required modal open");
+				});
 			}
 
 			/**
@@ -17086,13 +17101,17 @@
 			}
 
 			show() {
-				$(config['MODAL_ID']).modal("show");
-				this.visible = true;
+				if (!this.visible) {
+					$(config['MODAL_ID']).modal("show");
+					this.visible = true;
+				}
 			}
 
 			hide() {
-				$(config['MODAL_ID']).modal("hide");
-				this.visible = false;
+				if (this.visible) {
+					$(config['MODAL_ID']).modal("hide");
+					this.visible = false;
+				}
 			}
 
 			/**
