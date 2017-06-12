@@ -12736,7 +12736,7 @@
 				socket.on('chooseProductionCard', function (data) {
 					console.log(data);
 					if (typeof data != `undefined` && typeof (data.cardIndex != `undefined`)) {
-						self.hazard.chooseCard(data.cardIndex);
+						//self.hazard.chooseCard(data.cardIndex);
 						self.handleState(data);
 					}
 				});
@@ -13010,11 +13010,12 @@
 				if (data.hasOwnProperty('response')) var response = data.response;else var response = {};
 
 				if (data.hasOwnProperty('state')) var data = data.state;
-				if (data.hasOwnProperty('currentTurn')) {
-					if (data.currentTurn.hasOwnProperty('cards')) {
-						this.hazard.chooseCardPopup(data.currentTurn.cards);
-					}
-				}
+
+				/*if(data.hasOwnProperty('currentTurn')) {
+    	if(data.currentTurn.hasOwnProperty('cards')){
+    		this.hazard.chooseCardPopup(data.currentTurn.cards);
+    	}
+    }*/
 
 				var diff = this.gameState.setState(data);
 				if (diff.length == 0) return;
@@ -16952,48 +16953,48 @@
     * @param {String} fromv [ID univoco del plot relativo all'area di partenza (Plot)]
     * @param {String} tov   [ID univoco del plot relativo all'area di arrivo (Plot)]
     */
-			MovePlayer(fromv, tov) {
-				var movement = {
-					from: fromv,
-					to: tov
-				};
-
-				this.__removePlayer(movement.from);
-				$(config['MAP_CONTAINER']).trigger('playermove', [{
-					movementOptions: movement
-				}]);
-				this.__setPlayer(movement.to);
-			}
-
-			/**
+			/*MovePlayer(fromv,tov) {
+   	var movement = {
+   		from: fromv,
+   		to: tov,
+   	};
+   	
+   	this.__removePlayer(movement.from);
+   	$(config['MAP_CONTAINER']).trigger('playermove', [{
+   		movementOptions : movement,
+   	}]);
+   	this.__setPlayer(movement.to);
+   }
+   
+   /**
     * Imposta l'icona utilizzata per il plot a quella di default
     * @param  {String} plot [ID univoco del plot]
     * @return NA
     */
-			__removePlayer(plot) {
-				var updatedOptions = { 'plots': {} };
-				updatedOptions.plots[plot] = {
-					type: config['DEFAULT_PLOT_TYPE'],
-					size: config['DEFAULT_PLOT_SIZE']
-				};
-				this.UpdateMap(updatedOptions);
-			}
-
-			/**
+			/*__removePlayer(plot){
+   	 var updatedOptions = {'plots': {}};
+   	 updatedOptions.plots[plot] = {
+   	 	type: config['DEFAULT_PLOT_TYPE'],
+   	 	size : config['DEFAULT_PLOT_SIZE'],
+   	}
+   	this.UpdateMap(updatedOptions);
+   }
+   
+   /**
     * Imposta l'icona utilizzata per il plot a quella del giocatore da muovere
     * @param  {String} plot [ID univoco del plot]
     * @return NA
     */
-			__setPlayer(plot) {
-				var updatedOptions = { 'plots': {} };
-				updatedOptions.plots[plot] = {
-					type: 'image',
-					url: config['DEFAULT_PLOT_ICON'],
-					width: config['DEFAULT_PLOT_ICON_WIDTH'],
-					height: config['DEFAULT_PLOT_ICON_HEIGHT']
-				};
-				this.UpdateMap(updatedOptions);
-			}
+			/*__setPlayer(plot){
+   	 var updatedOptions = {'plots': {}};
+   	 updatedOptions.plots[plot] = {
+   	 	type: 'image',
+   	 	url : config['DEFAULT_PLOT_ICON'],
+   	 	width: config['DEFAULT_PLOT_ICON_WIDTH'],
+   	 	height: config['DEFAULT_PLOT_ICON_HEIGHT'],
+   	 }
+   	 this.UpdateMap(updatedOptions);
+   }*/
 		}
 
 		module.exports = MapUtils;
@@ -17017,7 +17018,7 @@
     */
 			setup(modalClass = config['MODAL_CLASS']) {
 				$(config['MODAL_BUTTONS_ID']).empty();
-				$(config['MODAL_BUTTONS_ID']).append('<button type="button" id="start-game-button" disabled=true class="btn btn-default" data-target="#myModal" data-toggle="modal" data-dismiss="modal"><i class="fa fa-spinner fa-spin fa-2x"></i></button>');
+				$(config['MODAL_BUTTONS_ID']).append('<button type="button" id="start-game-button" disabled=true class="btn btn-default" data-target="#myModal"><i class="fa fa-spinner fa-spin fa-2x"></i></button>');
 				$(config['MODAL_ID']).removeClass();
 				$(config['MODAL_ID']).addClass('modal fade ' + modalClass);
 			}
