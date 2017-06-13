@@ -4345,12 +4345,12 @@
 
 			jQuery.fn.ready = function (fn) {
 
-				readyList.then(fn)
+				readyList.then(fn
 
 				// Wrap jQuery.readyException in a function so that the lookup
 				// happens at the time of error handling instead of callback
 				// registration.
-				.catch(function (error) {
+				).catch(function (error) {
 					jQuery.readyException(error);
 				});
 
@@ -7630,10 +7630,10 @@
 				fadeTo: function (speed, to, easing, callback) {
 
 					// Show any hidden elements after setting opacity to 0
-					return this.filter(isHiddenWithinTree).css("opacity", 0).show()
+					return this.filter(isHiddenWithinTree).css("opacity", 0).show
 
 					// Animate to the value specified
-					.end().animate({ opacity: to }, speed, easing, callback);
+					().end().animate({ opacity: to }, speed, easing, callback);
 				},
 				animate: function (prop, speed, easing, callback) {
 					var empty = jQuery.isEmptyObject(prop),
@@ -12263,7 +12263,7 @@
 
 			//LEGENDA
 			'LEGEND_MODE': 'horizontal',
-			'LEGEND': [{ color: "#5BCA09", value: '0,1', text: 'Livello 1' }, { color: "#FFD700", value: '2,3', text: 'Livello 2' }, { color: "#FF9C01", value: '2,3', text: 'Livello 3' }, { color: "#FE2701", value: '6,20', text: 'Livello 4' }],
+			'LEGEND': [{ color: "#0088db", value: '0,0', text: 'Livello 1' }, { color: "#5BCA09", value: '1,1', text: 'Livello 2' }, { color: "#FFD700", value: '2,2', text: 'Livello 3' }, { color: "#FE2701", value: '3,3', text: 'Livello 4' }],
 
 			'LINK_CLOSED_COLOR': '#c42b44',
 			'LINK_OPEN_COLOR': '#0088db',
@@ -12291,11 +12291,11 @@
 		var ModalDialog = require('./utils/ModalDialog.js');
 		var MapUtils = require('./utils/MapUtils.js');
 		var Utils = require('./utils/Utils.js');
-		var PawnManager = require('./PawnManager.js');
+		var PawnManager = require('./PawnManager.js'
 		/**
    * Classe responsabile delle modifiche grafiche alla dashboard.
    */
-		class Dashboard {
+		);class Dashboard {
 			/**
     * Costruttore. Inizializzo le variabili, imposto gli indicatori di contagio e mostro il modal in attesa dell'avvio dal server.
     * @return NA
@@ -12359,6 +12359,7 @@
 						name: "hazard_map",
 						defaultArea: {
 							attrs: {
+								fill: "#7C7C7C",
 								stroke: "#7C7C7C",
 								"stroke-width": 0.2
 							},
@@ -12376,23 +12377,24 @@
 							title: "Livello Infezione",
 							mode: "horizontal",
 							slices: [{
+								min: 0,
+								max: 0,
+								attrs: {
+									fill: "#0088db"
+								},
+								label: "Livello 1"
+							}, {
+								min: 1,
 								max: 1,
 								attrs: {
 									fill: "#5BCA09"
 								},
-								label: "Livello 1"
+								label: "Livello 2"
 							}, {
 								min: 2,
 								max: 2,
 								attrs: {
 									fill: "#FFD700"
-								},
-								label: "Livello 2"
-							}, {
-								min: 3,
-								max: 3,
-								attrs: {
-									fill: "#FF9C01"
 								},
 								label: "Livello 3"
 							}, {
@@ -12423,6 +12425,15 @@
 
 			removePawn(group) {
 				this.PawnMan.deletePawnByGroup(group);
+			}
+
+			updateHazardIndicator(step) {
+				var current = parseInt($(config['PROGRESS_BALLS_ID']).attr('current'));
+				if (current < step) {
+					for (var i = current; i < step; i++) {
+						this.setLevel(1);
+					}
+				}
 			}
 			/**
     * Imposta un HQ per un gruppo contrassegnato dal colore color
@@ -12892,9 +12903,14 @@
 							self.plots[self.locations[j].name + '-plot'].latitude = self.locations[j].latitude;
 							self.plots[self.locations[j].name + '-plot'].longitude = self.locations[j].longitude;
 
-							for (var em in json.xml.game.emergencies.emergency) {
-								self.areas[self.locations[j].name].emergencies[json.xml.game.emergencies.emergency[em].name] = {};
-								self.setEmergency(self.locations[j].name, json.xml.game.emergencies.emergency[em].name, 0);
+							if (json.xml.game.emergencies.emergency.hasOwnProperty('name')) {
+								self.areas[self.locations[j].name].emergencies[json.xml.game.emergencies.emergency.name] = {};
+								self.setEmergency(self.locations[j].name, json.xml.game.emergencies.emergency.name, 0);
+							} else {
+								for (var em in json.xml.game.emergencies.emergency) {
+									self.areas[self.locations[j].name].emergencies[json.xml.game.emergencies.emergency[em].name] = {};
+									self.setEmergency(self.locations[j].name, json.xml.game.emergencies.emergency[em].name, 0);
+								}
 							}
 
 							self.plots[self.locations[j].name + '-plot'].tooltip = {};
@@ -12947,25 +12963,46 @@
 
 						for (var key in json.xml.game.groups) {
 							if (json.xml.game.groups.hasOwnProperty(key)) {
-								for (var i = 0; i < json.xml.game.groups[key].length; i++) {
-									var keyName = json.xml.game.groups[key][i]['name'];
+								if (typeof json.xml.game.groups[key] == 'object') {
+									var keyName = json.xml.game.groups[key]['name'];
 									self.groups[keyName] = {};
 									self.groups[keyName].type = key;
 									self.groups[keyName].pawns = [];
 									if (key == 'actionGroup') {
 										self.groups[keyName].hq = [];
 										self.groups[keyName].pawns[0] = {};
-										self.groups[keyName].pawns[0].location = json.xml.game.groups[key][i].startingPoint;
-										self.groups[keyName].startingPoint = json.xml.game.groups[key][i].startingPoint;
-										//self.groups[keyName].location = json.xml.game.groups[key][i].startingPoint;
-										for (var j = 0; j < json.xml.game.groups[key][i]['headquarters'].headquarter.length; j++) {
-											self.groups[keyName].hq.push(json.xml.game.groups[key][i]['headquarters']['headquarter'][j]);
+										self.groups[keyName].pawns[0].location = json.xml.game.groups[key].startingPoint;
+										self.groups[keyName].startingPoint = json.xml.game.groups[key].startingPoint;
+										for (var j = 0; j < json.xml.game.groups[key]['headquarters'].headquarter.length; j++) {
+											self.groups[keyName].hq.push(json.xml.game.groups[key]['headquarters']['headquarter'][j]);
 										}
 									}
 
 									if (key == 'actionGroup' || key == 'productionGroup') {
 										var groupColor = self.utils.getRandomColor();
 										self.groups[keyName].color = groupColor.rgb;
+									}
+								} else {
+									for (var i = 0; i < json.xml.game.groups[key].length; i++) {
+										var keyName = json.xml.game.groups[key][i]['name'];
+										self.groups[keyName] = {};
+										self.groups[keyName].type = key;
+										self.groups[keyName].pawns = [];
+										if (key == 'actionGroup') {
+											self.groups[keyName].hq = [];
+											self.groups[keyName].pawns[0] = {};
+											self.groups[keyName].pawns[0].location = json.xml.game.groups[key][i].startingPoint;
+											self.groups[keyName].startingPoint = json.xml.game.groups[key][i].startingPoint;
+											//self.groups[keyName].location = json.xml.game.groups[key][i].startingPoint;
+											for (var j = 0; j < json.xml.game.groups[key][i]['headquarters'].headquarter.length; j++) {
+												self.groups[keyName].hq.push(json.xml.game.groups[key][i]['headquarters']['headquarter'][j]);
+											}
+										}
+
+										if (key == 'actionGroup' || key == 'productionGroup') {
+											var groupColor = self.utils.getRandomColor();
+											self.groups[keyName].color = groupColor.rgb;
+										}
 									}
 								}
 							}
@@ -13017,6 +13054,10 @@
 						//this.hazard.chooseCardPopup(data.currentTurn.cards);
 					}
 				}
+
+				try {
+					data.gameState.emergencies[0].generalHazardIndicator.currentStepIndex += 1;
+				} catch (e) {}
 
 				var diff = this.gameState.setState(data);
 				if (diff.length == 0) return;
@@ -13097,6 +13138,13 @@
 					}
 				}
 
+				if (diff['emergencies']) {
+					if (diff['emergencies'][0].hasOwnProperty('generalHazardIndicator')) {
+						var newStep = diff['emergencies'][0].generalHazardIndicator.currentStepIndex;
+						this.hazard.updateHazardIndicator(newStep);
+					}
+				}
+
 				if (diff['blockades']) {
 					for (var j = 0; j < diff['blockades'].length; j++) {
 						if (diff["blockades"][j].hasOwnProperty('location')) {
@@ -13110,6 +13158,7 @@
 				}
 
 				if (diff['contagionRatios']) {
+					console.log(diff['contagionRatios'][0].contagionRatio);
 					this.hazard.setProgress(diff.contagionRatios[0].contagionRatio);
 				}
 
@@ -16818,12 +16867,14 @@
 				if (diffs == null) return [];
 				var changes = {};
 				changes['locations'] = [];
-				changes['removedPawns'] = this.__getDeletedPawns(oldPawnPath, newPawnPath);;
+				changes['removedPawns'] = this.__getDeletedPawns(oldPawnPath, newPawnPath);
+				changes['emergencies'] = this.state.gameState.emergencies;
+				changes['contagionRatios'] = this.state.gameState.contagionRatios;
 				var base = 1;
 				for (var i = 0; i < diffs.length; i++) {
 					/*if(diffs[i].kind == "D") {
      	var path = diffs[i].path.join('.');
-     		if(diffs[i].path[base-1] == 'gameState'){
+     			if(diffs[i].path[base-1] == 'gameState'){
      		switch(diffs[i].path[base]){
      			case 'gameMap':
      				if(diffs[i].path[base+1] == 'pawns') {
@@ -16831,7 +16882,7 @@
      				}
      			break;
      		}
-     		}
+     			}
      }*/
 
 					if (diffs[i].kind == "E") {
