@@ -9,7 +9,6 @@
                 <name>ActionGroup1</name>
                 <emergenciesToSolve>
                     <emergencyToSolve>Malattia</emergencyToSolve>
-                    <emergencyToSolve>Peste</emergencyToSolve>
                 </emergenciesToSolve>
                 <resourcesUsed>
                     <resource>Medicinale</resource>
@@ -20,28 +19,11 @@
                 </headquarters>
                 <startingPoint>Australia</startingPoint>
             </actionGroup>
-            <actionGroup>
-                <name>ActionGroup2</name>
-                <emergenciesToSolve>
-                    <emergencyToSolve>Peste</emergencyToSolve>
-                </emergenciesToSolve>
-                <resourcesUsed>
-                    <resource>Medicinale</resource>
-                </resourcesUsed>
-                <headquarters>
-                    <headquarter>EuWest</headquarter>
-                    <headquarter>Scandinavia</headquarter>
-                </headquarters>
-                <startingPoint>Canada</startingPoint>
-            </actionGroup>
             <productionGroup>
                 <name>ProductionGroup1</name>
                 <maxNumTransportPawns>5</maxNumTransportPawns>
             </productionGroup>
-            <productionGroup>
-                <name>ProductionGroup2</name>
-                <maxNumTransportPawns>8</maxNumTransportPawns>
-            </productionGroup>
+
         </groups>
         <resources>
             <name>Medicinale</name>
@@ -51,12 +33,24 @@
             <maxGravityLevel>4</maxGravityLevel>
             <gravityLevels>
                 <level>
-                    <number>1</number>
+                    <number>0</number>
                     <color>#00ff00</color>
+                    <colorCode>2</colorCode>
+                </level>
+                <level>
+                    <number>1</number>
+                    <color>#fff600</color>
+                    <colorCode>5</colorCode>
                 </level>
                 <level>
                     <number>2</number>
-                    <color>#00ffff</color>
+                    <color>#ffa200</color>
+                    <colorCode>3</colorCode>
+                </level>
+                <level>
+                    <number>3</number>
+                    <color>#ff0000</color>
+                    <colorCode>1</colorCode>
                 </level>
             </gravityLevels>
             <emergency>
@@ -65,32 +59,25 @@
                 <generalHazardIndicator>
                     <steps>
                         <step>
-                            <level>1</level>
-                            <led>1</led>
+                            <level>2</level>
+                            <led>296</led>
                         </step>
                         <step>
                             <level>2</level>
-                            <led>2</led>
+                            <led>295</led>
+                        </step>
+                        <step>
+                            <level>3</level>
+                            <led>294</led>
+                        </step>
+                        <step>
+                            <level>4</level>
+                            <led>293</led>
                         </step>
                     </steps>
                 </generalHazardIndicator>
             </emergency>
-            <emergency>
-                <name>Peste</name>
-                <resourceNeeded>Medicinale</resourceNeeded>
-                <generalHazardIndicator>
-                    <steps>
-                        <step>
-                            <level>1</level>
-                            <led>1</led>
-                        </step>
-                        <step>
-                            <level>2</level>
-                            <led>2</led>
-                        </step>
-                    </steps>
-                </generalHazardIndicator>
-            </emergency>
+
         </emergencies>
         <turns>
             <numOfProductionCards>1</numOfProductionCards>
@@ -236,12 +223,8 @@
           <latitude>131</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>176</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -257,12 +240,8 @@
           <latitude>141</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>174</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -279,12 +258,8 @@
           <latitude>147</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>177</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -300,12 +275,8 @@
           <latitude>155</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>205</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -322,12 +293,8 @@
           <latitude>155</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>208</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -348,12 +315,8 @@
           <latitude>150</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>216</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -370,12 +333,8 @@
           <latitude>124</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>153</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -393,12 +352,8 @@
           <latitude>140</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>170</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -416,12 +371,8 @@
           <latitude>113</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>150</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -437,12 +388,8 @@
           <latitude>91</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>89</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -457,12 +404,8 @@
           <latitude>123</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>147</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -479,12 +422,8 @@
           <latitude>129</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>156</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -504,12 +443,8 @@
           <latitude>65</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>35</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -526,12 +461,8 @@
           <offsetLeft>-10</offsetLeft>
           <leds>
             <led>
-              <number>10</number>
+              <number>32</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -548,12 +479,8 @@
           <latitude>119</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>143</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -568,12 +495,8 @@
           <latitude>99</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>110</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -589,12 +512,8 @@
           <latitude>70</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>46</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -609,12 +528,8 @@
           <latitude>71</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>83</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -632,12 +547,8 @@
           <latitude>170</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>244</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -652,12 +563,8 @@
           <latitude>155</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>196</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -672,12 +579,8 @@
           <latitude>130</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>134</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -693,12 +596,8 @@
           <latitude>110</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>121</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -713,12 +612,8 @@
           <latitude>95</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>71</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -733,12 +628,8 @@
           <latitude>79</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>74</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -753,12 +644,8 @@
           <latitude>50</latitude>
           <leds>
             <led>
-              <number>10</number>
+              <number>8</number>
               <emergency>Malattia</emergency>
-            </led>
-            <led>
-              <number>11</number>
-              <emergency>Peste</emergency>
             </led>
           </leds>
           <neighborhood>
@@ -784,11 +671,6 @@
                 <resourceNeeded>Medicinale</resourceNeeded>
                 <strongholdName>Ospedale</strongholdName>
             </strongholdInfo>
-            <strongholdInfo>
-                <emergency>Peste</emergency>
-                <resourceNeeded>Medicinale</resourceNeeded>
-                <strongholdName>Lazzaretto</strongholdName>
-            </strongholdInfo>
         </strongholdInfos>
         <setup>
             <emergencySetup>
@@ -808,19 +690,67 @@
                     </setting>
                 </settings>
             </emergencySetup>
-            <emergencySetup>
-                <emergency>Peste</emergency>
-                <settings>
-                    <setting>
-                        <gravityLevel>2</gravityLevel>
-                        <numLocation>2</numLocation>
-                    </setting>
-                    <setting>
-                        <gravityLevel>1</gravityLevel>
-                        <numLocation>1</numLocation>
-                    </setting>
-                </settings>
-            </emergencySetup>
         </setup>
+        <arduinoBoardSettings>
+            <ip>192.168.4.1</ip>
+            <ledNumber>297</ledNumber>
+            <ledCommandCode>L</ledCommandCode>
+            <soundCommandCode>S</soundCommandCode>
+            <commandCode>-IST-</commandCode>
+        </arduinoBoardSettings>
+
+        <arduinoSoundSettings>
+            <action>
+                <name>ACTION_TURN_START</name><!-- inizio turno -->
+                <soundCode>9</soundCode>
+            </action>
+            <action>
+                <name>EMERGENCY_TURN_START</name><!-- inizio emergenza -->
+                <soundCode>8</soundCode>
+            </action>
+            <action>
+                <name>ACTION_GROUP_SOLVE_EMERGENCY</name><!-- guarisci completamente -->
+                <soundCode>7</soundCode>
+            </action>
+            <action>
+                <name>ACTION_GROUP_TAKE_RESOURCES</name><!-- prendi risorse -->
+                <soundCode>b</soundCode>
+            </action>
+            <action>
+                <name>ACTION_GROUP_BUILD_STRONGHOLD</name><!-- costruisci -->
+                <soundCode>4</soundCode>
+            </action>
+            <action>
+                <name>PRODUCTION_GROUP_MOVE_TRANSPORT_PAWN</name><!-- muovi risorse -->
+                <soundCode>a</soundCode>
+            </action>
+            <action>
+                <name>PRODUCTION_TURN_CHOOSE_PRODUCTION_CARD</name><!-- scegli carta -->
+                <soundCode>c</soundCode>
+            </action>
+            <action>
+                <name>EVENT_CARD_DECREASE_EMERGENCY_PLACE</name><!-- abbasso contagio -->
+                <soundCode>1</soundCode>
+            </action>
+            <action>
+                <name>EVENT_CARD_INCREASE_CONTAGION_LEVEL</name><!-- aumenta contagio -->
+                <soundCode>2</soundCode>
+            </action>
+            <action>
+                <name>EVENT_CARD_TAKE_BONUS_CARD</name><!-- scegli carta  -->
+                <soundCode>3</soundCode>
+            </action>
+
+
+            <!-- Vittoria e Sconfitta. Da definire lato motore di gioco -->
+            <action>
+                <name>WIN_GAME</name>
+                <soundCode>5</soundCode>
+            </action>
+            <action>
+                <name>LOSE_GAME</name>
+                <soundCode>6</soundCode>
+            </action>
+        </arduinoSoundSettings>
     </game>
 </xml>
