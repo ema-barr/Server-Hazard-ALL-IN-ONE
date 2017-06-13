@@ -30,22 +30,22 @@
         </resources>
         <emergencies>
             <strongholdCost>10</strongholdCost>
-            <maxGravityLevel>4</maxGravityLevel>
+            <maxGravityLevel>3</maxGravityLevel>
             <gravityLevels>
                 <level>
                     <number>0</number>
                     <color>#00ff00</color>
-                    <colorCode>2</colorCode>
+                    <colorCode>4</colorCode>
                 </level>
                 <level>
                     <number>1</number>
                     <color>#fff600</color>
-                    <colorCode>5</colorCode>
+                    <colorCode>2</colorCode>
                 </level>
                 <level>
                     <number>2</number>
                     <color>#ffa200</color>
-                    <colorCode>3</colorCode>
+                    <colorCode>5</colorCode>
                 </level>
                 <level>
                     <number>3</number>
