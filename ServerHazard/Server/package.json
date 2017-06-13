@@ -1,11 +1,14 @@
 {
-	"name": "servernode",
-	"version": "0.1.0",
-	"description": "Server che gestisce la comunicazione con il motore di gioco, la plancia e la dashboard.",
-	"dependencies": {
-		"socket.io": "~1.7.3",
-		"express": "~4.15.2",
-		"xmldom": "~0.1.27",
-		"request": "~2.81.0"
-	}
+  "name": "servernode",
+  "version": "0.1.0",
+  "description": "Server che gestisce la comunicazione con il motore di gioco, la plancia e la dashboard.",
+  "dependencies": {
+    "deep-diff": "^0.3.8",
+    "express": "^4.15.3",
+    "jquery": "^3.2.1",
+    "jquery-mousewheel": "^3.1.13",
+    "raphael": "^2.2.7",
+    "socket.io": "^1.7.4",
+    "xmldom": "~0.1.27"
+  }
 }
