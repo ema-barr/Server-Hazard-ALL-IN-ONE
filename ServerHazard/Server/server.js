@@ -299,6 +299,7 @@ function setupGlobalVariables(xmlConfigurationFile) {
 	    gravityLevelsArray = setupGravityLevels(xmlConfigurationFile);
 	    ledEmergencyMap = setupLedEmergencyMap(xmlConfigurationFile);
 	    soundCodeMap = setupSoundCodeMap(xmlConfigurationFile);
+	    colorStepsMap = setupLedIndicatorMap(xmlConfigurationFile);
 	    setupBoardSettings(xmlConfigurationFile);
 	}
 }
@@ -362,6 +363,28 @@ function setupSoundCodeMap(xmlConfigurationFile) {
     return soundCodeMap;
 }
 
+function setupLedIndicatorMap(xmlConfigurationFile) {
+    var parser = new DOMParser();
+    var xmlParser = parser.parseFromString(xmlConfigurationFile, "text/xml");
+    var generalIndicator = xmlParser.getElementsByTagName("generalHazardIndicator")[0];
+    var steps = generalIndicator.getElementsByTagName("steps")[0].getElementsByTagName("step");
+    var colorStepsMap = {};
+
+    var ledColorArray = [];
+    var ledNumberArray = [];
+    for (var i = 0; i < steps.length; i++) {
+        var color = steps[i].getElementsByTagName("colorCode")[0].textContent;
+        var ledNumber = steps[i].getElementsByTagName("led")[0].textContent;
+
+        ledColorArray[i] = color;
+        colorStepsMap["ledColor"] = ledColorArray;
+
+        ledNumberArray[i] = ledNumber;
+        colorStepsMap["ledNumber"] = ledNumberArray;
+    }
+    return colorStepsMap;
+}
+
 function setupBoardSettings(xmlConfigurationFile) {
     var parser = new DOMParser();
     var xmlParser = parser.parseFromString(xmlConfigurationFile, "text/xml");
@@ -378,6 +401,7 @@ function arduinoLedCommand(gameState) {
 
     //get the location list from JSON
     var locations = gameState['gameState']['gameMap']['locations'];
+    var indicator = gameState['gameState']['emergencies']['generalizedHazardIndicator'];
 
     /*
     create a dictionary with 2 key:
@@ -418,6 +442,15 @@ function arduinoLedCommand(gameState) {
                 ledCommandArdino = substringLeft + gravityLevelsArray[mapLocationLedColor[loc][emergency]] + substringRight;
             }
         }
+    }
+
+    //update hazard indicator
+    var currentStepIndex = indicator["currentStepIndex"];
+    for (var i = 0; i <= currentStepIndex; i++) {
+        var index = colorStepsMap["ledNumber"][i];
+        var substringLeft = ledCommandArdino.substring(0, index);
+        var substringRight = ledCommandArdino.substring(++index, ledCommandArdino.length);
+        ledCommandArdino = substringLeft + colorStepsMap["ledColor"][i] + substringRight;
     }
 
     //append instruction type to the led string command

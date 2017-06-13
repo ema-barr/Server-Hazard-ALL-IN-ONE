@@ -60,18 +60,22 @@
                     <steps>
                         <step>
                             <level>2</level>
+                            <colorCode>5</colorCode>
                             <led>296</led>
                         </step>
                         <step>
                             <level>2</level>
+                            <colorCode>5</colorCode>
                             <led>295</led>
                         </step>
                         <step>
                             <level>3</level>
+                            <colorCode>1</colorCode>
                             <led>294</led>
                         </step>
                         <step>
                             <level>4</level>
+                            <colorCode>1</colorCode>
                             <led>293</led>
                         </step>
                     </steps>
