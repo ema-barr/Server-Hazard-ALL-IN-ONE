@@ -129,7 +129,7 @@
                 </eventCard>
                 <eventCard>
                     <name>IncreaseContagionLevel</name>
-                    <quantity>1</quantity>
+                    <quantity>100</quantity>
                 </eventCard>
                 <eventCard>
                     <name>IncreaseEmergencyPlace</name>
@@ -523,6 +523,7 @@
           <neighborhood>
             <neighbor>CentralAfrica</neighbor>
             <neighbor>Madagascar</neighbor>
+            <neighbor>SouthAmericaBR</neighbor>
           </neighborhood>
         </location>
         <location>
@@ -639,6 +640,7 @@
           <neighborhood>
             <neighbor>SouthAmericaCB</neighbor>
             <neighbor>SouthAmericaUR</neighbor>
+            <neighbor>SouthAfrica</neighbor>
           </neighborhood>
         </location>
         <location>

@@ -414,7 +414,7 @@ function arduinoLedCommand(gameState) {
 
     //get the location list from JSON
     var locations = gameState['gameState']['gameMap']['locations'];
-    var indicator = gameState['gameState']['emergencies']['generalizedHazardIndicator'];
+    var indicator = gameState['gameState']['emergencies'][0]['generalHazardIndicator'];
 
     /*
     create a dictionary with 2 key:

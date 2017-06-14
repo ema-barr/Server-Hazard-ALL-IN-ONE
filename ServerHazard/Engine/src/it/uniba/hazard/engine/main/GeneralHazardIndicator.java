@@ -19,7 +19,7 @@ public class GeneralHazardIndicator {
 
 
     public void raiseHazardLevel() {
-        if (currentStep < steps.size()) {
+        if (currentStep < steps.size() - 1) {
             currentStep++;
         }
     }
