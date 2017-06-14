@@ -33,9 +33,9 @@ public class EmergencyTurnExecuteTurnResponse implements Response {
 
             StringBuilder logTemp = new StringBuilder();
             for (Location l : this.locations) {
-                logTemp.append(", " + l.toString());
+                logTemp.append(l.toString() + ", ");
             }
-            int c = logTemp.lastIndexOf(",");
+            int c = logTemp.lastIndexOf(", ");
             logTemp.setCharAt(c, ' ');
 
             Object[] messageArgs = {emergency.getNameEmergency(), logTemp.toString()};

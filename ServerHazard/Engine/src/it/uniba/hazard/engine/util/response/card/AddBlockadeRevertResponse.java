@@ -26,11 +26,14 @@ public class AddBlockadeRevertResponse implements Response{
         ResourceBundle messages = (ResourceBundle) Repository.getFromRepository("resourceBundle");
 
         if(success){
-            String locsStr = "";
+            StringBuilder logTemp = new StringBuilder();
             for (Location loc: locationsUnlocked){
-                locsStr += loc + " ";
+                logTemp.append(loc.toString() + ", ");
             }
-            Object[] messageArgs = {locsStr};
+            int c = logTemp.lastIndexOf(", ");
+            logTemp.setCharAt(c, ' ');
+
+            Object[] messageArgs = {logTemp.toString()};
             formatter.applyPattern(messages.getString("AddBlockadeRevertResponse_success"));
             logString = formatter.format(messageArgs);
         }else{
