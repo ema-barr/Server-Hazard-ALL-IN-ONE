@@ -79,6 +79,7 @@ class Dashboard {
 			name: "hazard_map",
 			defaultArea : {
 				attrs: {
+					fill: "#7C7C7C",
 					stroke: "#7C7C7C",
 					"stroke-width": 0.2
 				},
@@ -93,10 +94,19 @@ class Dashboard {
 		legend : {
 			area: {
 				display: true,
-				title: "Livello Infezione",
+				title: "Livello Emergenza",
 				mode: "horizontal",
 				slices: [
-		            {
+					{
+		                min: 0,
+		                max: 0,
+		                attrs: {
+		                    fill: "#0088db"
+		                },
+		                label: "Livello 0"
+		            },
+		            {	
+		            	min:1,
 		                max: 1,
 		                attrs: {
 		                    fill: "#5BCA09"
@@ -112,19 +122,11 @@ class Dashboard {
 		                label: "Livello 2"
 		            },
 		            {
-		                min: 3,
-		                max: 3,
-		                attrs: {
-		                    fill: "#FF9C01"
-		                },
-		                label: "Livello 3"
-		            },
-		            {
 		                min: 4,
 		                attrs: {
 		                    fill: "#FE2701"
 		                },
-		                label: "Livello 4"
+		                label: "Livello 3"
 		            }
 				]
 			}
@@ -148,6 +150,16 @@ class Dashboard {
 
 	removePawn(group) {
 		this.PawnMan.deletePawnByGroup(group);
+	}
+
+
+	updateHazardIndicator(step){
+		var current = parseInt($(config['PROGRESS_BALLS_ID']).attr('current'));
+		if(current < step) {
+			for(var i=current;i<step;i++){
+				this.setLevel(1);
+			}
+		}
 	}
 	/**
 	 * Imposta un HQ per un gruppo contrassegnato dal colore color

@@ -14,6 +14,7 @@ module.exports = {
 	//Mappa - Area
 	'DEFAULT_AREA_STROKE' : "#7C7C7C", //Colore confini
 	'DEFAULT_AREA_STROKE_WIDTH' : 0.2, //Spessore confini
+	'DEFAULT_AREA_COLOR' : '#5BCA09',
 
 	'MAP_H' : 180, 
 	'MAP_W' : 360,
@@ -37,10 +38,11 @@ module.exports = {
 	//LEGENDA
 	'LEGEND_MODE' : 'horizontal',
 	'LEGEND' : [
-		{color : "#5BCA09", value : '0,1', text:'Livello 1'},
-		{color : "#FFD700", value : '2,3', text:'Livello 2'},
-		{color : "#FF9C01", value : '2,3', text:'Livello 3'},
-		{color : "#FE2701", value : '6,20', text:'Livello 4'},
+	
+		{color : "#0088db", value : '0,0', text:'Livello 1'},
+		{color : "#5BCA09", value : '1,1', text:'Livello 2'},
+		{color : "#FFD700", value : '2,2', text:'Livello 3'},
+		{color : "#FE2701", value : '3,3', text:'Livello 4'},
 
 	],
 

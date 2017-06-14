@@ -4345,12 +4345,12 @@
 
 			jQuery.fn.ready = function (fn) {
 
-				readyList.then(fn
+				readyList.then(fn)
 
 				// Wrap jQuery.readyException in a function so that the lookup
 				// happens at the time of error handling instead of callback
 				// registration.
-				).catch(function (error) {
+				.catch(function (error) {
 					jQuery.readyException(error);
 				});
 
@@ -7630,10 +7630,10 @@
 				fadeTo: function (speed, to, easing, callback) {
 
 					// Show any hidden elements after setting opacity to 0
-					return this.filter(isHiddenWithinTree).css("opacity", 0).show
+					return this.filter(isHiddenWithinTree).css("opacity", 0).show()
 
 					// Animate to the value specified
-					().end().animate({ opacity: to }, speed, easing, callback);
+					.end().animate({ opacity: to }, speed, easing, callback);
 				},
 				animate: function (prop, speed, easing, callback) {
 					var empty = jQuery.isEmptyObject(prop),
@@ -12241,6 +12241,7 @@
 			//Mappa - Area
 			'DEFAULT_AREA_STROKE': "#7C7C7C", //Colore confini
 			'DEFAULT_AREA_STROKE_WIDTH': 0.2, //Spessore confini
+			'DEFAULT_AREA_COLOR': '#5BCA09',
 
 			'MAP_H': 180,
 			'MAP_W': 360,
@@ -12291,11 +12292,11 @@
 		var ModalDialog = require('./utils/ModalDialog.js');
 		var MapUtils = require('./utils/MapUtils.js');
 		var Utils = require('./utils/Utils.js');
-		var PawnManager = require('./PawnManager.js'
+		var PawnManager = require('./PawnManager.js');
 		/**
    * Classe responsabile delle modifiche grafiche alla dashboard.
    */
-		);class Dashboard {
+		class Dashboard {
 			/**
     * Costruttore. Inizializzo le variabili, imposto gli indicatori di contagio e mostro il modal in attesa dell'avvio dal server.
     * @return NA
@@ -12374,7 +12375,7 @@
 					legend: {
 						area: {
 							display: true,
-							title: "Livello Infezione",
+							title: "Livello Emergenza",
 							mode: "horizontal",
 							slices: [{
 								min: 0,
@@ -12382,27 +12383,27 @@
 								attrs: {
 									fill: "#0088db"
 								},
-								label: "Livello 1"
+								label: "Livello 0"
 							}, {
 								min: 1,
 								max: 1,
 								attrs: {
 									fill: "#5BCA09"
 								},
-								label: "Livello 2"
+								label: "Livello 1"
 							}, {
 								min: 2,
 								max: 2,
 								attrs: {
 									fill: "#FFD700"
 								},
-								label: "Livello 3"
+								label: "Livello 2"
 							}, {
 								min: 4,
 								attrs: {
 									fill: "#FE2701"
 								},
-								label: "Livello 4"
+								label: "Livello 3"
 							}]
 						}
 					},
@@ -12816,6 +12817,11 @@
 						hazard.setPawn(groupObj, group.startingPoint, position);
 					}
 				}
+
+				for (var a in areas) {
+					var area = areas[a];
+					$('[data-id="' + a + '"]').attr({ 'fill': areas[a].color });
+				}
 			}
 
 			initDummyState() {
@@ -12896,6 +12902,11 @@
 							self.areas[self.locations[j].name].name = self.locations[j].name;
 							self.areas[self.locations[j].name].emergencies = {};
 							self.areas[self.locations[j].name].value = 1;
+							if (self.locations.hasOwnProperty('color')) {
+								self.areas[self.locations[j].name].color = self.locations.color;
+							} else {
+								self.areas[self.locations[j].name].color = config['DEFAULT_AREA_COLOR'];
+							}
 
 							self.plots[self.locations[j].name + '-plot'] = {};
 							self.plots[self.locations[j].name + '-plot'].type = config['DEFAULT_PLOT_TYPE'];
@@ -13147,8 +13158,8 @@
 
 				if (diff['blockades']) {
 					for (var j = 0; j < diff['blockades'].length; j++) {
-						if (diff["blockades"][j].hasOwnProperty('location')) {
-							var link = this.utils.getLinkIdentifier(diff["blockades"][j].location[0], diff["blockades"][j].location[1]);
+						if (diff["blockades"][j].hasOwnProperty('locations')) {
+							var link = this.utils.getLinkIdentifier(diff["blockades"][j].locations[0], diff["blockades"][j].locations[1]);
 						} else {
 							var link = this.utils.getLinkIdentifier(diff["blockades"][j][0], diff["blockades"][j][1]);
 						}
@@ -13159,7 +13170,7 @@
 
 				if (diff['contagionRatios']) {
 					console.log(diff['contagionRatios'][0].contagionRatio);
-					this.hazard.setProgress(diff.contagionRatios[0].contagionRatio);
+					this.hazard.setProgress(diff.contagionRatios[0].contagionRatio * 100);
 				}
 
 				if (diff['type'] == 'ActionTurn') {
@@ -13202,7 +13213,15 @@
 					this.hazard.setActions(diff['numActions'], diff['maxNumActions']);
 				}
 
-				if (diff['type'] == "EventTurn") this.hazard.addLog("INFO", response[0].logString);else this.hazard.addLog("INFO", logString);
+				if (diff['currentGroup'] == "EventTurn") {
+					this.hazard.addLog("INFO", response.responses[0].logString);
+					this.hazard.showModal("Evento", response.responses[0].logString);
+					this.hazard.hideModal(4000);
+				} else if (diff['currentGroup'] == 'EmergencyTurn') {
+					this.hazard.addLog("INFO", response.logString);
+					this.hazard.showModal("Emergenza", response.logString);
+					this.hazard.hideModal(4000);
+				} else this.hazard.addLog("INFO", logString);
 			}
 
 			//}
@@ -16870,6 +16889,9 @@
 				changes['removedPawns'] = this.__getDeletedPawns(oldPawnPath, newPawnPath);
 				changes['emergencies'] = this.state.gameState.emergencies;
 				changes['contagionRatios'] = this.state.gameState.contagionRatios;
+				changes['blockades'] = this.state.gameState.blockades;
+				changes['currentGroup'] = changes['type'] = this.state.currentTurn.type;
+
 				var base = 1;
 				for (var i = 0; i < diffs.length; i++) {
 					/*if(diffs[i].kind == "D") {

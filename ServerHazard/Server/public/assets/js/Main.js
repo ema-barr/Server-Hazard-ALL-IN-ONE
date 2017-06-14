@@ -39,7 +39,7 @@ var GameState = require('./utils/GameState.js');
 	 	this.links = {};
 	 	this.pawns = {};
 		// Inizializzazione variabili di gioco
-		this.cards = {};
+		this.cards = [];
 		this.endGame = {};
 		this.groups = {};
 		this.locale = {};
@@ -64,7 +64,7 @@ var GameState = require('./utils/GameState.js');
 				self.gameStart('../../strutturaxml.xml');
 				this.INITIALIZED = true;
 			}
-			socket.emit('getState', '{}', function(data){
+			socket.emit('getState', {}, function(data){
 				self.handleState(data);
 			});
 		});
@@ -155,6 +155,11 @@ var GameState = require('./utils/GameState.js');
 	 			hazard.setPawn(groupObj,group.startingPoint,position);
 	 		}
 	 	}
+
+	 	for(var a in areas){
+	 		var area = areas[a];
+				$('[data-id="'+a+'"]').attr({ 'fill': areas[a].color });	 	
+			}
 	 }
 
 
@@ -238,6 +243,11 @@ var GameState = require('./utils/GameState.js');
 			self.areas[self.locations[j].name].name = self.locations[j].name;
 			self.areas[self.locations[j].name].emergencies = {};
 			self.areas[self.locations[j].name].value = 1;
+			if(self.locations.hasOwnProperty('color')){
+				self.areas[self.locations[j].name].color = self.locations.color;
+			}else {
+				self.areas[self.locations[j].name].color = config['DEFAULT_AREA_COLOR'];
+			}
 
 			self.plots[self.locations[j].name+'-plot'] = {};
 			self.plots[self.locations[j].name+'-plot'].type = config['DEFAULT_PLOT_TYPE'];
@@ -247,9 +257,14 @@ var GameState = require('./utils/GameState.js');
 
 
 
-			for(var em in json.xml.game.emergencies.emergency) {
-				self.areas[self.locations[j].name].emergencies[json.xml.game.emergencies.emergency[em].name] = {};
-				self.setEmergency(self.locations[j].name,json.xml.game.emergencies.emergency[em].name,0);
+			if(json.xml.game.emergencies.emergency.hasOwnProperty('name')) {
+				self.areas[self.locations[j].name].emergencies[json.xml.game.emergencies.emergency.name] = {};
+					self.setEmergency(self.locations[j].name, json.xml.game.emergencies.emergency.name, 0);
+			}else {
+				for (var em in json.xml.game.emergencies.emergency) {
+					self.areas[self.locations[j].name].emergencies[json.xml.game.emergencies.emergency[em].name] = {};
+					self.setEmergency(self.locations[j].name, json.xml.game.emergencies.emergency[em].name, 0);
+				}	
 			}
 
 				self.plots[self.locations[j].name+'-plot'].tooltip = {};
@@ -305,29 +320,52 @@ var GameState = require('./utils/GameState.js');
 
 
 
-			for(var key in json.xml.game.groups) {
-				if(json.xml.game.groups.hasOwnProperty(key)){
-					for(var i = 0; i< json.xml.game.groups[key].length;i++){
-						var keyName = json.xml.game.groups[key][i]['name'];
-						self.groups[keyName] = {};
-						self.groups[keyName].type = key;
-						self.groups[keyName].pawns = [];
-						if(key == 'actionGroup'){
-							self.groups[keyName].hq = [];
-							self.groups[keyName].pawns[0] = {};
-							self.groups[keyName].pawns[0].location = json.xml.game.groups[key][i].startingPoint;
-							self.groups[keyName].startingPoint = json.xml.game.groups[key][i].startingPoint;
-							//self.groups[keyName].location = json.xml.game.groups[key][i].startingPoint;
-							for(var j = 0; j<json.xml.game.groups[key][i]['headquarters'].headquarter.length;j++){
-								self.groups[keyName].hq.push(json.xml.game.groups[key][i]['headquarters']['headquarter'][j]);
+			for (var key in json.xml.game.groups) {
+				if (json.xml.game.groups.hasOwnProperty(key)) {
+					if(typeof json.xml.game.groups[key] == 'object') {
+						var keyName = json.xml.game.groups[key]['name'];
+							self.groups[keyName] = {};
+							self.groups[keyName].type = key;
+							self.groups[keyName].pawns = [];
+							if (key == 'actionGroup') {
+								self.groups[keyName].hq = [];
+								self.groups[keyName].pawns[0] = {};
+								self.groups[keyName].pawns[0].location = json.xml.game.groups[key].startingPoint;
+								self.groups[keyName].startingPoint = json.xml.game.groups[key].startingPoint;
+								for (var j = 0; j < json.xml.game.groups[key]['headquarters'].headquarter.length; j++) {
+									self.groups[keyName].hq.push(json.xml.game.groups[key]['headquarters']['headquarter'][j]);
+								}
+							}
+
+							if (key == 'actionGroup' || key == 'productionGroup') {
+								var groupColor = self.utils.getRandomColor();
+								self.groups[keyName].color = groupColor.rgb;
+							}
+						
+					}else {
+						for (var i = 0; i < json.xml.game.groups[key].length; i++) {
+							var keyName = json.xml.game.groups[key][i]['name'];
+							self.groups[keyName] = {};
+							self.groups[keyName].type = key;
+							self.groups[keyName].pawns = [];
+							if (key == 'actionGroup') {
+								self.groups[keyName].hq = [];
+								self.groups[keyName].pawns[0] = {};
+								self.groups[keyName].pawns[0].location = json.xml.game.groups[key][i].startingPoint;
+								self.groups[keyName].startingPoint = json.xml.game.groups[key][i].startingPoint;
+								//self.groups[keyName].location = json.xml.game.groups[key][i].startingPoint;
+								for (var j = 0; j < json.xml.game.groups[key][i]['headquarters'].headquarter.length; j++) {
+									self.groups[keyName].hq.push(json.xml.game.groups[key][i]['headquarters']['headquarter'][j]);
+								}
+							}
+
+							if (key == 'actionGroup' || key == 'productionGroup') {
+								var groupColor = self.utils.getRandomColor();
+								self.groups[keyName].color = groupColor.rgb;
 							}
 						}
-
-						if(key == 'actionGroup' || key == 'productionGroup'){
-							var groupColor = self.utils.getRandomColor();
-							self.groups[keyName].color = groupColor.rgb;
-						}
 					}
+
 				}
 			}
 
@@ -380,11 +418,17 @@ var GameState = require('./utils/GameState.js');
 		
 		if(data.hasOwnProperty('state')) 
 			var data = data.state;
+		
 		if(data.hasOwnProperty('currentTurn')) {
 			if(data.currentTurn.hasOwnProperty('cards')){
-				this.hazard.chooseCardPopup(data.currentTurn.cards);
+				this.cards = data.currentTurn.cards;
+				//this.hazard.chooseCardPopup(data.currentTurn.cards);
 			}
 		}
+
+		try {
+			data.gameState.emergencies[0].generalHazardIndicator.currentStepIndex += 1;
+		}catch(e){}
 
 		var diff = this.gameState.setState(data);
 		if(diff.length == 0) return;
@@ -469,10 +513,18 @@ var GameState = require('./utils/GameState.js');
 				}
 			}
 
+
+			if(diff['emergencies']){
+				if(diff['emergencies'][0].hasOwnProperty('generalHazardIndicator')) {
+					var newStep = diff['emergencies'][0].generalHazardIndicator.currentStepIndex;
+					this.hazard.updateHazardIndicator(newStep);
+				}
+			}
+
 			if (diff['blockades']) {
 				for(var j=0;j<diff['blockades'].length;j++){
-					if(diff["blockades"][j].hasOwnProperty('location')) {
-						var link = this.utils.getLinkIdentifier(diff["blockades"][j].location[0],diff["blockades"][j].location[1]);
+					if(diff["blockades"][j].hasOwnProperty('locations')) {
+						var link = this.utils.getLinkIdentifier(diff["blockades"][j].locations[0],diff["blockades"][j].locations[1]);
 					} else {
 						var link = this.utils.getLinkIdentifier(diff["blockades"][j][0],diff["blockades"][j][1]);
 					}
@@ -486,7 +538,8 @@ var GameState = require('./utils/GameState.js');
 
 
 			if (diff['contagionRatios']){
-				this.hazard.setProgress(diff.contagionRatios[0].contagionRatio);
+				console.log(diff['contagionRatios'][0].contagionRatio);
+				this.hazard.setProgress(diff.contagionRatios[0].contagionRatio*100);
 			}
 
 			if (diff['type'] == 'ActionTurn') {
@@ -532,8 +585,15 @@ var GameState = require('./utils/GameState.js');
 				this.hazard.setActions(diff['numActions'],diff['maxNumActions']);
 			}
 
-			if(diff['type'] == "EventTurn") 
-				this.hazard.addLog("INFO", response[0].logString)
+			if(diff['currentGroup'] == "EventTurn") {
+				this.hazard.addLog("INFO",response.responses[0].logString);
+				this.hazard.showModal("Evento",response.responses[0].logString);
+				this.hazard.hideModal(4000);
+			}else if(diff['currentGroup'] == 'EmergencyTurn'){
+				this.hazard.addLog("INFO",response.logString);
+				this.hazard.showModal("Emergenza",response.logString);
+				this.hazard.hideModal(4000);
+			}
 			else 
 				this.hazard.addLog("INFO", logString);
 		}

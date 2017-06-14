@@ -8,6 +8,7 @@ var lang = l[config['LANGUAGE']];
 class ModalDialog {
 	constructor(){
 		this.visible = false;
+		this.setup();
 	}
 
 	/**
@@ -16,11 +17,22 @@ class ModalDialog {
 	 * @return NA
 	 */
 	setup(modalClass = config['MODAL_CLASS']) {
-		$(config['MODAL_BUTTONS_ID']).empty();
-		$(config['MODAL_BUTTONS_ID']).append('<button type="button" id="start-game-button" disabled=true class="btn btn-default" data-dismiss="modal"><i class="fa fa-spinner fa-spin fa-2x"></i></button>');
 		$(config['MODAL_ID']).removeClass();
 		$(config['MODAL_ID']).addClass('modal fade '+modalClass);
+		//$(config['MODAL_BUTTONS_ID']).empty();
+		//$(config['MODAL_BUTTONS_ID']).append('<button type="button" id="start-game-button" disabled=true class="btn btn-default" data-target="#myModal"><i class="fa fa-spinner fa-spin fa-2x"></i></button>');
+
+
+		$(config['MODAL_ID']).on('hide.bs.modal',function(e) {
+			console.log("Required modal close");
+		});
+
+
+		$(config['MODAL_ID']).on('show.bs.modal',function(e) {
+			console.log("Required modal open");
+		});
 	}
+
 
 	/**
 	 * Imposto intestazione del modal
@@ -59,9 +71,9 @@ class ModalDialog {
 		this.cards = cards;
 		var html = `<div class="row">`;
 		var cols = Math.floor(12/cards.length);
-		for(card in cards){
+		for(var i=0;i<cards.length;i++){
 			html += `<div class="col-md-${cols} col-xl-${cols}">`;
-			html += `<p id="${card.name}">${card.name}</p>`;
+			html += `<p id="${i}">${cards[i].location}</p>`;
 			html += `</div>`;
 		}
 		html += '</div>';
@@ -72,22 +84,30 @@ class ModalDialog {
 	 * @param {int} id [Carta selezionata]
 	 */
 	 selectCard(id){
-		for(card in cards){
-			if(card.name != id){
-				$(card.name).addClass('animate zoomOut');
+	 	if(typeof this.cards == 'undefined') {
+	 		console.warn('Undefined cards');
+	 		return;
+	 	}
+		for(var i =0;i<this.cards.length;i++){
+			if(i != id){
+				$('#'+i).addClass('animated zoomOut');
 			}
 		}
-		$(id).addClass('animate pulse');
+		$('#'+id).addClass('animated pulse');
 	 }
 
 	show() {
-		$(config['MODAL_ID']).modal("show");
-		this.visible = true;
+		if(!this.visible) {
+			$(config['MODAL_ID']).modal("show");
+			this.visible = true;
+		}
 	}
 
 	hide() {
-		$(config['MODAL_ID']).modal("hide");
-		this.visible = false;
+		if(this.visible) {
+			$(config['MODAL_ID']).modal("hide");
+			this.visible = false;
+		}
 	}
 
 	/**

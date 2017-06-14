@@ -8,6 +8,7 @@ var lang = l[config['LANGUAGE']];
 class ModalDialog {
 	constructor(){
 		this.visible = false;
+		this.setup();
 	}
 
 	/**
@@ -16,11 +17,22 @@ class ModalDialog {
 	 * @return NA
 	 */
 	setup(modalClass = config['MODAL_CLASS']) {
-		$(config['MODAL_BUTTONS_ID']).empty();
-		$(config['MODAL_BUTTONS_ID']).append('<button type="button" id="start-game-button" disabled=true class="btn btn-default" data-target="#myModal" data-toggle="modal" data-dismiss="modal"><i class="fa fa-spinner fa-spin fa-2x"></i></button>');
 		$(config['MODAL_ID']).removeClass();
 		$(config['MODAL_ID']).addClass('modal fade '+modalClass);
+		//$(config['MODAL_BUTTONS_ID']).empty();
+		//$(config['MODAL_BUTTONS_ID']).append('<button type="button" id="start-game-button" disabled=true class="btn btn-default" data-target="#myModal"><i class="fa fa-spinner fa-spin fa-2x"></i></button>');
+
+
+		$(config['MODAL_ID']).on('hide.bs.modal',function(e) {
+			console.log("Required modal close");
+		});
+
+
+		$(config['MODAL_ID']).on('show.bs.modal',function(e) {
+			console.log("Required modal open");
+		});
 	}
+
 
 	/**
 	 * Imposto intestazione del modal
@@ -85,13 +97,17 @@ class ModalDialog {
 	 }
 
 	show() {
-		$(config['MODAL_ID']).modal("show");
-		this.visible = true;
+		if(!this.visible) {
+			$(config['MODAL_ID']).modal("show");
+			this.visible = true;
+		}
 	}
 
 	hide() {
-		$(config['MODAL_ID']).modal("hide");
-		this.visible = false;
+		if(this.visible) {
+			$(config['MODAL_ID']).modal("hide");
+			this.visible = false;
+		}
 	}
 
 	/**

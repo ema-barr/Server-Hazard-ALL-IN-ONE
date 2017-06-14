@@ -43,9 +43,13 @@ class GameState {
 		if(o.length > n.length) {
 			for(var i = 0;i<o.length;i++){
 				found = false;
-				for(var j =0;j<n.length;j++){
-					if(o[i].pawnID.substr(o[i].pawnID.indexOf("_")+1) == n[j].pawnID.substr(n[j].pawnID.indexOf("_")+1)){
-						found = true;
+				for(var j =0;j<n.length && !found;j++){
+					try {
+						if(o[i].pawnID.substr(o[i].pawnID.indexOf("_")+1) == n[j].pawnID.substr(n[j].pawnID.indexOf("_")+1)){
+							found = true;
+						}
+					}catch(e){
+						continue;
 					}
 				}
 				if(!found) {
@@ -71,7 +75,12 @@ class GameState {
 		if(diffs == null) return [];
 		var changes  = {};
 		changes['locations'] = [];
-		changes['removedPawns'] = this.__getDeletedPawns(oldPawnPath,newPawnPath);;
+		changes['removedPawns'] = this.__getDeletedPawns(oldPawnPath,newPawnPath);
+		changes['emergencies'] = this.state.gameState.emergencies;
+		changes['contagionRatios'] =  this.state.gameState.contagionRatios;
+		changes['blockades'] = this.state.gameState.blockades;
+		changes['currentGroup'] = changes['type'] = this.state.currentTurn.type;
+
 		var base = 1;
 		for(var i = 0;i<diffs.length;i++){
 			/*if(diffs[i].kind == "D") {

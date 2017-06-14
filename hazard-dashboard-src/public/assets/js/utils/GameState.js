@@ -19,13 +19,45 @@ class GameState {
 
 		if(this.initialized){
 			var diffs = this.__getDifferences(newState);
+			var oldPawnPath = this.state.gameState.gameMap.pawns;
+			var newPawnPath = newState.gameState.gameMap.pawns;
 		} else {
 			this.initialized = true;
 		}
+
 		this.state = newState;
-		var simpleDiffsObject = this.__analyzeDifferences(diffs);
+		var simpleDiffsObject = this.__analyzeDifferences(diffs,oldPawnPath,newPawnPath);
+
 		return simpleDiffsObject;
 
+	}
+
+
+	__getDeletedPawns(o,n){
+		if(o == null || n == null) {
+			console.warn("Null Object in __getDeletedPawns");
+			return [];
+		}
+		var found = false;
+		var differences  = [];
+		if(o.length > n.length) {
+			for(var i = 0;i<o.length;i++){
+				found = false;
+				for(var j =0;j<n.length && !found;j++){
+					try {
+						if(o[i].pawnID.substr(o[i].pawnID.indexOf("_")+1) == n[j].pawnID.substr(n[j].pawnID.indexOf("_")+1)){
+							found = true;
+						}
+					}catch(e){
+						continue;
+					}
+				}
+				if(!found) {
+					differences.push(o[i].pawnID);
+				}
+			}
+		}
+		return differences;
 	}
 
 	/**
@@ -35,15 +67,37 @@ class GameState {
 	 * @return {Object}          [Differenze ottenute da deep-diff]
 	 */
 	__getDifferences(newState){
-		return diff(newState,this.state)
+		return diff(this.state,newState);
 	}
 
 
-	__analyzeDifferences(diffs){
+	__analyzeDifferences(diffs,oldPawnPath,newPawnPath){
 		if(diffs == null) return [];
 		var changes  = {};
+		changes['locations'] = [];
+		changes['removedPawns'] = this.__getDeletedPawns(oldPawnPath,newPawnPath);
+		changes['emergencies'] = this.state.gameState.emergencies;
+		changes['contagionRatios'] =  this.state.gameState.contagionRatios;
+		changes['blockades'] = this.state.gameState.blockades;
+		changes['currentGroup'] = changes['type'] = this.state.currentTurn.type;
+
 		var base = 1;
 		for(var i = 0;i<diffs.length;i++){
+			/*if(diffs[i].kind == "D") {
+				var path = diffs[i].path.join('.');
+
+				if(diffs[i].path[base-1] == 'gameState'){
+					switch(diffs[i].path[base]){
+						case 'gameMap':
+							if(diffs[i].path[base+1] == 'pawns') {
+								changes['removedPawns'].push(diffs[i].lhs.pawnID);
+							}
+						break;
+					}
+
+				}
+			}*/
+
 			if(diffs[i].kind == "E"){
 				var path = diffs[i].path.join('.');
 
@@ -55,7 +109,7 @@ class GameState {
 						break;
 						case 'gameMap':
 							if(diffs[i].path[base+1] == "locations"){
-								changes['locations'] = [];
+								
 								for(var j = 0;j<this.state.gameState.gameMap.locations.length;j++){
 									if(j == diffs[i].path[base+2]){
 										changes['locations'].push(this.state.gameState.gameMap.locations[j]);
