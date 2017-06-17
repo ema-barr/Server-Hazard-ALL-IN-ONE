@@ -79,7 +79,7 @@ public class GameInitialization {
         }
         Repository.insertInRepository("emergenciesList", emergenciesList);
 
-        int strongholdCost = EmergencyReader.readMaxGravityLevel(pathXML);
+        int strongholdCost = EmergencyReader.readStrongholdCost(pathXML);
         int maxGravityLevel = EmergencyReader.readMaxGravityLevel(pathXML);
 
         System.out.println(messages.getString("InitializationEmergencies"));

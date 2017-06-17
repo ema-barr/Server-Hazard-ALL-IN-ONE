@@ -6,7 +6,7 @@
         </locale>
         <groups>
             <actionGroup>
-                <name>ActionGroup1</name>
+                <name>Croce Rossa</name>
                 <emergenciesToSolve>
                     <emergencyToSolve>Malattia</emergencyToSolve>
                 </emergenciesToSolve>
@@ -17,10 +17,10 @@
                     <headquarter>SouthAmericaCB</headquarter>
                     <headquarter>ChinaArea</headquarter>
                 </headquarters>
-                <startingPoint>Australia</startingPoint>
+                <startingPoint>UK</startingPoint>
             </actionGroup>
             <productionGroup>
-                <name>ProductionGroup1</name>
+                <name>Pharma</name>
                 <maxNumTransportPawns>5</maxNumTransportPawns>
             </productionGroup>
 
@@ -29,7 +29,7 @@
             <name>Medicinale</name>
         </resources>
         <emergencies>
-            <strongholdCost>10</strongholdCost>
+            <strongholdCost>36</strongholdCost>
             <maxGravityLevel>3</maxGravityLevel>
             <gravityLevels>
                 <level>
@@ -64,7 +64,7 @@
                             <led>296</led>
                         </step>
                         <step>
-                            <level>2</level>
+                            <level>3</level>
                             <colorCode>5</colorCode>
                             <led>295</led>
                         </step>
@@ -77,6 +77,16 @@
                             <level>4</level>
                             <colorCode>1</colorCode>
                             <led>293</led>
+                        </step>
+                        <step>
+                            <level>4</level>
+                            <colorCode>1</colorCode>
+                            <led>292</led>
+                        </step>
+                        <step>
+                            <level>5</level>
+                            <colorCode>1</colorCode>
+                            <led>291</led>
                         </step>
                     </steps>
                 </generalHazardIndicator>
@@ -91,12 +101,12 @@
                 <ordNum>3</ordNum>
             </emergencyTurn>
             <actionTurn>
-                <group>ActionGroup1</group>
-                <numOfActions>4</numOfActions>
+                <group>Croce Rossa</group>
+                <numOfActions>5</numOfActions>
                 <ordNum>2</ordNum>
             </actionTurn>
             <productionTurn>
-                <group>ProductionGroup1</group>
+                <group>Pharma</group>
                 <ordNum>1</ordNum>
                 <numMovesPerTransportPawn>2</numMovesPerTransportPawn>
             </productionTurn>
@@ -109,43 +119,43 @@
             <eventCards>
                 <eventCard>
                     <name>AddBlockade</name>
-                    <quantity>2</quantity>
+                    <quantity>5</quantity>
                 </eventCard>
                 <eventCard>
                     <name>BonusProductionCard</name>
-                    <quantity>3</quantity>
+                    <quantity>10</quantity>
                 </eventCard>
                 <eventCard>
                     <name>DecreaseEmergencyPlace</name>
-                    <quantity>2</quantity>
+                    <quantity>5</quantity>
                 </eventCard>
                 <eventCard>
                     <name>DecreaseStrongholdPrice</name>
-                    <quantity>2</quantity>
+                    <quantity>15</quantity>
                 </eventCard>
                 <eventCard>
                     <name>DefaultCard</name>
-                    <quantity>1</quantity>
+                    <quantity>5</quantity>
                 </eventCard>
                 <eventCard>
                     <name>IncreaseContagionLevel</name>
-                    <quantity>100</quantity>
+                    <quantity>10</quantity>
                 </eventCard>
                 <eventCard>
                     <name>IncreaseEmergencyPlace</name>
-                    <quantity>2</quantity>
+                    <quantity>10</quantity>
                 </eventCard>
                 <eventCard>
                     <name>MalusProductionCard</name>
-                    <quantity>3</quantity>
+                    <quantity>10</quantity>
                 </eventCard>
                 <eventCard>
                     <name>RemoveTransportPawn</name>
-                    <quantity>1</quantity>
+                    <quantity>10</quantity>
                 </eventCard>
                 <eventCard>
                     <name>TakeBonusCard</name>
-                    <quantity>5</quantity>
+                    <quantity>20</quantity>
                 </eventCard>
             </eventCards>
             <productionCards>
@@ -193,19 +203,250 @@
                     </resourcesProd>
                 </productionCard>
 
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>UK</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>EuEast</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>EuWest</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>Iceland</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>Russia</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>India</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>CentralAsia</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>Japan</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>SouthEastAsia</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>MiddleEast</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>NewZeland</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>Madagascar</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>NorthAfrica</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>CentralAfrica</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>SouthAfrica</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>Greenland</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>USA</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>CentralAmerica</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>SouthAmericaCB</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>SouthAmericaBR</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
+                <productionCard>
+                    <quantity>1</quantity>
+                    <location>SouthAmericaUR</location>
+                    <resourcesProd>
+                        <resourceProd>
+                            <resource>Medicinale</resource>
+                            <quantity>5</quantity>
+                        </resourceProd>
+                    </resourcesProd>
+                </productionCard>
+
             </productionCards>
             <bonusCards>
                 <bonusCard>
                     <name>CurePlace</name>
-                    <quantity>2</quantity>
+                    <quantity>50</quantity>
                 </bonusCard>
                 <bonusCard>
                     <name>IncreaseNumberAction</name>
-                    <quantity>2</quantity>
+                    <quantity>50</quantity>
                 </bonusCard>
                 <bonusCard>
                     <name>QuarantinePlace</name>
-                    <quantity>2</quantity>
+                    <quantity>50</quantity>
                 </bonusCard>
                 <bonusCard>
                     <name>MovePlace</name>
@@ -213,454 +454,454 @@
                 </bonusCard>
             </bonusCards>
         </cards>
-    <map>
-      <image>
-        <filename>/path/to/image.png</filename>
-        <resolution>1280x720</resolution>
-      </image>
-      <area>
-        <name>Europe</name>
-        <location>
-          <name>EuWest</name>
-          <value>0</value>
-          <longitude>178</longitude>
-          <latitude>131</latitude>
-          <leds>
-            <led>
-              <number>176</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>USA</neighbor>
-            <neighbor>UK</neighbor>
-            <neighbor>EuEast</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>EuEast</name>
-          <value>0</value>
-          <longitude>205</longitude>
-          <latitude>141</latitude>
-          <leds>
-            <led>
-              <number>174</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>EuWest</neighbor>
-            <neighbor>Scandinavia</neighbor>
-            <neighbor>CentralAsia</neighbor>
-            <neighbor>MiddleEast</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>UK</name>
-          <value>0</value>
-          <longitude>176</longitude>
-          <latitude>147</latitude>
-          <leds>
-            <led>
-              <number>177</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>EuWest</neighbor>
-            <neighbor>Scandinavia</neighbor>
-            <neighbor>Iceland</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>Iceland</name>
-          <value>0</value>
-          <longitude>161</longitude>
-          <latitude>155</latitude>
-          <leds>
-            <led>
-              <number>205</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>UK</neighbor>
-            <neighbor>Greenland</neighbor>
-            <neighbor>Scandinavia</neighbor>
-          </neighborhood>
-        </location>
+        <map>
+            <image>
+                <filename>/path/to/image.png</filename>
+                <resolution>1280x720</resolution>
+            </image>
+            <area>
+                <name>Europe</name>
+                <location>
+                    <name>EuWest</name>
+                    <value>0</value>
+                    <longitude>178</longitude>
+                    <latitude>131</latitude>
+                    <leds>
+                        <led>
+                            <number>176</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>USA</neighbor>
+                        <neighbor>UK</neighbor>
+                        <neighbor>EuEast</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>EuEast</name>
+                    <value>0</value>
+                    <longitude>205</longitude>
+                    <latitude>141</latitude>
+                    <leds>
+                        <led>
+                            <number>174</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>EuWest</neighbor>
+                        <neighbor>Scandinavia</neighbor>
+                        <neighbor>CentralAsia</neighbor>
+                        <neighbor>MiddleEast</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>UK</name>
+                    <value>0</value>
+                    <longitude>176</longitude>
+                    <latitude>147</latitude>
+                    <leds>
+                        <led>
+                            <number>177</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>EuWest</neighbor>
+                        <neighbor>Scandinavia</neighbor>
+                        <neighbor>Iceland</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>Iceland</name>
+                    <value>0</value>
+                    <longitude>161</longitude>
+                    <latitude>155</latitude>
+                    <leds>
+                        <led>
+                            <number>205</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>UK</neighbor>
+                        <neighbor>Greenland</neighbor>
+                        <neighbor>Scandinavia</neighbor>
+                    </neighborhood>
+                </location>
 
-        <location>
-          <name>Scandinavia</name>
-          <value>0</value>
-          <longitude>196</longitude>
-          <latitude>155</latitude>
-          <leds>
-            <led>
-              <number>208</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Russia</neighbor>
-            <neighbor>Iceland</neighbor>
-            <neighbor>UK</neighbor>
-            <neighbor>EuEast</neighbor>
-          </neighborhood>
-        </location>
-      </area>
-      <area>
-        <name>Asia</name>
-        <location>
-          <name>Russia</name>
-          <visualName>Russia</visualName>
-          <value>0</value>
-          <longitude>278</longitude>
-          <latitude>150</latitude>
-          <leds>
-            <led>
-              <number>216</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Japan</neighbor>
-            <neighbor>ChinaArea</neighbor>
-            <neighbor>CentralAsia</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>ChinaArea</name>
-          <visualName>Area Cinese</visualName>
-          <value>0</value>
-          <longitude>285</longitude>
-          <latitude>124</latitude>
-          <leds>
-            <led>
-              <number>153</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Russia</neighbor>
-            <neighbor>Japan</neighbor>
-            <neighbor>India</neighbor>
-            <neighbor>CentralAsia</neighbor>
-            <neighbor>SouthEastAsia</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>CentralAsia</name>
-          <value>0</value>
-          <longitude>250</longitude>
-          <latitude>140</latitude>
-          <leds>
-            <led>
-              <number>170</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Russia</neighbor>
-            <neighbor>ChinaArea</neighbor>
-            <neighbor>India</neighbor>
-            <neighbor>MiddleEast</neighbor>
-            <neighbor>EuEast</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>India</name>
-          <value>0</value>
-          <longitude>259</longitude>
-          <latitude>113</latitude>
-          <leds>
-            <led>
-              <number>150</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>ChinaArea</neighbor>
-            <neighbor>CentralAsia</neighbor>
-            <neighbor>MiddleEast</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>SouthEastAsia</name>
-          <value>0</value>
-          <longitude>300</longitude>
-          <latitude>91</latitude>
-          <leds>
-            <led>
-              <number>89</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Australia</neighbor>
-            <neighbor>ChinaArea</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>MiddleEast</name>
-          <value>0</value>
-          <longitude>226</longitude>
-          <latitude>123</latitude>
-          <leds>
-            <led>
-              <number>147</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>CentralAsia</neighbor>
-            <neighbor>India</neighbor>
-            <neighbor>EuEast</neighbor>
-            <neighbor>CentralAfrica</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>Japan</name>
-          <value>0</value>
-          <longitude>321</longitude>
-          <latitude>129</latitude>
-          <leds>
-            <led>
-              <number>156</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Russia</neighbor>
-            <neighbor>ChinaArea</neighbor>
-            <neighbor>Australia</neighbor>
-          </neighborhood>
-        </location>
-      </area>
-      <area>
-        <name>Oceania</name>
-        <location>
-          <name>Australia</name>
-          <visualName>Australia</visualName>
-          <value>0</value>
-          <longitude>316</longitude>
-          <latitude>65</latitude>
-          <leds>
-            <led>
-              <number>35</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>NewZeland</neighbor>
-            <neighbor>SouthEastAsia</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>NewZeland</name>
-          <visualName>Nuova Zelanda</visualName>
-          <value>0</value>
-          <longitude>354</longitude>
-          <latitude>50</latitude>
-          <offsetLeft>-10</offsetLeft>
-          <leds>
-            <led>
-              <number>32</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Australia</neighbor>
-          </neighborhood>
-        </location>
-      </area>
-      <area>
-        <name>Africa</name>
-        <location>
-          <name>NorthAfrica</name>
-          <value>0</value>
-          <longitude>186</longitude>
-          <latitude>119</latitude>
-          <leds>
-            <led>
-              <number>143</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>EuWest</neighbor>
-            <neighbor>CentralAfrica</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>CentralAfrica</name>
-          <value>0</value>
-          <longitude>202</longitude>
-          <latitude>99</latitude>
-          <leds>
-            <led>
-              <number>110</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>SouthAfrica</neighbor>
-            <neighbor>NorthAfrica</neighbor>
-            <neighbor>Madagascar</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>SouthAfrica</name>
-          <value>0</value>
-          <longitude>204</longitude>
-          <latitude>70</latitude>
-          <leds>
-            <led>
-              <number>46</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>CentralAfrica</neighbor>
-            <neighbor>Madagascar</neighbor>
-            <neighbor>SouthAmericaBR</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>Madagascar</name>
-          <value>0</value>
-          <longitude>227</longitude>
-          <latitude>71</latitude>
-          <leds>
-            <led>
-              <number>83</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>CentralAfrica</neighbor>
-            <neighbor>SouthAfrica</neighbor>
-          </neighborhood>
-        </location>
-      </area>
-      <area>
-        <name>Americas</name>
-        <location>
-          <name>Greenland</name>
-          <value>0</value>
-          <longitude>138</longitude>
-          <latitude>170</latitude>
-          <leds>
-            <led>
-              <number>244</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Iceland</neighbor>
-            <neighbor>Canada</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>Canada</name>
-          <value>0</value>
-          <longitude>77</longitude>
-          <latitude>155</latitude>
-          <leds>
-            <led>
-              <number>196</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>Greenland</neighbor>
-            <neighbor>USA</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>USA</name>
-          <value>0</value>
-          <longitude>95</longitude>
-          <latitude>130</latitude>
-          <leds>
-            <led>
-              <number>134</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>EuWest</neighbor>
-            <neighbor>Canada</neighbor>
-            <neighbor>CentralAmerica</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>CentralAmerica</name>
-          <value>0</value>
-          <longitude>75</longitude>
-          <latitude>110</latitude>
-          <leds>
-            <led>
-              <number>121</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>USA</neighbor>
-            <neighbor>SouthAmericaCB</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>SouthAmericaCB</name>
-          <value>0</value>
-          <longitude>110</longitude>
-          <latitude>95</latitude>
-          <leds>
-            <led>
-              <number>71</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>SouthAmericaBR</neighbor>
-            <neighbor>SouthAmericaUR</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>SouthAmericaBR</name>
-          <value>0</value>
-          <longitude>131</longitude>
-          <latitude>79</latitude>
-          <leds>
-            <led>
-              <number>74</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>SouthAmericaCB</neighbor>
-            <neighbor>SouthAmericaUR</neighbor>
-            <neighbor>SouthAfrica</neighbor>
-          </neighborhood>
-        </location>
-        <location>
-          <name>SouthAmericaUR</name>
-          <value>0</value>
-          <longitude>110</longitude>
-          <latitude>50</latitude>
-          <leds>
-            <led>
-              <number>8</number>
-              <emergency>Malattia</emergency>
-            </led>
-          </leds>
-          <neighborhood>
-            <neighbor>SouthAmericaCB</neighbor>
-            <neighbor>SouthAmericaBR</neighbor>
-          </neighborhood>
-        </location>
-      </area>
-    </map>
+                <location>
+                    <name>Scandinavia</name>
+                    <value>0</value>
+                    <longitude>196</longitude>
+                    <latitude>155</latitude>
+                    <leds>
+                        <led>
+                            <number>208</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>Russia</neighbor>
+                        <neighbor>Iceland</neighbor>
+                        <neighbor>UK</neighbor>
+                        <neighbor>EuEast</neighbor>
+                    </neighborhood>
+                </location>
+            </area>
+            <area>
+                <name>Asia</name>
+                <location>
+                    <name>Russia</name>
+                    <visualName>Russia</visualName>
+                    <value>0</value>
+                    <longitude>278</longitude>
+                    <latitude>150</latitude>
+                    <leds>
+                        <led>
+                            <number>216</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>Japan</neighbor>
+                        <neighbor>ChinaArea</neighbor>
+                        <neighbor>CentralAsia</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>ChinaArea</name>
+                    <visualName>Area Cinese</visualName>
+                    <value>0</value>
+                    <longitude>285</longitude>
+                    <latitude>124</latitude>
+                    <leds>
+                        <led>
+                            <number>153</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>Russia</neighbor>
+                        <neighbor>Japan</neighbor>
+                        <neighbor>India</neighbor>
+                        <neighbor>CentralAsia</neighbor>
+                        <neighbor>SouthEastAsia</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>CentralAsia</name>
+                    <value>0</value>
+                    <longitude>250</longitude>
+                    <latitude>140</latitude>
+                    <leds>
+                        <led>
+                            <number>170</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>Russia</neighbor>
+                        <neighbor>ChinaArea</neighbor>
+                        <neighbor>India</neighbor>
+                        <neighbor>MiddleEast</neighbor>
+                        <neighbor>EuEast</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>India</name>
+                    <value>0</value>
+                    <longitude>259</longitude>
+                    <latitude>113</latitude>
+                    <leds>
+                        <led>
+                            <number>150</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>ChinaArea</neighbor>
+                        <neighbor>CentralAsia</neighbor>
+                        <neighbor>MiddleEast</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>SouthEastAsia</name>
+                    <value>0</value>
+                    <longitude>300</longitude>
+                    <latitude>91</latitude>
+                    <leds>
+                        <led>
+                            <number>89</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>Australia</neighbor>
+                        <neighbor>ChinaArea</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>MiddleEast</name>
+                    <value>0</value>
+                    <longitude>226</longitude>
+                    <latitude>123</latitude>
+                    <leds>
+                        <led>
+                            <number>147</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>CentralAsia</neighbor>
+                        <neighbor>India</neighbor>
+                        <neighbor>EuEast</neighbor>
+                        <neighbor>CentralAfrica</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>Japan</name>
+                    <value>0</value>
+                    <longitude>321</longitude>
+                    <latitude>129</latitude>
+                    <leds>
+                        <led>
+                            <number>156</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>Russia</neighbor>
+                        <neighbor>ChinaArea</neighbor>
+                        <neighbor>Australia</neighbor>
+                    </neighborhood>
+                </location>
+            </area>
+            <area>
+                <name>Oceania</name>
+                <location>
+                    <name>Australia</name>
+                    <visualName>Australia</visualName>
+                    <value>0</value>
+                    <longitude>316</longitude>
+                    <latitude>65</latitude>
+                    <leds>
+                        <led>
+                            <number>35</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>NewZeland</neighbor>
+                        <neighbor>SouthEastAsia</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>NewZeland</name>
+                    <visualName>Nuova Zelanda</visualName>
+                    <value>0</value>
+                    <longitude>354</longitude>
+                    <latitude>50</latitude>
+                    <offsetLeft>-10</offsetLeft>
+                    <leds>
+                        <led>
+                            <number>32</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>Australia</neighbor>
+                    </neighborhood>
+                </location>
+            </area>
+            <area>
+                <name>Africa</name>
+                <location>
+                    <name>NorthAfrica</name>
+                    <value>0</value>
+                    <longitude>186</longitude>
+                    <latitude>119</latitude>
+                    <leds>
+                        <led>
+                            <number>143</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>EuWest</neighbor>
+                        <neighbor>CentralAfrica</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>CentralAfrica</name>
+                    <value>0</value>
+                    <longitude>202</longitude>
+                    <latitude>99</latitude>
+                    <leds>
+                        <led>
+                            <number>110</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>SouthAfrica</neighbor>
+                        <neighbor>NorthAfrica</neighbor>
+                        <neighbor>Madagascar</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>SouthAfrica</name>
+                    <value>0</value>
+                    <longitude>204</longitude>
+                    <latitude>70</latitude>
+                    <leds>
+                        <led>
+                            <number>46</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>CentralAfrica</neighbor>
+                        <neighbor>Madagascar</neighbor>
+                        <neighbor>SouthAmericaBR</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>Madagascar</name>
+                    <value>0</value>
+                    <longitude>227</longitude>
+                    <latitude>71</latitude>
+                    <leds>
+                        <led>
+                            <number>83</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>CentralAfrica</neighbor>
+                        <neighbor>SouthAfrica</neighbor>
+                    </neighborhood>
+                </location>
+            </area>
+            <area>
+                <name>Americas</name>
+                <location>
+                    <name>Greenland</name>
+                    <value>0</value>
+                    <longitude>138</longitude>
+                    <latitude>170</latitude>
+                    <leds>
+                        <led>
+                            <number>244</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>Iceland</neighbor>
+                        <neighbor>Canada</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>Canada</name>
+                    <value>0</value>
+                    <longitude>77</longitude>
+                    <latitude>155</latitude>
+                    <leds>
+                        <led>
+                            <number>196</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>Greenland</neighbor>
+                        <neighbor>USA</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>USA</name>
+                    <value>0</value>
+                    <longitude>95</longitude>
+                    <latitude>130</latitude>
+                    <leds>
+                        <led>
+                            <number>134</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>EuWest</neighbor>
+                        <neighbor>Canada</neighbor>
+                        <neighbor>CentralAmerica</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>CentralAmerica</name>
+                    <value>0</value>
+                    <longitude>75</longitude>
+                    <latitude>110</latitude>
+                    <leds>
+                        <led>
+                            <number>121</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>USA</neighbor>
+                        <neighbor>SouthAmericaCB</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>SouthAmericaCB</name>
+                    <value>0</value>
+                    <longitude>110</longitude>
+                    <latitude>95</latitude>
+                    <leds>
+                        <led>
+                            <number>71</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>SouthAmericaBR</neighbor>
+                        <neighbor>SouthAmericaUR</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>SouthAmericaBR</name>
+                    <value>0</value>
+                    <longitude>131</longitude>
+                    <latitude>79</latitude>
+                    <leds>
+                        <led>
+                            <number>74</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>SouthAmericaCB</neighbor>
+                        <neighbor>SouthAmericaUR</neighbor>
+                        <neighbor>SouthAfrica</neighbor>
+                    </neighborhood>
+                </location>
+                <location>
+                    <name>SouthAmericaUR</name>
+                    <value>0</value>
+                    <longitude>110</longitude>
+                    <latitude>50</latitude>
+                    <leds>
+                        <led>
+                            <number>8</number>
+                            <emergency>Malattia</emergency>
+                        </led>
+                    </leds>
+                    <neighborhood>
+                        <neighbor>SouthAmericaCB</neighbor>
+                        <neighbor>SouthAmericaBR</neighbor>
+                    </neighborhood>
+                </location>
+            </area>
+        </map>
         <endGame>
             <victoryCondition>
                 <victoryMessage>Vittoria</victoryMessage>
@@ -688,11 +929,11 @@
                     </setting>
                     <setting>
                         <gravityLevel>2</gravityLevel>
-                        <numLocation>1</numLocation>
+                        <numLocation>2</numLocation>
                     </setting>
                     <setting>
                         <gravityLevel>1</gravityLevel>
-                        <numLocation>1</numLocation>
+                        <numLocation>3</numLocation>
                     </setting>
                 </settings>
             </emergencySetup>

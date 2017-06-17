@@ -29,7 +29,7 @@ public class TakeBonusCardResponse implements Response{
         ResourceBundle messages = (ResourceBundle) Repository.getFromRepository("resourceBundle");
 
         if(success){
-            Object[] messageArgs = {cardExtract.toString()};
+            Object[] messageArgs = {cardExtract.getNameCard()};
 
             formatter.applyPattern(messages.getString("TakeBonusCardResponse_success"));
             logString = formatter.format(messageArgs);
