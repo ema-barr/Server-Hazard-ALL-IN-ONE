@@ -61,5 +61,6 @@ module.exports = {
 	//Altro
 	'PROGRESS_BALLS_STEP' : 1,
 	'RESOURCES_ICON' : 'fa fa-tint',
-	'DEBUG' : true,
+	'DEBUG' : false,
+	'ACTIONS_ID' : '#actions',
 }

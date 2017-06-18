@@ -13,8 +13,8 @@ class Utils {
 	 * @param  {String []} vars [Array delle risorse, la chiave contiene il nome della risorsa e il campo contiene la quantità]
 	 * @return NA
 	 */
-	__buildTooltip(name,vars){
-		var content_text = `<ul class="tooltip-list" id="`+name+`-tooltiplist">`;
+	__buildTooltip(id,name,vars){
+		var content_text = `<ul class="tooltip-list" id="`+id+`-tooltiplist">`;
 		content_text += `<li><span style=\"font-weight:bold;\">`+lang['zone']+`</span>` + name+`</li>`;
 
 		for(var key in vars){
@@ -24,7 +24,7 @@ class Utils {
 			content_text += `
 							<li><div class="float-wrapper">
 							<span>`+key+` :</span>
-							<div id="`+key+`-`+name+`" style="background-color:`+config['LEGEND'][i].color+`">`+symbol+`</div>
+							<div id="`+key+`-`+id+`" style="background-color:`+config['LEGEND'][i].color+`">`+symbol+`</div>
 							</li></div>`;
 		}
 		content_text += `</ul>`;
@@ -32,6 +32,20 @@ class Utils {
 		return content_text;
 	}
 
+	findAndReplaceArea(areas,message){
+		if(typeof message == 'undefined') return;
+		var words = message.split(' ');
+		for(var wordIndex in words){
+			if(words[wordIndex].length < 2) continue;
+			words[wordIndex] = words[wordIndex].replace(/[^a-zA-Z ]/g, "");
+			for(var i = 0;i<areas.length;i++){
+				if(word == areas[i].name) {
+					message = message.replace(words[wordIndex],this.getDisplayedName(areas[i]));
+				}
+			}
+		}
+		return message;
+	}
 
 	getDisplayedName(area){
 		if(typeof area.visualName == 'string'){

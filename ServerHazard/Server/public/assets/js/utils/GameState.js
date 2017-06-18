@@ -80,7 +80,17 @@ class GameState {
 		changes['contagionRatios'] =  this.state.gameState.contagionRatios;
 		changes['blockades'] = this.state.gameState.blockades;
 		changes['currentGroup'] = changes['type'] = this.state.currentTurn.type;
+		if(this.state.hasOwnProperty('currentTurn')) {
+			if(this.state.currentTurn.hasOwnProperty('group')) {
+				changes['resources'] = this.state.currentTurn.group.resources;
+			}
+		}
 
+		if(this.state.gameState.gameMap.hasOwnProperty('pawns')){
+			changes['pawns'] = this.state.gameState.gameMap.pawns;
+		}
+
+		
 		var base = 1;
 		for(var i = 0;i<diffs.length;i++){
 			/*if(diffs[i].kind == "D") {
@@ -115,8 +125,6 @@ class GameState {
 										changes['locations'].push(this.state.gameState.gameMap.locations[j]);
 									}
 								}
-							}else{
-								changes['pawns'] = this.state.gameState.gameMap.pawns;
 							}
 						break;
 						case 'blockades':
@@ -139,8 +147,7 @@ class GameState {
 					switch(diffs[i].path[base]){
 						case 'group':
 							changes['type'] = this.state.currentTurn.type;
-							changes['group'] = this.state.currentTurn.group.name;
-							changes['resources'] = this.state.currentTurn.group.resources;
+
 						break;
 						case 'numActions':
 						case 'maxNumActions':

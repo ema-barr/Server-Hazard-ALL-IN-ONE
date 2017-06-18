@@ -34,6 +34,13 @@ class ModalDialog {
 	}
 
 
+	cardsVisible(value = null){
+		if(value == null)
+			return this.visible;
+		else
+			this.visible = value;
+		return this.visible;
+	}
 	/**
 	 * Imposto intestazione del modal
 	 * @param {String} title [Testo di intestazione]
@@ -47,7 +54,10 @@ class ModalDialog {
 	 * @param {String} content [Testo da visualizzare]
 	 */
 	setContent(content){
-		$(config['MODAL_TEXT_ID']).html(content);
+		if(!this.isVisible())
+			$(config['MODAL_TEXT_ID']).html(content);
+		else
+			$(config['MODAL_TEXT_ID']).append(content);
 	}
 
 	/**
@@ -55,58 +65,79 @@ class ModalDialog {
 	 * @param {Object} cards [Oggetto contenente le carte]
 	 */
 	setContentCards(cards){
+		console.log('Called setContentCards')
+		if(this.isVisible()) this.hide();
+		if(this.cardsVisible()) return;
+		this.cardsVisible(true);
+		this.waitingForSelection = true;
 		this.cards = cards;
-		var html = `<div class="row">`;
-		var cols = Math.floor(12/cards.length);
-		for(card in cards){
-			html += `<div class="col-md-${cols} col-xl-${cols}">`;
-			html += `<img src="${card.src}" id="${card.name}"/>`;
-			html += `</div>`;
+
+		$('.overlay-content').empty();
+		$('#cards-container').removeClass();
+		$('#cards-container').addClass('container');
+  		$('.container').show();
+
+		var html = ``;
+		for(var i=0;i<cards.length;i++){
+			html += `<div class="card" id="card${(i+1)}"><span>${cards[i].locationFix}<br/>+${cards[i].resources[0].quantity} ${cards[i].resources[0].resource}</span></div>`;
 		}
-		html += '</div>';
-		this.setContent(html);
+		$(html).appendTo('.overlay-content').addClass('animated flipInX');
+
 	}
 
-	setContentCardsTextOnly(cards){
-		this.cards = cards;
-		var html = `<div class="row">`;
-		var cols = Math.floor(12/cards.length);
-		for(var i=0;i<cards.length;i++){
-			html += `<div class="col-md-${cols} col-xl-${cols}">`;
-			html += `<p id="${i}">${cards[i].location}</p>`;
-			html += `</div>`;
-		}
-		html += '</div>';
-		this.setContent(html);
-	}
 	/**
 	 * Seleziono la carta scelta
 	 * @param {int} id [Carta selezionata]
 	 */
-	 selectCard(id){
-	 	if(typeof this.cards == 'undefined') {
-	 		console.warn('Undefined cards');
-	 		return;
-	 	}
-		for(var i =0;i<this.cards.length;i++){
-			if(i != id){
-				$('#'+i).addClass('animated zoomOut');
+	 selectCard(id,max=-1){
+	 	console.log('Called Select Card'); 
+		if(typeof this.cards == 'undefined') {
+			console.warn('Undefined cards');
+			return;
+		}
+		if(max == -1){
+			var max = this.cards.length;
+		}
+		if(typeof id == 'Number') {
+			for(var i=0;i<max;i++){
+				if(i==id) {
+					$('#card'+(i+1)).removeClass();
+					$('#card'+(i+1)).addClass('card animated rubberBand');
+				}else {
+					$('#card'+(i+1)).removeClass();
+					$('#card'+(i+1)).addClass('card animated fadeOutDown');
+				}
+			}
+		} else if(id.hasOwnProperty(length)) {
+			for(var j = 0; j<id.length; j++){
+				for(var i=0;i<max;i++){
+					if(i==id[j]) {
+						$('#card'+(i+1)).removeClass();
+						$('#card'+(i+1)).addClass('card animated rubberBand');
+					}else {
+						$('#card'+(i+1)).removeClass();
+						$('#card'+(i+1)).addClass('card animated fadeOutDown');
+					}
+				}
 			}
 		}
-		$('#'+id).addClass('animated pulse');
-	 }
+
+    
+	    setTimeout(function() {
+	      $('#cards-container').addClass('animated fadeOutDown');
+	    },2000);
+	    this.cardsVisible(false);
+ 	}
 
 	show() {
-		if(!this.visible) {
+		if(!this.isVisible()) {
 			$(config['MODAL_ID']).modal("show");
-			this.visible = true;
 		}
 	}
 
 	hide() {
-		if(this.visible) {
+		if(this.isVisible()) {
 			$(config['MODAL_ID']).modal("hide");
-			this.visible = false;
 		}
 	}
 
@@ -115,7 +146,7 @@ class ModalDialog {
 	 * @return {Boolean} [True se è visibile il popup, falso altrimenti]
 	 */
 	isVisible(){
-		return this.visible;
+		return $(config['MODAL_ID']).is(':visible');
 	}
 }
 

@@ -23,7 +23,8 @@ module.exports = {
 
 		//Turni
 		'currentlyPlaying' : 'Inizia il turno del ',
-
+		'cardChosen' : 'E\' stata scelta la carta ',
 		'legendTitle' : 'Livello Infezione',
+		'actionsDoneTitle' : 'Azioni Eseguite: '
 	},
 }
