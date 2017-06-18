@@ -253,6 +253,11 @@ public class ProductionTurn implements PlayerTurn {
                 cardsJson.add(c.toJson());
             }
             result.add("cards", cardsJson);
+            JsonArray selectedCardsJSON = new JsonArray();
+            for (Integer c: selectedCards) {
+                selectedCardsJSON.add(c);
+            }
+            result.add("selectedCards", selectedCardsJSON);
             result.addProperty("state", state.toString());
             JsonArray pawnMovementsJson = new JsonArray();
             for (TransportPawn tp : pawns.keySet()) {
