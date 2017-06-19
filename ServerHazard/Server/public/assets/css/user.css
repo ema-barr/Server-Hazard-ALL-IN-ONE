@@ -20,6 +20,15 @@ hr.style3 {
 	font-size:12px;
 }
 
+
+.cover-container {
+	width:100%;
+	height: 100%;
+	top:0;
+	left:0;
+	z-index: 9999;
+	pointer-events:none;
+}
 .main-row {
     height: 100%;
 	background-image:url('../img/seigaiha.png');

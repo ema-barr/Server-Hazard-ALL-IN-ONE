@@ -38,11 +38,9 @@ class Utils {
 		for(var wordIndex in words){
 			if(words[wordIndex].length < 2) continue;
 			words[wordIndex] = words[wordIndex].replace(/[^a-zA-Z ]/g, "");
-			for(var i = 0;i<areas.length;i++){
-				if(word == areas[i].name) {
-					message = message.replace(words[wordIndex],this.getDisplayedName(areas[i]));
+				if(areas.hasOwnProperty(words[wordIndex])) {
+					message = message.replace(words[wordIndex],this.getDisplayedName(areas[words[wordIndex]]));
 				}
-			}
 		}
 		return message;
 	}

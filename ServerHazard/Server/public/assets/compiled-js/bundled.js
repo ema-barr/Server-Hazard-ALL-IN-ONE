@@ -14501,7 +14501,8 @@
 								"stroke-width": 0.2
 							},
 							attrsHover: {
-								fill: "#5BCA09"
+								fill: "#5BCA09",
+								"fill-opacity": 0
 							}
 						}
 
@@ -15046,8 +15047,8 @@
 							self.areas[self.locations[j].name].name = self.locations[j].name;
 							self.areas[self.locations[j].name].emergencies = {};
 							self.areas[self.locations[j].name].value = 1;
-							if (self.locations.hasOwnProperty('color')) {
-								self.areas[self.locations[j].name].color = self.locations.color;
+							if (self.locations[j].hasOwnProperty('color')) {
+								self.areas[self.locations[j].name].color = self.locations[j].color;
 							} else {
 								self.areas[self.locations[j].name].color = config['DEFAULT_AREA_COLOR'];
 							}
@@ -15203,12 +15204,12 @@
 
 				if (data.hasOwnProperty('currentTurn')) {
 					var currentTurn = data.currentTurn;
-					if (currentTurn.hasOwnProperty('cardIndex')) {
-						var cardIndex = data.currentTurn.cardIndex;
+					if (currentTurn.hasOwnProperty('selectedCards')) {
+						var cardIndex = data.currentTurn.selectedCards;
 					}
 				}
 
-				if (data.hasOwnProperty('cardIndex')) {
+				if (data.hasOwnProperty('cardIndex') && typeof cardIndex == 'undefined') {
 					var cardIndex = data.cardIndex;
 				}
 
@@ -15342,24 +15343,15 @@
 				var newTurn = this.turns[diff['currentGroup'].lowerCaseOnlyFirstLetter()].ordNum == 1;
 
 				if (diff['type'] == 'ActionTurn') {
-					/*COMUNICA CHE INIZIA IL TURNO AZIONE*/
 					this.hazard.updateTurn(lang['actionGroup'], newTurn);
 				} else if (diff['type'] == 'EmergencyTurn') {
-					/*COMUNICA CHE INIZIA IL TURNO EMERGENZA*/
-					let l = lang['currentlyPlaying'] + lang['emergencyGroup'];
-					this.hazard.addLog("INFO", l);
 					this.hazard.updateTurn(lang['emergencyGroup'], newTurn);
 				} else if (diff['type'] == 'EventTurn') {
-					/*COMUNICA CHE INIZIA IL TURNO EVENTI*/
-					let l = lang['currentlyPlaying'] + lang['eventGroup'];
-					this.hazard.addLog("INFO", l);
 					this.hazard.updateTurn(lang['eventGroup'], newTurn);
 				} else if (diff['type'] == 'ProductionTurn') {
-					/*COMUNICA CHE INIZIA IL TURNO PRODUZIONE*/
-					let l = lang['currentlyPlaying'] + lang['productionGroup'];
-					this.hazard.addLog("INFO", l);
 					this.hazard.updateTurn(lang['productionGroup'], newTurn);
 				}
+
 				if (diff.hasOwnProperty('resources')) {
 					try {
 						this.hazard.clearResources();
@@ -19435,10 +19427,8 @@
 				for (var wordIndex in words) {
 					if (words[wordIndex].length < 2) continue;
 					words[wordIndex] = words[wordIndex].replace(/[^a-zA-Z ]/g, "");
-					for (var i = 0; i < areas.length; i++) {
-						if (word == areas[i].name) {
-							message = message.replace(words[wordIndex], this.getDisplayedName(areas[i]));
-						}
+					if (areas.hasOwnProperty(words[wordIndex])) {
+						message = message.replace(words[wordIndex], this.getDisplayedName(areas[words[wordIndex]]));
 					}
 				}
 				return message;

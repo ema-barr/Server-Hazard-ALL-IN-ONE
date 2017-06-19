@@ -251,8 +251,8 @@ var GameState = require('./utils/GameState.js');
 			self.areas[self.locations[j].name].name = self.locations[j].name;
 			self.areas[self.locations[j].name].emergencies = {};
 			self.areas[self.locations[j].name].value = 1;
-			if(self.locations.hasOwnProperty('color')){
-				self.areas[self.locations[j].name].color = self.locations.color;
+			if(self.locations[j].hasOwnProperty('color')){
+				self.areas[self.locations[j].name].color = self.locations[j].color;
 			}else {
 				self.areas[self.locations[j].name].color = config['DEFAULT_AREA_COLOR'];
 			}
@@ -424,18 +424,17 @@ var GameState = require('./utils/GameState.js');
 		else 
 			var response = {};
 
+
 		if(data.hasOwnProperty('currentTurn')){
 			var currentTurn = data.currentTurn;
-			if(currentTurn.hasOwnProperty('cardIndex')){
-				var cardIndex = data.currentTurn.cardIndex;
+			if(currentTurn.hasOwnProperty('selectedCards')){
+				var cardIndex = data.currentTurn.selectedCards;
 			}
 		}
-		
-		if(data.hasOwnProperty('cardIndex')) {
+
+		if(data.hasOwnProperty('cardIndex') && typeof cardIndex == 'undefined') {
 			var cardIndex = data.cardIndex;
 		}
-
-
 
 		if(data.hasOwnProperty('state') && data.state.hasOwnProperty('currentTurn')){
 			var currentTurn = data.state.currentTurn;
@@ -578,26 +577,18 @@ var GameState = require('./utils/GameState.js');
 			var newTurn = (this.turns[diff['currentGroup'].lowerCaseOnlyFirstLetter()].ordNum == 1);
 
 			if (diff['type'] == 'ActionTurn') {
-				/*COMUNICA CHE INIZIA IL TURNO AZIONE*/
 				this.hazard.updateTurn(lang['actionGroup'],newTurn);
 			} else if (diff['type'] == 'EmergencyTurn') {
-				/*COMUNICA CHE INIZIA IL TURNO EMERGENZA*/
-				let l = lang['currentlyPlaying'] + lang['emergencyGroup'];
-				this.hazard.addLog("INFO", l);
 				this.hazard.updateTurn(lang['emergencyGroup'],newTurn);
 
 			} else if (diff['type'] == 'EventTurn') {
-				/*COMUNICA CHE INIZIA IL TURNO EVENTI*/
-				let l = lang['currentlyPlaying'] + lang['eventGroup'];
-				this.hazard.addLog("INFO", l);
 				this.hazard.updateTurn(lang['eventGroup'],newTurn);
 
 			} else if (diff['type'] == 'ProductionTurn') {
-				/*COMUNICA CHE INIZIA IL TURNO PRODUZIONE*/
-				let l = lang['currentlyPlaying'] + lang['productionGroup'];
-				this.hazard.addLog("INFO", l);
 				this.hazard.updateTurn(lang['productionGroup'],newTurn);
 			}
+
+			
 			if(diff.hasOwnProperty('resources')){
 				try {
 					this.hazard.clearResources();
