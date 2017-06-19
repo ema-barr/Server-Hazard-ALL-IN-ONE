@@ -682,6 +682,7 @@
                 </location>
                 <location>
                     <name>Japan</name>
+                    <color>#F1FB51</color>
                     <visualName>Giappone</visualName>
                     <value>0</value>
                     <longitude>321</longitude>
