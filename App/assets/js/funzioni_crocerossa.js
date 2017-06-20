@@ -368,6 +368,13 @@ function creaCarteBonus(){
     "use strict";
 	
 	$("#carteBonus").empty();
+	$("#carteBonus").append(
+    	"<li>"+
+          "<div class='Button Block' align='center'>"+
+            "<h1>Carte Bonus</h1>"+
+            "<p> Hai a disposizione " +dati.carteBonus.length+ " carte bonus da utilizzare!</p>"+
+          "</div>"+
+        "</li>");
 	for (var i=0; i<dati.carteBonus.length; i++){
 		$("#carteBonus").append(
     	"<li>"+
