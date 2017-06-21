@@ -14859,6 +14859,7 @@
 				this.locations = {};
 				this.resources = {};
 				this.setup = {};
+				this.blockades = [];
 				this.strongholdinfos = {};
 				this.turns = {};
 
@@ -15332,7 +15333,17 @@
 							var link = this.utils.getLinkIdentifier(diff["blockades"][j][0], diff["blockades"][j][1]);
 						}
 
-						if (typeof this.links[link] == `undefined`) throw new Error('Undefined type for blockade');else this.hazard.CloseLink(link);
+						if (typeof this.links[link] == `undefined`) throw new Error('Blockade not found');else {
+							this.blockades.push(link);
+							this.hazard.CloseLink(link);
+						}
+					}
+
+					for (var i = 0; i < this.blockades.length; i++) {
+						if (!$.inArray(this.blockades[i], diff['blockades'])) {
+							this.hazard.OpenLink(this.blockades[i]);
+							this.blockades.splice(i, 1);
+						}
 					}
 				}
 
@@ -19051,6 +19062,8 @@
 				changes['contagionRatios'] = this.state.gameState.contagionRatios;
 				changes['blockades'] = this.state.gameState.blockades;
 				changes['currentGroup'] = changes['type'] = this.state.currentTurn.type;
+				changes['blockades'] = this.state.gameState.blockades;
+
 				if (this.state.hasOwnProperty('currentTurn')) {
 					if (this.state.currentTurn.hasOwnProperty('group')) {
 						changes['resources'] = this.state.currentTurn.group.resources;
@@ -19095,9 +19108,6 @@
 											}
 										}
 									}
-									break;
-								case 'blockades':
-									changes['blockades'] = this.state.gameState.blockades;
 									break;
 								case 'emergencies':
 									changes['emergencies'] = this.state.gameState.emergencies;
@@ -19183,12 +19193,10 @@
 
 			/**
     * Aggiunge un collegamento da *from* a *to* con stile *style*
-    * @param {String} from  [ID Univoco del plot di partenza]
-    * @param {String} to    [ID Univoco del plot di arrivo]
-    * @param {String} style [Attributo stroke-dasharray @https://www.vincentbroute.fr/mapael/raphael-js-documentation/index.html#Element.attr]
+    * @param {String} link     [ID Univoco del collegamento da rendere disponibile]
     * @param {Integer} duration [Durata dell'animazione in ms, default: 500]
     */
-			AddLink(from, to, style, duration = 500) {
+			AddLink(link, duration = 500) {
 				$('[data-id="' + link + '"]').attr({ 'stroke': config['LINK_OPEN_COLOR'] });
 			}
 

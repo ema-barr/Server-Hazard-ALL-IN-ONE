@@ -55,6 +55,7 @@ var GameState = require('./utils/GameState.js');
 		this.locations = {}; 
 		this.resources = {};
 		this.setup = {};
+		this.blockades = [];
 		this.strongholdinfos = {};
 		this.turns = {};
 
@@ -562,10 +563,21 @@ var GameState = require('./utils/GameState.js');
 					}
 					
 					if(typeof(this.links[link]) == `undefined`)
-						throw new Error('Undefined type for blockade');
-					else
+						throw new Error('Blockade not found');
+					else {
+						this.blockades.push(link);
 						this.hazard.CloseLink(link);
+					}
+
 				}
+
+				for(var i =0;i<this.blockades.length;i++){
+					if(!$.inArray(this.blockades[i],diff['blockades'])){
+						this.hazard.OpenLink(this.blockades[i]);
+						this.blockades.splice(i,1);
+					}
+				}
+					
 			}
 
 
