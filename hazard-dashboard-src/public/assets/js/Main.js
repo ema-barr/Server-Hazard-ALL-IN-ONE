@@ -55,6 +55,7 @@ var GameState = require('./utils/GameState.js');
 		this.locations = {}; 
 		this.resources = {};
 		this.setup = {};
+		this.blockades = [];
 		this.strongholdinfos = {};
 		this.turns = {};
 
@@ -402,15 +403,20 @@ var GameState = require('./utils/GameState.js');
 	setEmergency(locationID,emergency,level){
 		var initialization = (typeof this.areas[locationID].emergencies[emergency] == 'undefined');
 		this.areas[locationID].emergencies[emergency].level = level;
-		if(!initialization) this.hazard.updateEmergenciesTooltip(this.utils.getDisplayedName(this.areas[locationID]),locationID,this.areas[locationID].emergencies)
+		try {
+			if(!initialization) 
+				this.hazard.updateEmergenciesTooltip(this.utils.getDisplayedName(this.areas[locationID]),locationID,this.areas[locationID].emergencies);
 			else
-		this.areas[locationID].emergencies[emergency].hasStronghold = false;
-	}
+				this.areas[locationID].emergencies[emergency].hasStronghold = false;
+		} catch(e) {
+			console.error('setEmergency Error { location : '+locationID+', emergency: '+emergency+', level: '+level+', this.areas :'+this.areas+'}');
+		}
+	}	
 	
 
 	buildStronghold(emergency,location){
 		this.areas[location].emergencies[emergency].hasStronghold = true;
-		this.hazard.updateEmergenciesTooltip(this.utils.getDisplayedName(this.area[location]),location,this.areas[location].emergencies);
+		this.hazard.updateEmergenciesTooltip(this.utils.getDisplayedName(this.areas[location]),location,this.areas[location].emergencies);
 	}
 
 
@@ -562,10 +568,21 @@ var GameState = require('./utils/GameState.js');
 					}
 					
 					if(typeof(this.links[link]) == `undefined`)
-						throw new Error('Undefined type for blockade');
-					else
+						throw new Error('Blockade not found');
+					else {
+						this.blockades.push(link);
 						this.hazard.CloseLink(link);
+					}
+
 				}
+
+				for(var i =0;i<this.blockades.length;i++){
+					if(!$.inArray(this.blockades[i],diff['blockades'])){
+						this.hazard.OpenLink(this.blockades[i]);
+						this.blockades.splice(i,1);
+					}
+				}
+					
 			}
 
 

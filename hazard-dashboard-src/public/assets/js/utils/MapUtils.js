@@ -44,12 +44,10 @@ class MapUtils {
 
 	/**
 	 * Aggiunge un collegamento da *from* a *to* con stile *style*
-	 * @param {String} from  [ID Univoco del plot di partenza]
-	 * @param {String} to    [ID Univoco del plot di arrivo]
-	 * @param {String} style [Attributo stroke-dasharray @https://www.vincentbroute.fr/mapael/raphael-js-documentation/index.html#Element.attr]
+	 * @param {String} link     [ID Univoco del collegamento da rendere disponibile]
 	 * @param {Integer} duration [Durata dell'animazione in ms, default: 500]
 	 */
-	AddLink(from,to,style,duration = 500){
+	AddLink(link,duration = 500){
 		$('[data-id="'+link+'"]').attr({'stroke': config['LINK_OPEN_COLOR']});
 	}
 
