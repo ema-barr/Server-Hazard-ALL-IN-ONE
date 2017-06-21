@@ -24,7 +24,9 @@ module.exports = {
 		//Turni
 		'currentlyPlaying' : 'Inizia il turno del ',
 		'cardChosen' : 'E\' stata scelta la carta ',
+		'multipleCardChosen' : 'Sono state scelte le carte ',
 		'legendTitle' : 'Livello Infezione',
-		'actionsDoneTitle' : 'Azioni Eseguite: '
+		'actionsDoneTitle' : 'Azioni Eseguite: ',
+		'cardCountText' : 'Carte rimanenti da scegliere: '
 	},
 }

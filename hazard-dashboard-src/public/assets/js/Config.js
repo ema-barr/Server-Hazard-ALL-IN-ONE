@@ -63,4 +63,6 @@ module.exports = {
 	'RESOURCES_ICON' : 'fa fa-tint',
 	'DEBUG' : false,
 	'ACTIONS_ID' : '#actions',
+
+	'CARD_COUNT_ID' : '#cards-text',
 }

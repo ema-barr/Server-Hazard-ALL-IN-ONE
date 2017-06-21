@@ -98,7 +98,7 @@ class ModalDialog {
 		if(max == -1){
 			var max = this.cards.length;
 		}
-		if(typeof id == 'Number') {
+		if(typeof id == 'number') {
 			for(var i=0;i<max;i++){
 				if(i==id) {
 					$('#card'+(i+1)).removeClass();
@@ -109,17 +109,16 @@ class ModalDialog {
 				}
 			}
 		} else if(id.hasOwnProperty(length)) {
-			for(var j = 0; j<id.length; j++){
-				for(var i=0;i<max;i++){
-					if(i==id[j]) {
-						$('#card'+(i+1)).removeClass();
-						$('#card'+(i+1)).addClass('card animated rubberBand');
-					}else {
-						$('#card'+(i+1)).removeClass();
-						$('#card'+(i+1)).addClass('card animated fadeOutDown');
-					}
+			for(var i=0;i<max;i++){
+				if($.inArray(i,id) > -1) {
+					$('#card'+(i+1)).removeClass();
+					$('#card'+(i+1)).addClass('card animated rubberBand');
+				}else {
+					$('#card'+(i+1)).removeClass();
+					$('#card'+(i+1)).addClass('card animated fadeOutDown');
 				}
 			}
+			
 		}
 
     

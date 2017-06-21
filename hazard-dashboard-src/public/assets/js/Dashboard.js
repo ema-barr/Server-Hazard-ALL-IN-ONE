@@ -177,8 +177,17 @@ class Dashboard {
 	}
 
 	chooseCard(cardID) {
-		var displayedNumber = parseInt(cardID)+1
-		this.addLog('INFO', lang['cardChosen']+ displayedNumber);
+		var displayedNumber = "";
+		if(typeof cardID == 'number') {
+			displayedNumber = parseInt(cardID)+1
+			this.addLog('INFO', lang['cardChosen']+ displayedNumber);
+		}else if(cardID.hasOwnProperty('length')) {
+			for(var j =0;j<cardID.length;j++){
+				displayedNumber += parseInt(cardID[j]) +1;
+				if(j != cardID.length -1) displayedNumber += ", ";
+			}
+			this.addLog('INFO', lang['multipleCardChosen']+ displayedNumber);
+		}
 		this.modal.selectCard(cardID);
 	}	
 
@@ -321,6 +330,11 @@ class Dashboard {
 			this.addLog('INFO',lang['turn_start'] +' '+turn);
 		}
 		if(who) $(config['TURN_GROUP_LOCATION']).html(who);
+	}
+
+	updateCardCount(count) {
+		$(config['CARD_COUNT_ID']).empty();
+		$(config['CARD_COUNT_ID']).html(lang['cardCountText'] + count);
 	}
 
 	/**

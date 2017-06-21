@@ -48,7 +48,6 @@ hr.style3 {
 
 
 
-
 hr {
 	margin:0;
 }
@@ -321,7 +320,7 @@ ul#progress li:first-child { margin-left:0; }
 
   .overlay-content {
       position: absolute;
-      top: 25%;
+      top: 35%;
       left: 25%;
       text-align: center; /* Centered text/links */
   }
@@ -345,11 +344,20 @@ ul#progress li:first-child { margin-left:0; }
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    top:40%;
+    top:405%;
+}
+
+
+.cards-number {
+	top:15%;
+	position: relative;
+	margin:auto;
+	text-align: center;
 }
 
 #card1  {
   background: url('../img/cards.png') 0 0;
+  margin-left:0px;
 }
 
 #card2  {

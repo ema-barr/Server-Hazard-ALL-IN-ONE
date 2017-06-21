@@ -14445,7 +14445,9 @@
 			'PROGRESS_BALLS_STEP': 1,
 			'RESOURCES_ICON': 'fa fa-tint',
 			'DEBUG': false,
-			'ACTIONS_ID': '#actions'
+			'ACTIONS_ID': '#actions',
+
+			'CARD_COUNT_ID': '#cards-text'
 		};
 	}, {}], 19: [function (require, module, exports) {
 		window.$ = window.jQuery = require('jquery');
@@ -14616,8 +14618,17 @@
 			}
 
 			chooseCard(cardID) {
-				var displayedNumber = parseInt(cardID) + 1;
-				this.addLog('INFO', lang['cardChosen'] + displayedNumber);
+				var displayedNumber = "";
+				if (typeof cardID == 'number') {
+					displayedNumber = parseInt(cardID) + 1;
+					this.addLog('INFO', lang['cardChosen'] + displayedNumber);
+				} else if (cardID.hasOwnProperty('length')) {
+					for (var j = 0; j < cardID.length; j++) {
+						displayedNumber += parseInt(cardID[j]) + 1;
+						if (j != cardID.length - 1) displayedNumber += ", ";
+					}
+					this.addLog('INFO', lang['multipleCardChosen'] + displayedNumber);
+				}
 				this.modal.selectCard(cardID);
 			}
 
@@ -14758,6 +14769,11 @@
 				if (who) $(config['TURN_GROUP_LOCATION']).html(who);
 			}
 
+			updateCardCount(count) {
+				$(config['CARD_COUNT_ID']).empty();
+				$(config['CARD_COUNT_ID']).html(lang['cardCountText'] + count);
+			}
+
 			/**
     * Mostra il modal, se è necessario modificarne il contenuto senza eliminarlo utilizzare updateModal(). Un solo modal alla volta è permesso.
     * TODO: Permettere la visualizzazione di un contenuto più significativo del semplice testo 
@@ -14887,6 +14903,7 @@
 				this.blockades = [];
 				this.strongholdinfos = {};
 				this.turns = {};
+				this.lastOrdNumber = -1;
 
 				this.hazard = new Dashboard();
 				this.parsing = new ParserXML();
@@ -15232,13 +15249,6 @@
 				}
 				if (data.hasOwnProperty('response')) var response = data.response;else var response = {};
 
-				if (data.hasOwnProperty('currentTurn')) {
-					var currentTurn = data.currentTurn;
-					if (currentTurn.hasOwnProperty('selectedCards')) {
-						var cardIndex = data.currentTurn.selectedCards;
-					}
-				}
-
 				if (data.hasOwnProperty('cardIndex') && typeof cardIndex == 'undefined') {
 					var cardIndex = data.cardIndex;
 				}
@@ -15248,6 +15258,16 @@
 					var data = data.state;
 				} else if (data.hasOwnProperty('state')) {
 					var data = data.state;
+				}
+
+				if (data.hasOwnProperty('currentTurn')) {
+					var currentTurn = data.currentTurn;
+				}
+
+				if (currentTurn.hasOwnProperty('selectedCards') && currentTurn.state == 'CHOOSE_PRODUCTION_CARDS') {
+					var cardIndex = currentTurn.selectedCards;
+					var numOfProductionCards = data.gameState.numOfProductionCards;
+					this.hazard.updateCardCount(numOfProductionCards - cardIndex.length);
 				}
 
 				if (!data.hasOwnProperty('cardIndex') && currentTurn.state == 'CHOOSE_PRODUCTION_CARDS') {
@@ -15394,7 +15414,8 @@
 					this.hazard.setProgress(diff.contagionRatios[0].contagionRatio * 100);
 				}
 
-				var newTurn = this.turns[diff['currentGroup'].lowerCaseOnlyFirstLetter()].ordNum == 1;
+				var newTurn = this.turns[diff['currentGroup'].lowerCaseOnlyFirstLetter()].ordNum == 1 && this.turns[diff['currentGroup'].lowerCaseOnlyFirstLetter()].ordNum != this.lastOrdNumber;
+				this.lastOrdNumber = this.turns[diff['currentGroup'].lowerCaseOnlyFirstLetter()].ordNum;
 
 				if (diff['type'] == 'ActionTurn') {
 					this.hazard.updateTurn(lang['actionGroup'], newTurn);
@@ -15777,8 +15798,10 @@
 				//Turni
 				'currentlyPlaying': 'Inizia il turno del ',
 				'cardChosen': 'E\' stata scelta la carta ',
+				'multipleCardChosen': 'Sono state scelte le carte ',
 				'legendTitle': 'Livello Infezione',
-				'actionsDoneTitle': 'Azioni Eseguite: '
+				'actionsDoneTitle': 'Azioni Eseguite: ',
+				'cardCountText': 'Carte rimanenti da scegliere: '
 			}
 		};
 	}, {}], 24: [function (require, module, exports) {
@@ -19385,7 +19408,7 @@
 				if (max == -1) {
 					var max = this.cards.length;
 				}
-				if (typeof id == 'Number') {
+				if (typeof id == 'number') {
 					for (var i = 0; i < max; i++) {
 						if (i == id) {
 							$('#card' + (i + 1)).removeClass();
@@ -19396,15 +19419,13 @@
 						}
 					}
 				} else if (id.hasOwnProperty(length)) {
-					for (var j = 0; j < id.length; j++) {
-						for (var i = 0; i < max; i++) {
-							if (i == id[j]) {
-								$('#card' + (i + 1)).removeClass();
-								$('#card' + (i + 1)).addClass('card animated rubberBand');
-							} else {
-								$('#card' + (i + 1)).removeClass();
-								$('#card' + (i + 1)).addClass('card animated fadeOutDown');
-							}
+					for (var i = 0; i < max; i++) {
+						if ($.inArray(i, id) > -1) {
+							$('#card' + (i + 1)).removeClass();
+							$('#card' + (i + 1)).addClass('card animated rubberBand');
+						} else {
+							$('#card' + (i + 1)).removeClass();
+							$('#card' + (i + 1)).addClass('card animated fadeOutDown');
 						}
 					}
 				}
