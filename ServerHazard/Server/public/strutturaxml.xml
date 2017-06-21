@@ -29,7 +29,7 @@
             <name>Medicinale</name>
         </resources>
         <emergencies>
-            <strongholdCost>36</strongholdCost>
+            <strongholdCost>25</strongholdCost>
             <maxGravityLevel>3</maxGravityLevel>
             <gravityLevels>
                 <level>
