@@ -28,14 +28,14 @@ function controlloStato(obj){
 	if (stato_gioco==="GAME_ACTIVE"){
 		if(turno==="ProductionTurn"){
 			var nomeGruppo = obj.currentTurn.group.name;
-			$("#jumboInfo").text('Tocca al '+nomeGruppo+'!');
+			$("#jumboInfo").text('Tocca al gruppo '+nomeGruppo+'!');
 			$("#jumboInfo2").text('Passa il tablet');
 			$("#avanti").click(function(){
 				window.open('preproduzione.html','_self');
 			});
 		}else if(turno==="ActionTurn"){
 			var nomeGruppo = obj.currentTurn.group.name;
-			$("#jumboInfo").text('Tocca all '+nomeGruppo+'!');
+			$("#jumboInfo").text('Tocca al gruppo '+nomeGruppo+'!');
 			$("#jumboInfo2").text('Passa il tablet');
 			$("#avanti").click(function(){
 				window.open('crocerossa.html','_self');

@@ -160,7 +160,7 @@ function setModalLog (logString){
 
 function creaTabProduzione(arrCamion){
     "use strict";
-	$("#titoloTurno").html("Turno "+ sessionStorage.numTurnoP +" del "+nomeGruppo);
+	$("#titoloTurno").html("Turno "+ sessionStorage.numTurnoP +" "+nomeGruppo);
 
     for(var i=0; i<arrCamion.length; i++){
        $("#pannelli").append("<div class='tab-pane' id='tab_"+i+"'>");
