@@ -81,6 +81,7 @@ class GameState {
 		changes['blockades'] = this.state.gameState.blockades;
 		changes['currentGroup'] = changes['type'] = this.state.currentTurn.type;
 		changes['blockades'] = this.state.gameState.blockades;
+		changes['currentState'] = this.state.gameState.currentState;
 
 		if(this.state.hasOwnProperty('currentTurn')) {
 			if(this.state.currentTurn.hasOwnProperty('group')) {
@@ -116,9 +117,6 @@ class GameState {
 				if(diffs[i].path[base-1] == 'gameState'){
 
 					switch(diffs[i].path[base]){
-						case 'currentState': //E' cambiato lo stato di gioco
-							changes['currentState'] = this.state.gameState.currentState;
-						break;
 						case 'gameMap':
 							if(diffs[i].path[base+1] == "locations"){
 								

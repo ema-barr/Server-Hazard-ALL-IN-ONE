@@ -178,7 +178,7 @@ class Dashboard {
 
 	chooseCard(cardID) {
 		var displayedNumber = "";
-		if(typeof cardID == 'number') {
+		if(typeof cardID == 'number' || typeof cardID == 'string') {
 			displayedNumber = parseInt(cardID)+1
 			this.addLog('INFO', lang['cardChosen']+ displayedNumber);
 		}else if(cardID.hasOwnProperty('length')) {

@@ -98,7 +98,7 @@ class ModalDialog {
 		if(max == -1){
 			var max = this.cards.length;
 		}
-		if(typeof id == 'number') {
+		if(typeof id == 'number' || typeof id == 'string') {
 			for(var i=0;i<max;i++){
 				if(i==id) {
 					$('#card'+(i+1)).removeClass();

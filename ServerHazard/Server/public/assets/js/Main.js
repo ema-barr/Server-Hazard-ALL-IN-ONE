@@ -144,7 +144,7 @@ var GameState = require('./utils/GameState.js');
 	 gameStart(e){
 	 	var self = this;
 	 	this.hazard.initDashboard();
-	 	this.hazard.hideModal(3000);
+	 	//this.hazard.hideModal(3000);
 	 	//this.hazard.updateTurn();
 	 	//this.hazard.addLog('INFO',lang['gamestartstext']);
 	 	var dummyStateCallback = this.initDummyState.bind(this);
@@ -165,6 +165,11 @@ var GameState = require('./utils/GameState.js');
 	 gameOver(){
 	 	this.hazard.addLog('DANGER',lang['gameover']);
 	 	this.hazard.showModal(lang['gameover'],lang['gameovertext'],'modal-danger');
+	 }
+
+	 gameVictory() {
+	 	this.hazard.addLog('INFO',lang['gameVictorytext']);
+	 	this.hazard.showModal(lang['gamevictory'],lang['gameVictorytext'],'modal-success');
 	 }
 
 

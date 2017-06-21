@@ -14619,7 +14619,7 @@
 
 			chooseCard(cardID) {
 				var displayedNumber = "";
-				if (typeof cardID == 'number') {
+				if (typeof cardID == 'number' || typeof cardID == 'string') {
 					displayedNumber = parseInt(cardID) + 1;
 					this.addLog('INFO', lang['cardChosen'] + displayedNumber);
 				} else if (cardID.hasOwnProperty('length')) {
@@ -14956,7 +14956,7 @@
 			gameStart(e) {
 				var self = this;
 				this.hazard.initDashboard();
-				this.hazard.hideModal(3000);
+				//this.hazard.hideModal(3000);
 				//this.hazard.updateTurn();
 				//this.hazard.addLog('INFO',lang['gamestartstext']);
 				var dummyStateCallback = this.initDummyState.bind(this);
@@ -14977,6 +14977,11 @@
 			gameOver() {
 				this.hazard.addLog('DANGER', lang['gameover']);
 				this.hazard.showModal(lang['gameover'], lang['gameovertext'], 'modal-danger');
+			}
+
+			gameVictory() {
+				this.hazard.addLog('INFO', lang['gameVictorytext']);
+				this.hazard.showModal(lang['gamevictory'], lang['gameVictorytext'], 'modal-success');
 			}
 
 			/**
@@ -15784,8 +15789,10 @@
 				'gamestart': 'Inizia il gioco',
 				'oktostart': 'Premi OK per iniziare la partita',
 				'gameover': 'Game Over',
+				'gamevictory': 'Vittoria',
 				'gamestartstext': 'Inizia la Partita',
 				'gameovertext': 'La malattia ha preso il sopravvento',
+				'gameVictorytext': 'Vittoria, hai sconfitto la malattia!',
 				'gamestatus': 'Status di Gioco',
 				'zone': 'Zona: ',
 
@@ -19129,6 +19136,7 @@
 				changes['blockades'] = this.state.gameState.blockades;
 				changes['currentGroup'] = changes['type'] = this.state.currentTurn.type;
 				changes['blockades'] = this.state.gameState.blockades;
+				changes['currentState'] = this.state.gameState.currentState;
 
 				if (this.state.hasOwnProperty('currentTurn')) {
 					if (this.state.currentTurn.hasOwnProperty('group')) {
@@ -19161,10 +19169,6 @@
 						if (diffs[i].path[base - 1] == 'gameState') {
 
 							switch (diffs[i].path[base]) {
-								case 'currentState':
-									//E' cambiato lo stato di gioco
-									changes['currentState'] = this.state.gameState.currentState;
-									break;
 								case 'gameMap':
 									if (diffs[i].path[base + 1] == "locations") {
 
@@ -19408,7 +19412,7 @@
 				if (max == -1) {
 					var max = this.cards.length;
 				}
-				if (typeof id == 'number') {
+				if (typeof id == 'number' || typeof id == 'string') {
 					for (var i = 0; i < max; i++) {
 						if (i == id) {
 							$('#card' + (i + 1)).removeClass();
