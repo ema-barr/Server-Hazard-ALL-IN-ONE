@@ -59,7 +59,7 @@
                 <generalHazardIndicator>
                     <steps>
                         <step>
-                            <level>2</level>
+                            <level>3</level>
                             <colorCode>5</colorCode>
                             <led>296</led>
                         </step>
@@ -69,7 +69,7 @@
                             <led>295</led>
                         </step>
                         <step>
-                            <level>3</level>
+                            <level>4</level>
                             <colorCode>1</colorCode>
                             <led>294</led>
                         </step>
@@ -79,14 +79,9 @@
                             <led>293</led>
                         </step>
                         <step>
-                            <level>4</level>
-                            <colorCode>1</colorCode>
-                            <led>292</led>
-                        </step>
-                        <step>
                             <level>5</level>
                             <colorCode>1</colorCode>
-                            <led>291</led>
+                            <led>292</led>
                         </step>
                     </steps>
                 </generalHazardIndicator>
@@ -165,7 +160,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>6</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -176,7 +171,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>4</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -198,7 +193,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>8</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -209,7 +204,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>4</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -220,7 +215,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>4</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -242,7 +237,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>3</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -253,7 +248,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>6</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -275,7 +270,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>4</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -297,7 +292,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>3</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -308,7 +303,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>4</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -319,7 +314,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>4</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -330,7 +325,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>3</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -341,7 +336,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>3</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -352,7 +347,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>4</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -363,7 +358,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>6</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -374,7 +369,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>2</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -385,7 +380,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>8</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -396,7 +391,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>4</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -407,7 +402,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>4</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -418,7 +413,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>6</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -429,7 +424,7 @@
                     <resourcesProd>
                         <resourceProd>
                             <resource>Medicinale</resource>
-                            <quantity>5</quantity>
+                            <quantity>4</quantity>
                         </resourceProd>
                     </resourcesProd>
                 </productionCard>
@@ -781,7 +776,7 @@
                 <location>
                     <name>SouthAfrica</name>
                     <color>#828282</color>
-                    <visualName>Africa Settentrionale</visualName>
+                    <visualName>Sud Africa</visualName>
                     <value>0</value>
                     <longitude>204</longitude>
                     <latitude>70</latitude>
@@ -970,11 +965,11 @@
                 <settings>
                     <setting>
                         <gravityLevel>3</gravityLevel>
-                        <numLocation>1</numLocation>
+                        <numLocation>2</numLocation>
                     </setting>
                     <setting>
                         <gravityLevel>2</gravityLevel>
-                        <numLocation>2</numLocation>
+                        <numLocation>3</numLocation>
                     </setting>
                     <setting>
                         <gravityLevel>1</gravityLevel>

@@ -37,7 +37,7 @@ public class IncreaseNumberActionInstance implements BonusCardInstance {
     @Override
     public Response executeAction(GameState gameState, Turn turn) {
         ActionTurn at = (ActionTurn) turn;
-        int actionRemain = at.getRemainingActions();
+        int actionRemain = at.getNumActions();
         at.setNumActions(actionRemain+1);
         ActionGroup player = at.getPlayer();
         return new IncreaseNumberActionResponse(true, "IncreaseNumberAction", player, actionRemain+1);
@@ -50,6 +50,10 @@ public class IncreaseNumberActionInstance implements BonusCardInstance {
      */
     @Override
     public Response revertAction(GameState gameState) {
+        ActionTurn at = (ActionTurn) gameState.getTurns().getCurrentTurn();
+        int actionRemain = at.getNumActions();
+        at.setNumActions(actionRemain-1);
+        ActionGroup player = at.getPlayer();
         return null;
     }
 }

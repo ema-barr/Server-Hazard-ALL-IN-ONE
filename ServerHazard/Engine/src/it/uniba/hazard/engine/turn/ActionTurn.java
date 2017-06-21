@@ -70,6 +70,10 @@ public class ActionTurn implements PlayerTurn {
         return resp;
     }
 
+    public int getNumActions(){
+        return  numActions;
+    }
+
     private Response moveActionPawn (GameState gameState, String locationStr) {
         LOGGER.log(Level.INFO, "Called ActionTurn.moveActionPawn");
         LOGGER.log(Level.INFO, "Destination is " + locationStr);
