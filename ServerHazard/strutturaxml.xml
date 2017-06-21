@@ -103,7 +103,7 @@
             <productionTurn>
                 <group>Pharma</group>
                 <ordNum>1</ordNum>
-                <numMovesPerTransportPawn>2</numMovesPerTransportPawn>
+                <numMovesPerTransportPawn>1</numMovesPerTransportPawn>
             </productionTurn>
             <eventTurn>
                 <numCardsToDraw>1</numCardsToDraw>

@@ -35,7 +35,7 @@ public class DecreaseStrongholdPriceInstance implements EventCardInstance {
     @Override
     public Response executeAction(GameState gameState, Turn turn) {
         int currentCost = gameState.getCurrentStrongholdCost();
-        int decreasePrice = currentCost * 75 /100;
+        int decreasePrice = currentCost * 85 /100;
         gameState.setCurrentStrongholdCost(decreasePrice);
         return new DecreaseStrongholdPriceResponse(true, "DecreaseStrongholdPrice", decreasePrice);
     }
