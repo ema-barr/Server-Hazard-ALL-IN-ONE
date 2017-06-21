@@ -544,10 +544,14 @@ var GameState = require('./utils/GameState.js');
 			if(diff['removedPawns']) {
 				for(var j=0;j< diff['removedPawns'].length;j++){
 					var pawn = diff['removedPawns'][j];
-					var id = pawn.substr(pawn.indexOf("_")+1);
-					var group  = {};
-					group[id] = "#FFFFFF";
-					this.hazard.removePawn(group);
+					try {
+						if(typeof pawn != 'undefined') {
+							var id = pawn.substr(pawn.indexOf("_") + 1);
+							var group = {};
+							group[id] = "#FFFFFF";
+							this.hazard.removePawn(group);
+						}
+					} catch (e) {}
 				}
 			}
 
@@ -570,14 +574,16 @@ var GameState = require('./utils/GameState.js');
 					if(typeof(this.links[link]) == `undefined`)
 						throw new Error('Blockade not found');
 					else {
-						this.blockades.push(link);
-						this.hazard.CloseLink(link);
+						if($.inArray(link,this.blockades) == -1){
+							this.blockades.push(link);
+							this.hazard.CloseLink(link);
+						}
 					}
 
 				}
 
 				for(var i =0;i<this.blockades.length;i++){
-					if(!$.inArray(this.blockades[i],diff['blockades'])){
+					if($.inArray(this.blockades[i],diff['blockades']) == -1){
 						this.hazard.OpenLink(this.blockades[i]);
 						this.blockades.splice(i,1);
 					}
