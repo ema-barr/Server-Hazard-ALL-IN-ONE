@@ -112,7 +112,7 @@ function aggiornaDati(){
 function creaTabAzioni(dati){
     "use strict";
     
-	$("#titoloTurno").html("Turno " + sessionStorage.numTurnoCR + " dell' "+nomeGruppo);
+	$("#titoloTurno").html("Turno " + sessionStorage.numTurnoCR + " "+nomeGruppo);
 	
 	//SPOSTA
 	$("#pannelli").append("<div class='tab-pane' id='tab_1'>");
