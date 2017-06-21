@@ -55,6 +55,7 @@ class Dashboard {
 				},
 				attrsHover : {
 					fill: "#5BCA09",
+					"fill-opacity" : 0,
 				},
 			},
 

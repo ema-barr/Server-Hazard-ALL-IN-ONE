@@ -80,6 +80,8 @@ class GameState {
 		changes['contagionRatios'] =  this.state.gameState.contagionRatios;
 		changes['blockades'] = this.state.gameState.blockades;
 		changes['currentGroup'] = changes['type'] = this.state.currentTurn.type;
+		changes['blockades'] = this.state.gameState.blockades;
+
 		if(this.state.hasOwnProperty('currentTurn')) {
 			if(this.state.currentTurn.hasOwnProperty('group')) {
 				changes['resources'] = this.state.currentTurn.group.resources;
@@ -126,9 +128,6 @@ class GameState {
 									}
 								}
 							}
-						break;
-						case 'blockades':
-							changes['blockades'] = this.state.gameState.blockades;
 						break;
 						case 'emergencies':
 							changes['emergencies'] = this.state.gameState.emergencies;
