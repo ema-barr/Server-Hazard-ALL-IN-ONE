@@ -15269,8 +15269,11 @@
 					var currentTurn = data.currentTurn;
 				}
 
-				if (currentTurn.hasOwnProperty('selectedCards') && currentTurn.state == 'CHOOSE_PRODUCTION_CARDS') {
+				if (currentTurn.hasOwnProperty('selectedCards')) {
 					var cardIndex = currentTurn.selectedCards;
+				}
+
+				if (currentTurn.hasOwnProperty('selectedCards') && currentTurn.state == 'CHOOSE_PRODUCTION_CARDS') {
 					var numOfProductionCards = data.gameState.numOfProductionCards;
 					this.hazard.updateCardCount(numOfProductionCards - cardIndex.length);
 				}
@@ -15304,8 +15307,10 @@
 				if (diff['currentState'] == 'GAME_ACTIVE') {} else if (diff['currentState'] == 'GAME_VICTORY') {
 					/* Conclude il gioco con la vittoria dei giocatori */
 					this.gameVictory();
+					return;
 				} else if (diff['currentState'] == 'GAME_LOSS') {
 					this.gameOver();
+					return;
 				}
 				if (diff['locations']) {
 					var loc = diff['locations'];

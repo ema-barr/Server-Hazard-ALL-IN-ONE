@@ -480,9 +480,12 @@ var GameState = require('./utils/GameState.js');
 		if(data.hasOwnProperty('currentTurn')){
 			var currentTurn = data.currentTurn;
 		}
+		
+		if(currentTurn.hasOwnProperty('selectedCards')) {
+			var cardIndex = currentTurn.selectedCards;
+		}
 
 		if(currentTurn.hasOwnProperty('selectedCards') && currentTurn.state == 'CHOOSE_PRODUCTION_CARDS'){
-			var cardIndex = currentTurn.selectedCards;
 			var numOfProductionCards = data.gameState.numOfProductionCards;
 			this.hazard.updateCardCount(numOfProductionCards - cardIndex.length);
 		}
@@ -519,8 +522,10 @@ var GameState = require('./utils/GameState.js');
 			} else if (diff['currentState'] == 'GAME_VICTORY') {
 				/* Conclude il gioco con la vittoria dei giocatori */
 				this.gameVictory();
+				return;
 			} else if (diff['currentState'] == 'GAME_LOSS'){
-				this.gameOver(); 
+				this.gameOver();
+				return; 
 			}
 			if (diff['locations']) {
 				var loc = diff['locations'];
