@@ -9,6 +9,7 @@
     "jquery-mousewheel": "^3.1.13",
     "raphael": "^2.2.7",
     "socket.io": "^1.7.4",
-    "xmldom": "~0.1.27"
+    "xmldom": "~0.1.27",
+    "request": "~2.81.0"
   }
 }
